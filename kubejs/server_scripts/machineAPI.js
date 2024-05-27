@@ -1,5 +1,3 @@
-let $ItemStack = Java.loadClass("net.minecraft.world.item.ItemStack")
-
 function convertToJson(itemStack, slotIndex){
     let json = {
         id: itemStack.id,
@@ -37,7 +35,7 @@ function canInsert(inventory, slotIndex, item){
     
 function insertItem(inventory, slotIndex, item){
     let slotItem = inventory.getItem(slotIndex)
-    if(!/minecraft:.*shulker_box/.test(slotItem.id)) {inventory.add(slotIndex, item); return}
+    if(!/minecraft:.*shulker_box/.test(slotItem.id)) {inventory.insertItem(slotIndex, item, false); return}
     if(!slotItem.nbt){
         slotItem.nbt = {BlockEntityTag: {ForgeCaps: {}, Items: [convertToJson(item, 0)], id: "minecraft:shulker_box"}}
     }else if(!slotItem.nbt.BlockEntityTag){
@@ -47,19 +45,25 @@ function insertItem(inventory, slotIndex, item){
     }else{
         let leftToInsert = item.count
         let lastSlot = -1
-        for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
-            if(++lastSlot != slotItem.nbt.BlockEntityTag.Items[i].Slot) {
+        for(let i = 0; i < 27; i++){
+            let shulkerItemJson = slotItem.nbt.BlockEntityTag.Items[i]
+            if(!shulkerItemJson){
                 slotItem.nbt.BlockEntityTag.Items.addTag(i, convertToJson(item.copyWithCount(leftToInsert), i))
                 break
             }
-            let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
+            if(++lastSlot != shulkerItemJson.Slot) {
+                slotItem.nbt.BlockEntityTag.Items.addTag(i, convertToJson(item.copyWithCount(leftToInsert), i))
+                break
+            }
+            let shulkerItem = $ItemStack.of(shulkerItemJson)
+            if(shulkerItem.count == shulkerItem.getMaxStackSize()) continue
             if($ItemStack.isSameItemSameTags(shulkerItem, item)){
                 let countCanInsert = shulkerItem.getMaxStackSize() - shulkerItem.count
                 if(countCanInsert < leftToInsert) {
-                    slotItem.nbt.BlockEntityTag.Items[i].Count = countCanInsert + shulkerItem.count
+                    shulkerItemJson.Count = countCanInsert + shulkerItem.count
                     leftToInsert -= countCanInsert
                 }else{
-                    slotItem.nbt.BlockEntityTag.Items[i].Count = leftToInsert + shulkerItem.count
+                    shulkerItemJson.Count = leftToInsert + shulkerItem.count
                     break
                 }
             }
@@ -118,6 +122,7 @@ function extractItem(inventory, slotIndex, item){
 
 
 function getExtractItem(inventory, slotIndex){
+    if(!slotIndex) return Item.of("minecraft:air")
     let slotItem = inventory.getItem(slotIndex)
     if(!/minecraft:.*shulker_box/.test(slotItem.id)) return slotItem
     if(!slotItem.nbt) return Item.of("minecraft:air")
