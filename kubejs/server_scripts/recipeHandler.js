@@ -1,15 +1,18 @@
 function isSimpleMachine(machine){
     return [
+        "compressor",
+        "cutting_machine",
         "furnace",
+        "macerator",
+        "polarizer",
+        "wiremill"
     ].includes(machine)
 }
 
 
-function getRecipe(machine, extractSlotIndex, inventory){
-    if(!extractSlotIndex) return {}
+function getRecipe(machine, slotItem){
     let recipes = global.recipes[machine]
     if(isSimpleMachine(machine)){
-        let slotItem = inventory.getItem(extractSlotIndex)
         if(!/minecraft:.*shulker_box/.test(slotItem.id)) return recipes[slotItem.id] ?? {}
         if(!slotItem.nbt) return {}
         if(!slotItem.nbt.BlockEntityTag) return {}

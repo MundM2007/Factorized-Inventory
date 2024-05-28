@@ -32,6 +32,32 @@ function canInsert(inventory, slotIndex, item){
     }
     return false
 }
+
+
+function getAmountCanInsert(inventory, slotIndex, item){
+    if(slotIndex == null) return 0
+    if(inventory.getContainerSize() < slotIndex) return 0
+    let slotItem = inventory.getItem(slotIndex)
+    if(slotItem.isEmpty()) item.getMaxStackSize()
+    if($ItemStack.isSameItemSameTags(slotItem, item)){
+        if(slotItem.getMaxStackSize() - slotItem.count > item.count) return item.count
+        return slotItem.getMaxStackSize() - slotItem.count
+    }
+    if(!/minecraft:.*shulker_box/.test(slotItem.id)) return 0
+    if(!slotItem.nbt) return item.count
+    if(!slotItem.nbt.BlockEntityTag) return item.count
+    if(!slotItem.nbt.BlockEntityTag.Items) return item.count
+    if(slotItem.nbt.BlockEntityTag.Items.length < 27) return item.count
+    let canInsert = item.count
+    for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
+        let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
+        if($ItemStack.isSameItemSameTags(shulkerItem, item)){
+            leftToInsert += shulkerItem.getMaxStackSize() - shulkerItem.count
+            if(canInsert > item.count) return item.count
+        }
+    }
+    return canInsert
+}
     
 function insertItem(inventory, slotIndex, item){
     let slotItem = inventory.getItem(slotIndex)
@@ -76,7 +102,7 @@ function canExtract(inventory, slotIndex, item){
     if(inventory.getContainerSize() < slotIndex) return false
     let slotItem = inventory.getItem(slotIndex)
     if(slotItem.isEmpty()) return false
-    if($ItemStack.isSameItemSameTags(slotItem, item)){
+    if(slotItem.is(item.id)){
         if(slotItem.count >= item.count) return true
         return false
     }
@@ -88,7 +114,7 @@ function canExtract(inventory, slotIndex, item){
     let leftToExtract = item.count
     for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
         let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
-        if($ItemStack.isSameItemSameTags(shulkerItem, item)){
+        if(shulkerItem.is(item.id)){
             leftToExtract -= shulkerItem.count
             if(leftToExtract <= 0) return true
         }
@@ -103,7 +129,7 @@ function extractItem(inventory, slotIndex, item){
     let toSplice = []
     for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
         let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
-        if(!$ItemStack.isSameItemSameTags(shulkerItem, item)) continue
+        if(!shulkerItem.is(item.id)) continue
         if(shulkerItem.count > leftToExtract){
             slotItem.nbt.BlockEntityTag.Items[i].Count = shulkerItem.count - leftToExtract
             break

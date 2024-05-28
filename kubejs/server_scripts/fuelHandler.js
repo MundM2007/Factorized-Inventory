@@ -1,6 +1,4 @@
 let fuelItems = {}
-const $RecipeType = Java.loadClass('net.minecraft.world.item.crafting.RecipeType')
-const $ForgeHooks = Java.loadClass('net.minecraftforge.common.ForgeHooks')
 Ingredient.all.stacks.forEach(item => {
     let burnTime = $ForgeHooks.getBurnTime(item, $RecipeType.SMELTING)
     if (burnTime > 0) {
