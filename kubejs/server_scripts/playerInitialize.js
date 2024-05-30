@@ -3,6 +3,6 @@ PlayerEvents.loggedIn(event => {
         event.player.stages.add('starting')
         event.player.give('ftbquests:book')
 
-        player.persistentData.machineData = {}
+        event.player.persistentData.machineData = {}
     }
 })

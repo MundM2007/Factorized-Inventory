@@ -1,6 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "kubejs:item/inventory_furnace_tier_1_on"
-	}
-}

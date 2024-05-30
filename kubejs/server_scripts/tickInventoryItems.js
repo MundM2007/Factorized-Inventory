@@ -10,6 +10,16 @@ global.tickInventoryItem = function(inventory, data, type){
         tickHopper(inventory, data.slotIndex, data.count, "left", "right", type)
     }else if(/kubejs:inventory_furnace_tier_.$/.test(item)){
         tickSimpleMachine(inventory, "furnace", data, type, item.charAt(item.length - 1))
+    }else if(/kubejs:inventory_macerator_tier_.$/.test(item)){
+        tickSimpleMachine(inventory, "macerator", data, type, item.charAt(item.length - 1))
+    }else if(/kubejs:inventory_compressor_tier_.$/.test(item)){
+        tickSimpleMachine(inventory, "compressor", data, type, item.charAt(item.length - 1))
+    }else if(/kubejs:inventory_cutting_machine_tier_.$/.test(item)){
+        tickSimpleMachine(inventory, "cutting_machine", data, type, item.charAt(item.length - 1))
+    }else if(/kubejs:inventory_wiremill_tier_.$/.test(item)){
+        tickSimpleMachine(inventory, "wiremill", data, type, item.charAt(item.length - 1) + 1)
+    }else if(/kubejs:inventory_polarizer_tier_.$/.test(item)){
+        tickSimpleMachine(inventory, "polarizer", data, type, item.charAt(item.length - 1) + 2)
     }
 }
 
@@ -79,7 +89,6 @@ function tickHopper(inventory, slotIndex, countProcess, directionExtract, direct
 function tickSimpleMachine(inventory, machine, data, type, tier){
     if(tier == "1" || tier == "2"){
         let {slotIndex, countProcess, ticksPerTick, fuelPerTick} = data
-        let canProcess = countProcess
         let recipe, slotItem
 
         // reduce fuel
@@ -97,19 +106,14 @@ function tickSimpleMachine(inventory, machine, data, type, tier){
         }
         if(Object.keys(recipe).length == 0){resetMachineItemNbt(machineItem); return}
 
-        // checks if how much of the input item can be extracted
-        let inputItem = Item.of(recipe.input)
-        if(slotItem.count < canProcess * inputItem.count) canProcess = Math.floor(slotItem.count / inputItem.count)
-
-        // checks if the output can be inserted and how much
+        // checks if the output can be inserted
         let outputItem = Item.of(recipe.output)
         let resultSlotIndex = getSlotInDirection(slotIndex, "down", type)
-        let canInsert = getAmountCanInsert(inventory, resultSlotIndex, outputItem.copyWithCount(canProcess * outputItem.count))
-        if(canInsert < canProcess * outputItem.count) canProcess = Math.floor(canInsert / outputItem.count)
-
-        if(canProcess == 0){resetMachineItemNbt(machineItem); return}
+        let canInsert = getAmountCanInsert(inventory, resultSlotIndex, outputItem.copyWithCount(countProcess * outputItem.count))
+        if(canInsert == 0){resetMachineItemNbt(machineItem); return}
 
         // check current input item and reset progress if it's different
+        let inputItem = Item.of(recipe.input)
         if(machineItem.nbt.currentInputItem == "minecraft:air"){
             machineItem.nbt.currentInputItem = inputItem.id
         }else if(!inputItem.is(machineItem.nbt.currentInputItem)){
@@ -118,7 +122,11 @@ function tickSimpleMachine(inventory, machine, data, type, tier){
         }
 
         // processes recipe if done
-        if(machineItem.nbt.recipeProgress >= recipe.cookingTime){
+        if(machineItem.nbt.recipeProgress >= recipe.time){
+            let canProcess = countProcess
+            if(canInsert < canProcess * outputItem.count) canProcess = Math.floor(canInsert / outputItem.count)
+            if(slotItem.count < canProcess * inputItem.count) canProcess = Math.floor(slotItem.count / inputItem.count)
+
             extractItem(inventory, inputSlotIndex,  inputItem.copyWithCount(canProcess * inputItem.count))
             insertItem(inventory, resultSlotIndex, outputItem.copyWithCount(canProcess * outputItem.count))
             machineItem.nbt.recipeProgress = 0

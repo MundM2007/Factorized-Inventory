@@ -3,10 +3,10 @@ StartupEvents.registry('block', event => {
     .soundType('metal')
     .blockEntity(entityInfo => {
         entityInfo.inventory(9, 6)
-        entityInfo.initialData({machineData: {}})
+        entityInfo.initialData({age: 0, machineData: {}})
         entityInfo.rightClickOpensInventory()
         entityInfo.serverTick(1, 0, entity => {
-            let time = entity.level.time
+            let time = entity.data.age++
             let updated = false
             if(time % 40 == 0){
                 global.updateMachineDataBlockEntity(entity)

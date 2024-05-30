@@ -1,5 +1,5 @@
 PlayerEvents.tick(event => {
-    let time = event.level.time
+    let time = event.player.age
     let updated = false
     if(time % 20 == 0){
         updateMachineDataPlayer(event.player)

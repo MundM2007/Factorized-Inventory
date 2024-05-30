@@ -1,0 +1,77 @@
+function addStorage(event, material){
+    event.shapeless(`kubejs:${material}_storage_block`, `9x kubejs:${material}_ingot`)
+    event.shapeless(`9x kubejs:${material}_ingot`, `kubejs:${material}_storage_block`)
+    event.shapeless(`kubejs:${material}_ingot`, `9x kubejs:${material}_nugget`)
+    event.shapeless(`9x kubejs:${material}_nugget`, `kubejs:${material}_ingot`)
+}
+
+function addStorageOre(event, material){
+    event.shapeless(`kubejs:${material}_raw_block`, `9x kubejs:${material}_raw_material`)
+    event.shapeless(`9x kubejs:${material}_raw_material`, `kubejs:${material}_raw_block`)
+}
+
+function addStorageAll(event, material){
+    addStorage(event, material)
+    addStorageOre(event, material)
+}
+
+ServerEvents.recipes(event => {
+    addStorage(event, "advanced_alloy")
+    addStorageAll(event, "aluminum")
+    addStorageAll(event, "bismuth")
+    addStorage(event, "brass")
+    addStorage(event, "bronze")
+    addStorageAll(event, "cobalt")
+    addStorage(event, "constantan")
+    addStorage(event, "electrum")
+    addStorage(event, "enderium")
+    addStorage(event, "invar")
+    addStorageAll(event, "iridium")
+    addStorage(event, "iridium_alloy")
+    addStorageAll(event, "lead")
+    addStorage(event, "lumium")
+    addStorageAll(event, "magnesium")
+    addStorageAll(event, "nickel")
+    addStorageAll(event, "osmium")
+    addStorageAll(event, "platinum")
+    addStorage(event, "refined_glowstone")
+    addStorage(event, "refined_obsidian")
+    addStorage(event, "signalum")
+    addStorageAll(event, "silver")
+    addStorageAll(event, "steel")
+    addStorageAll(event, "tin")
+    addStorageAll(event, "titanium")
+    addStorageAll(event, "tungsten")
+    addStorageAll(event, "zinc")
+
+    // Tier 1
+    event.campfireCooking("kubejs:bronze_chunk", "kubejs:bronze_dust")
+    event.shapeless("6x minecraft:bronze_nugget", "kubejs:bronze_chunk")
+    event.campfireCooking("kubejs:copper_chunk", "kubejs:copper_raw_material")
+    event.campfireCooking("kubejs:copper_chunk", "kubejs:copper_ore")
+    event.campfireCooking("kubejs:copper_chunk", "kubejs:copper_ore_deepslate")
+    event.campfireCooking("kubejs:copper_chunk", "kubejs:copper_dust")
+    event.shapeless("6x minecraft:copper_nugget", "kubejs:copper_chunk")
+    event.campfireCooking("kubejs:iron_chunk", "kubejs:iron_raw_material")
+    event.campfireCooking("kubejs:iron_chunk", "kubejs:iron_ore")
+    event.campfireCooking("kubejs:iron_chunk", "kubejs:iron_ore_deepslate")
+    event.campfireCooking("kubejs:iron_chunk", "kubejs:iron_dust")
+    event.shapeless("6x minecraft:iron_nugget", "kubejs:iron_chunk")
+    event.campfireCooking("kubejs:tin_chunk", "kubejs:tin_raw_material")
+    event.campfireCooking("kubejs:tin_chunk", "kubejs:tin_ore")
+    event.campfireCooking("kubejs:tin_chunk", "kubejs:tin_ore_deepslate")
+    event.campfireCooking("kubejs:tin_chunk", "kubejs:tin_dust")
+    event.shapeless("6x minecraft:tin_nugget", "kubejs:tin_chunk")
+
+    event.shaped("3x kubejs:bronze_dust", ["CC", "CT"], {C: "kubejs:copper_dust", T: "kubejs:tin_dust"})
+    event.shaped("kubejs:hammer", [" I ", " SI", "S  "], {I: "kubejs:iron_ingot", S: "minecraft:stick"})
+    event.shapeless("kubejs:bronze_dust", ["kubejs:bronze_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
+    event.shapeless("kubejs:bronze_plate", ["kubejs:bronze_ingot", "kubejs:bronze_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
+    event.shapeless("kubejs:copper_dust", ["kubejs:copper_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
+    event.shapeless("kubejs:copper_plate", ["kubejs:copper_ingot", "kubejs:copper_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
+    event.shapeless("kubejs:iron_dust", ["kubejs:iron_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
+    event.shapeless("kubejs:iron_plate", ["kubejs:iron_ingot", "kubejs:iron_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
+    event.shapeless("kubejs:tin_dust", ["kubejs:tin_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
+    event.shapeless("kubejs:tin_plate", ["kubejs:tin_ingot", "kubejs:tin_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
+
+})

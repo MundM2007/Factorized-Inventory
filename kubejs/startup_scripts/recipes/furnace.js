@@ -1,80 +1,175 @@
-global.recipes = {}
 global.recipes.furnace = {
-    "minecraft:nether_quartz_ore": {input: "minecraft:nether_quartz_ore", output: "minecraft:quartz", cookingTime: 200.0}, 
-    "minecraft:cyan_terracotta": {input: "minecraft:cyan_terracotta", output: "minecraft:cyan_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:basalt": {input: "minecraft:basalt", output: "minecraft:smooth_basalt", cookingTime: 200.0}, 
-    "minecraft:deepslate_iron_ore": {input: "minecraft:deepslate_iron_ore", output: "minecraft:iron_ingot", cookingTime: 200.0}, 
-    "minecraft:red_sandstone": {input: "minecraft:red_sandstone", output: "minecraft:smooth_red_sandstone", cookingTime: 200.0}, 
-    "minecraft:quartz_block": {input: "minecraft:quartz_block", output: "minecraft:smooth_quartz", cookingTime: 200.0},
-    "minecraft:green_terracotta": {input: "minecraft:green_terracotta", output: "minecraft:green_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:deepslate_gold_ore": {input: "minecraft:deepslate_gold_ore", output: "minecraft:gold_ingot", cookingTime: 200.0}, 
-    "minecraft:black_terracotta": {input: "minecraft:black_terracotta", output: "minecraft:black_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:iron_ore": {input: "minecraft:iron_ore", output: "minecraft:iron_ingot", cookingTime: 200.0}, 
-    "minecraft:light_gray_terracotta": {input: "minecraft:light_gray_terracotta", output: "minecraft:light_gray_glazed_terracotta", cookingTime: 200.0}, 
-    "ae2:cut_quartz_block": {input: "ae2:cut_quartz_block", output: "ae2:smooth_quartz_block", cookingTime: 200.0}, 
-    "minecraft:lime_terracotta": {input: "minecraft:lime_terracotta", output: "minecraft:lime_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:deepslate_emerald_ore": {input: "minecraft:deepslate_emerald_ore", output: "minecraft:emerald", cookingTime: 200.0}, 
-    "minecraft:deepslate_tiles": {input: "minecraft:deepslate_tiles", output: "minecraft:cracked_deepslate_tiles", cookingTime: 200.0}, 
-    "minecraft:rabbit": {input: "minecraft:rabbit", output: "minecraft:cooked_rabbit", cookingTime: 200.0}, 
-    "minecraft:pink_terracotta": {input: "minecraft:pink_terracotta", output: "minecraft:pink_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:redstone_ore": {input: "minecraft:redstone_ore", output: "minecraft:redstone", cookingTime: 200.0}, 
-    "minecraft:sand": {input: "minecraft:sand", output: "minecraft:glass", cookingTime: 200.0}, 
-    "minecraft:emerald_ore": {input: "minecraft:emerald_ore", output: "minecraft:emerald", cookingTime: 200.0}, 
-    "minecraft:gold_ore": {input: "minecraft:gold_ore", output: "minecraft:gold_ingot", cookingTime: 200.0}, 
-    "minecraft:chorus_fruit": {input: "minecraft:chorus_fruit", output: "minecraft:popped_chorus_fruit", cookingTime: 200.0}, 
-    "minecraft:brown_terracotta": {input: "minecraft:brown_terracotta", output: "minecraft:brown_glazed_terracotta", cookingTime: 200.0},
-    "minecraft:raw_copper": {input: "minecraft:raw_copper", output: "minecraft:copper_ingot", cookingTime: 200.0},
-    "minecraft:sandstone": {input: "minecraft:sandstone", output: "minecraft:smooth_sandstone", cookingTime: 200.0}, 
-    "minecraft:stone_bricks": {input: "minecraft:stone_bricks", output: "minecraft:cracked_stone_bricks", cookingTime: 200.0}, 
-    "minecraft:gray_terracotta": {input: "minecraft:gray_terracotta", output: "minecraft:gray_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:clay_ball": {input: "minecraft:clay_ball", output: "minecraft:brick", cookingTime: 200.0}, 
-    "minecraft:yellow_terracotta": {input: "minecraft:yellow_terracotta", output: "minecraft:yellow_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:kelp": {input: "minecraft:kelp", output: "minecraft:dried_kelp", cookingTime: 200.0}, 
-    "minecraft:nether_bricks": {input: "minecraft:nether_bricks", output: "minecraft:cracked_nether_bricks", cookingTime: 200.0}, 
-    "minecraft:copper_ore": {input: "minecraft:copper_ore", output: "minecraft:copper_ingot", cookingTime: 200.0}, 
-    "minecraft:red_terracotta": {input: "minecraft:red_terracotta", output: "minecraft:red_glazed_terracotta", cookingTime: 200.0},
-    "minecraft:deepslate_lapis_ore": {input: "minecraft:deepslate_lapis_ore", output: "minecraft:lapis_lazuli", cookingTime: 200.0}, 
-    "minecraft:deepslate_bricks": {input: "minecraft:deepslate_bricks", output: "minecraft:cracked_deepslate_bricks", cookingTime: 200.0}, 
-    "biomesoplenty:orange_sandstone": {input: "biomesoplenty:orange_sandstone", output: "biomesoplenty:smooth_orange_sandstone", cookingTime: 200.0}, 
-    "minecraft:magenta_terracotta": {input: "minecraft:magenta_terracotta", output: "minecraft:magenta_glazed_terracotta", cookingTime: 200.0},
-    "minecraft:deepslate_redstone_ore": {input: "minecraft:deepslate_redstone_ore", output: "minecraft:redstone", cookingTime: 200.0}, 
-    "minecraft:raw_gold": {input: "minecraft:raw_gold", output: "minecraft:gold_ingot", cookingTime: 200.0}, 
-    "minecraft:polished_blackstone_bricks": {input: "minecraft:polished_blackstone_bricks", output: "minecraft:cracked_polished_blackstone_bricks", cookingTime: 200.0}, 
-    "minecraft:deepslate_diamond_ore": {input: "minecraft:deepslate_diamond_ore", output: "minecraft:diamond", cookingTime: 200.0}, 
-    "minecraft:diamond_ore": {input: "minecraft:diamond_ore", output: "minecraft:diamond", cookingTime: 200.0}, 
-    "minecraft:light_blue_terracotta": {input: "minecraft:light_blue_terracotta", output: "minecraft:light_blue_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:purple_terracotta": {input: "minecraft:purple_terracotta", output: "minecraft:purple_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:cod": {input: "minecraft:cod", output: "minecraft:cooked_cod", cookingTime: 200.0}, 
-    "minecraft:sea_pickle": {input: "minecraft:sea_pickle", output: "minecraft:lime_dye", cookingTime: 200.0}, 
-    "minecraft:iron_pickaxe": {input: "minecraft:iron_pickaxe", output: "minecraft:iron_nugget", cookingTime: 200.0}, 
-    "minecraft:lapis_ore": {input: "minecraft:lapis_ore", output: "minecraft:lapis_lazuli", cookingTime: 200.0}, 
-    "biomesoplenty:white_sandstone": {input: "biomesoplenty:white_sandstone", output: "biomesoplenty:smooth_white_sandstone", cookingTime: 200.0}, 
-    "minecraft:mutton": {input: "minecraft:mutton", output: "minecraft:cooked_mutton", cookingTime: 200.0}, 
-    "biomesoplenty:black_sandstone": {input: "biomesoplenty:black_sandstone", output: "biomesoplenty:smooth_black_sandstone", cookingTime: 200.0}, 
-    "minecraft:raw_iron": {input: "minecraft:raw_iron", output: "minecraft:iron_ingot", cookingTime: 200.0}, 
-    "minecraft:nether_gold_ore": {input: "minecraft:nether_gold_ore", output: "minecraft:gold_ingot", cookingTime: 200.0}, 
-    "minecraft:dark_oak_log": {input: "minecraft:dark_oak_log", output: "minecraft:charcoal", cookingTime: 200.0}, 
-    "minecraft:porkchop": {input: "minecraft:porkchop", output: "minecraft:cooked_porkchop", cookingTime: 200.0}, 
-    "minecraft:cactus": {input: "minecraft:cactus", output: "minecraft:green_dye", cookingTime: 200.0}, 
-    "minecraft:blue_terracotta": {input: "minecraft:blue_terracotta", output: "minecraft:blue_glazed_terracotta", cookingTime: 200.0}, 
-    "ae2:sky_dust": {input: "ae2:sky_dust", output: "ae2:sky_stone_block", cookingTime: 200.0}, 
-    "minecraft:clay": {input: "minecraft:clay", output: "minecraft:terracotta", cookingTime: 200.0}, 
-    "minecraft:coal_ore": {input: "minecraft:coal_ore", output: "minecraft:coal", cookingTime: 200.0}, 
-    "minecraft:cobbled_deepslate": {input: "minecraft:cobbled_deepslate", output: "minecraft:deepslate", cookingTime: 200.0}, 
-    "minecraft:wet_sponge": {input: "minecraft:wet_sponge", output: "minecraft:sponge", cookingTime: 200.0}, 
-    "minecraft:potato": {input: "minecraft:potato", output: "minecraft:baked_potato", cookingTime: 200.0}, 
-    "minecraft:salmon": {input: "minecraft:salmon", output: "minecraft:cooked_salmon", cookingTime: 200.0}, 
-    "ae2:sky_stone_block": {input: "ae2:sky_stone_block", output: "ae2:smooth_sky_stone_block", cookingTime: 200.0}, 
-    "minecraft:orange_terracotta": {input: "minecraft:orange_terracotta", output: "minecraft:orange_glazed_terracotta", cookingTime: 200.0}, 
-    "minecraft:chicken": {input: "minecraft:chicken", output: "minecraft:cooked_chicken", cookingTime: 200.0}, 
-    "minecraft:netherrack": {input: "minecraft:netherrack", output: "minecraft:nether_brick", cookingTime: 200.0}, 
-    "ae2:certus_quartz_dust": {input: "ae2:certus_quartz_dust", output: "ae2:silicon", cookingTime: 200.0}, 
-    "minecraft:deepslate_copper_ore": {input: "minecraft:deepslate_copper_ore", output: "minecraft:copper_ingot", cookingTime: 200.0}, 
-    "minecraft:cobblestone": {input: "minecraft:cobblestone", output: "minecraft:stone", cookingTime: 200.0}, 
-    "minecraft:stone": {input: "minecraft:stone", output: "minecraft:smooth_stone", cookingTime: 200.0}, 
-    "minecraft:deepslate_coal_ore": {input: "minecraft:deepslate_coal_ore", output: "minecraft:coal", cookingTime: 200.0}, 
-    "minecraft:beef": {input: "minecraft:beef", output: "minecraft:cooked_beef", cookingTime: 200.0}, 
-    "minecraft:golden_pickaxe": {input: "minecraft:golden_pickaxe", output: "minecraft:gold_nugget", cookingTime: 200.0}, 
-    "minecraft:ancient_debris": {input: "minecraft:ancient_debris", output: "minecraft:netherite_scrap", cookingTime: 200.0}, 
-    "minecraft:white_terracotta": {input: "minecraft:white_terracotta", output: "minecraft:white_glazed_terracotta", cookingTime: 200.0}
+    "minecraft:nether_quartz_ore": {input: "minecraft:nether_quartz_ore", output: "minecraft:quartz", time: 200.0}, 
+    "minecraft:cyan_terracotta": {input: "minecraft:cyan_terracotta", output: "minecraft:cyan_glazed_terracotta", time: 200.0}, 
+    "minecraft:basalt": {input: "minecraft:basalt", output: "minecraft:smooth_basalt", time: 200.0}, 
+    "minecraft:deepslate_iron_ore": {input: "minecraft:deepslate_iron_ore", output: "minecraft:iron_ingot", time: 200.0}, 
+    "minecraft:red_sandstone": {input: "minecraft:red_sandstone", output: "minecraft:smooth_red_sandstone", time: 200.0}, 
+    "minecraft:quartz_block": {input: "minecraft:quartz_block", output: "minecraft:smooth_quartz", time: 200.0},
+    "minecraft:green_terracotta": {input: "minecraft:green_terracotta", output: "minecraft:green_glazed_terracotta", time: 200.0}, 
+    "minecraft:deepslate_gold_ore": {input: "minecraft:deepslate_gold_ore", output: "minecraft:gold_ingot", time: 200.0}, 
+    "minecraft:black_terracotta": {input: "minecraft:black_terracotta", output: "minecraft:black_glazed_terracotta", time: 200.0}, 
+    "minecraft:iron_ore": {input: "minecraft:iron_ore", output: "minecraft:iron_ingot", time: 200.0}, 
+    "minecraft:light_gray_terracotta": {input: "minecraft:light_gray_terracotta", output: "minecraft:light_gray_glazed_terracotta", time: 200.0}, 
+    "ae2:cut_quartz_block": {input: "ae2:cut_quartz_block", output: "ae2:smooth_quartz_block", time: 200.0}, 
+    "minecraft:lime_terracotta": {input: "minecraft:lime_terracotta", output: "minecraft:lime_glazed_terracotta", time: 200.0}, 
+    "minecraft:deepslate_emerald_ore": {input: "minecraft:deepslate_emerald_ore", output: "minecraft:emerald", time: 200.0}, 
+    "minecraft:deepslate_tiles": {input: "minecraft:deepslate_tiles", output: "minecraft:cracked_deepslate_tiles", time: 200.0}, 
+    "minecraft:rabbit": {input: "minecraft:rabbit", output: "minecraft:cooked_rabbit", time: 200.0}, 
+    "minecraft:pink_terracotta": {input: "minecraft:pink_terracotta", output: "minecraft:pink_glazed_terracotta", time: 200.0}, 
+    "minecraft:redstone_ore": {input: "minecraft:redstone_ore", output: "minecraft:redstone", time: 200.0}, 
+    "minecraft:sand": {input: "minecraft:sand", output: "minecraft:glass", time: 200.0}, 
+    "minecraft:emerald_ore": {input: "minecraft:emerald_ore", output: "minecraft:emerald", time: 200.0}, 
+    "minecraft:gold_ore": {input: "minecraft:gold_ore", output: "minecraft:gold_ingot", time: 200.0}, 
+    "minecraft:chorus_fruit": {input: "minecraft:chorus_fruit", output: "minecraft:popped_chorus_fruit", time: 200.0}, 
+    "minecraft:brown_terracotta": {input: "minecraft:brown_terracotta", output: "minecraft:brown_glazed_terracotta", time: 200.0},
+    "minecraft:raw_copper": {input: "minecraft:raw_copper", output: "minecraft:copper_ingot", time: 200.0},
+    "minecraft:sandstone": {input: "minecraft:sandstone", output: "minecraft:smooth_sandstone", time: 200.0}, 
+    "minecraft:stone_bricks": {input: "minecraft:stone_bricks", output: "minecraft:cracked_stone_bricks", time: 200.0}, 
+    "minecraft:gray_terracotta": {input: "minecraft:gray_terracotta", output: "minecraft:gray_glazed_terracotta", time: 200.0}, 
+    "minecraft:clay_ball": {input: "minecraft:clay_ball", output: "minecraft:brick", time: 200.0}, 
+    "minecraft:yellow_terracotta": {input: "minecraft:yellow_terracotta", output: "minecraft:yellow_glazed_terracotta", time: 200.0}, 
+    "minecraft:kelp": {input: "minecraft:kelp", output: "minecraft:dried_kelp", time: 200.0}, 
+    "minecraft:nether_bricks": {input: "minecraft:nether_bricks", output: "minecraft:cracked_nether_bricks", time: 200.0}, 
+    "minecraft:copper_ore": {input: "minecraft:copper_ore", output: "minecraft:copper_ingot", time: 200.0}, 
+    "minecraft:red_terracotta": {input: "minecraft:red_terracotta", output: "minecraft:red_glazed_terracotta", time: 200.0},
+    "minecraft:deepslate_lapis_ore": {input: "minecraft:deepslate_lapis_ore", output: "minecraft:lapis_lazuli", time: 200.0}, 
+    "minecraft:deepslate_bricks": {input: "minecraft:deepslate_bricks", output: "minecraft:cracked_deepslate_bricks", time: 200.0}, 
+    "biomesoplenty:orange_sandstone": {input: "biomesoplenty:orange_sandstone", output: "biomesoplenty:smooth_orange_sandstone", time: 200.0}, 
+    "minecraft:magenta_terracotta": {input: "minecraft:magenta_terracotta", output: "minecraft:magenta_glazed_terracotta", time: 200.0},
+    "minecraft:deepslate_redstone_ore": {input: "minecraft:deepslate_redstone_ore", output: "minecraft:redstone", time: 200.0}, 
+    "minecraft:raw_gold": {input: "minecraft:raw_gold", output: "minecraft:gold_ingot", time: 200.0}, 
+    "minecraft:polished_blackstone_bricks": {input: "minecraft:polished_blackstone_bricks", output: "minecraft:cracked_polished_blackstone_bricks", time: 200.0}, 
+    "minecraft:deepslate_diamond_ore": {input: "minecraft:deepslate_diamond_ore", output: "minecraft:diamond", time: 200.0}, 
+    "minecraft:diamond_ore": {input: "minecraft:diamond_ore", output: "minecraft:diamond", time: 200.0}, 
+    "minecraft:light_blue_terracotta": {input: "minecraft:light_blue_terracotta", output: "minecraft:light_blue_glazed_terracotta", time: 200.0}, 
+    "minecraft:purple_terracotta": {input: "minecraft:purple_terracotta", output: "minecraft:purple_glazed_terracotta", time: 200.0}, 
+    "minecraft:cod": {input: "minecraft:cod", output: "minecraft:cooked_cod", time: 200.0}, 
+    "minecraft:sea_pickle": {input: "minecraft:sea_pickle", output: "minecraft:lime_dye", time: 200.0}, 
+    "minecraft:iron_pickaxe": {input: "minecraft:iron_pickaxe", output: "minecraft:iron_nugget", time: 200.0}, 
+    "minecraft:lapis_ore": {input: "minecraft:lapis_ore", output: "minecraft:lapis_lazuli", time: 200.0}, 
+    "biomesoplenty:white_sandstone": {input: "biomesoplenty:white_sandstone", output: "biomesoplenty:smooth_white_sandstone", time: 200.0}, 
+    "minecraft:mutton": {input: "minecraft:mutton", output: "minecraft:cooked_mutton", time: 200.0}, 
+    "biomesoplenty:black_sandstone": {input: "biomesoplenty:black_sandstone", output: "biomesoplenty:smooth_black_sandstone", time: 200.0}, 
+    "minecraft:raw_iron": {input: "minecraft:raw_iron", output: "minecraft:iron_ingot", time: 200.0}, 
+    "minecraft:nether_gold_ore": {input: "minecraft:nether_gold_ore", output: "minecraft:gold_ingot", time: 200.0}, 
+    "minecraft:dark_oak_log": {input: "minecraft:dark_oak_log", output: "minecraft:charcoal", time: 200.0}, 
+    "minecraft:porkchop": {input: "minecraft:porkchop", output: "minecraft:cooked_porkchop", time: 200.0}, 
+    "minecraft:cactus": {input: "minecraft:cactus", output: "minecraft:green_dye", time: 200.0}, 
+    "minecraft:blue_terracotta": {input: "minecraft:blue_terracotta", output: "minecraft:blue_glazed_terracotta", time: 200.0}, 
+    "ae2:sky_dust": {input: "ae2:sky_dust", output: "ae2:sky_stone_block", time: 200.0}, 
+    "minecraft:clay": {input: "minecraft:clay", output: "minecraft:terracotta", time: 200.0}, 
+    "minecraft:coal_ore": {input: "minecraft:coal_ore", output: "minecraft:coal", time: 200.0}, 
+    "minecraft:cobbled_deepslate": {input: "minecraft:cobbled_deepslate", output: "minecraft:deepslate", time: 200.0}, 
+    "minecraft:wet_sponge": {input: "minecraft:wet_sponge", output: "minecraft:sponge", time: 200.0}, 
+    "minecraft:potato": {input: "minecraft:potato", output: "minecraft:baked_potato", time: 200.0}, 
+    "minecraft:salmon": {input: "minecraft:salmon", output: "minecraft:cooked_salmon", time: 200.0}, 
+    "ae2:sky_stone_block": {input: "ae2:sky_stone_block", output: "ae2:smooth_sky_stone_block", time: 200.0}, 
+    "minecraft:orange_terracotta": {input: "minecraft:orange_terracotta", output: "minecraft:orange_glazed_terracotta", time: 200.0}, 
+    "minecraft:chicken": {input: "minecraft:chicken", output: "minecraft:cooked_chicken", time: 200.0}, 
+    "minecraft:netherrack": {input: "minecraft:netherrack", output: "minecraft:nether_brick", time: 200.0}, 
+    "ae2:certus_quartz_dust": {input: "ae2:certus_quartz_dust", output: "ae2:silicon", time: 200.0}, 
+    "minecraft:deepslate_copper_ore": {input: "minecraft:deepslate_copper_ore", output: "minecraft:copper_ingot", time: 200.0}, 
+    "minecraft:cobblestone": {input: "minecraft:cobblestone", output: "minecraft:stone", time: 200.0}, 
+    "minecraft:stone": {input: "minecraft:stone", output: "minecraft:smooth_stone", time: 200.0}, 
+    "minecraft:deepslate_coal_ore": {input: "minecraft:deepslate_coal_ore", output: "minecraft:coal", time: 200.0}, 
+    "minecraft:beef": {input: "minecraft:beef", output: "minecraft:cooked_beef", time: 200.0}, 
+    "minecraft:golden_pickaxe": {input: "minecraft:golden_pickaxe", output: "minecraft:gold_nugget", time: 200.0}, 
+    "minecraft:ancient_debris": {input: "minecraft:ancient_debris", output: "minecraft:netherite_scrap", time: 200.0}, 
+    "minecraft:white_terracotta": {input: "minecraft:white_terracotta", output: "minecraft:white_glazed_terracotta", time: 200.0}
 }
+
+
+// ingot from dust
+addFurnaceRecipe("kubejs:advanced_alloy_ingot", "kubejs:advanced_alloy_dust")
+addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_dust")
+addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_dust")
+addFurnaceRecipe("kubejs:brass_ingot", "kubejs:brass_dust")
+addFurnaceRecipe("kubejs:bronze_ingot", "kubejs:bronze_dust")
+addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_dust")
+addFurnaceRecipe("kubejs:constantan_ingot", "kubejs:constantan_dust")
+addFurnaceRecipe("minecraft:copper_ingot", "kubejs:copper_dust")
+addFurnaceRecipe("minecraft:gold_ingot", "kubejs:gold_dust")
+addFurnaceRecipe("kubejs:electrum_ingot", "kubejs:electrum_dust")
+addFurnaceRecipe("minecraft:emerald", "kubejs:emerald_dust")
+addFurnaceRecipe("kubejs:enderium_ingot", "kubejs:enderium_dust")
+addFurnaceRecipe("minecraft:iron_ingot", "kubejs:iron_dust")
+addFurnaceRecipe("minecraft:lapis_lazuli", "kubejs:lapis_lazuli_dust")
+addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_dust")
+addFurnaceRecipe("kubejs:lumium_ingot", "kubejs:lumium_dust")
+addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_dust")
+addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_dust")
+addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_dust")
+addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_dust")
+addFurnaceRecipe("kubejs:refined_glowstone_ingot", "kubejs:refined_glowstone_dust")
+addFurnaceRecipe("kubejs:refined_obsidian_ingot", "kubejs:refined_obsidian_dust")
+addFurnaceRecipe("kubejs:signalum_ingot", "kubejs:signalum_dust")
+addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_dust")
+addFurnaceRecipe("kubejs:steel_ingot", "kubejs:steel_dust")
+addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_dust")
+addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_dust")
+addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_dust")
+addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_dust")
+
+
+// ingot from ore
+addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_ore")
+addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_ore_deepslate")
+addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_ore")
+addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_ore_deepslate")
+addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_ore")
+addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_ore_deepslate")
+addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_ore")
+addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_ore_deepslate")
+addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_ore")
+addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_ore_deepslate")
+addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_ore")
+addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_ore_deepslate")
+addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_ore")
+addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_ore_deepslate")
+addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_ore")
+addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_ore_deepslate")
+addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_ore")
+addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_ore_deepslate")
+addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_ore")
+addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_ore_deepslate")
+addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_ore")
+addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_ore_deepslate")
+addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_ore")
+addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_ore_deepslate")
+addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_ore")
+addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_ore_deepslate")
+
+
+// ingot from crushed ore
+addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_crushed_ore")
+addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_crushed_ore")
+addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_crushed_ore")
+addFurnaceRecipe("minecraft:copper_ingot", "kubejs:copper_crushed_ore")
+addFurnaceRecipe("minecraft:gold_ingot", "kubejs:gold_crushed_ore")
+addFurnaceRecipe("minecraft:iron_ingot", "kubejs:iron_crushed_ore")
+addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_crushed_ore")
+addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_crushed_ore")
+addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_crushed_ore")
+addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_crushed_ore")
+addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_crushed_ore")
+addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_crushed_ore")
+addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_crushed_ore")
+addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_crushed_ore")
+addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_crushed_ore")
+addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_crushed_ore")
+
+
+// ingot from raw material
+addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_raw_material")
+addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_raw_material")
+addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_raw_material")
+addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_raw_material")
+addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_raw_material")
+addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_raw_material")
+addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_raw_material")
+addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_raw_material")
+addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_raw_material")
+addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_raw_material")
+addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_raw_material")
+addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_raw_material")
+addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_raw_material")

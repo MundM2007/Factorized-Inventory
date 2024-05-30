@@ -1,0 +1,40 @@
+// plate
+addCompressorRecipe("kubejs:advanced_alloy_plate", "kubejs:advanced_alloy_ingot")
+addCompressorRecipe("kubejs:aluminum_plate", "kubejs:aluminum_ingot")
+addCompressorRecipe("kubejs:bismuth_plate", "kubejs:bismuth_ingot")
+addCompressorRecipe("kubejs:brass_plate", "kubejs:brass_ingot")
+addCompressorRecipe("kubejs:bronze_plate", "kubejs:bronze_ingot")
+addCompressorRecipe("kubejs:cobalt_plate", "kubejs:cobalt_ingot")
+addCompressorRecipe("kubejs:constantan_plate", "kubejs:constantan_ingot")
+addCompressorRecipe("kubejs:copper_plate", "minecraft:copper_ingot")
+addCompressorRecipe("kubejs:diamond_plate", "minecraft:diamond")
+addCompressorRecipe("kubejs:electrum_plate", "kubejs:electrum_ingot")
+addCompressorRecipe("kubejs:emerald_plate", "minecraft:emerald")
+addCompressorRecipe("kubejs:enderium_plate", "kubejs:enderium_ingot")
+addCompressorRecipe("kubejs:gold_plate", "minecraft:gold_ingot")
+addCompressorRecipe("kubejs:invar_plate", "kubejs:invar_ingot")
+addCompressorRecipe("kubejs:iridium_plate", "kubejs:iridium_ingot")
+addCompressorRecipe("kubejs:iridium_alloy_plate", "kubejs:iridium_alloy_ingot")
+addCompressorRecipe("kubejs:iron_plate", "minecraft:iron_ingot")
+addCompressorRecipe("kubejs:lapis_lazuli_plate", "minecraft:lapis_lazuli")
+addCompressorRecipe("kubejs:lead_plate", "kubejs:lead_ingot")
+addCompressorRecipe("kubejs:lumium_plate", "kubejs:lumium_ingot")
+addCompressorRecipe("kubejs:magnesium_plate", "kubejs:magnesium_ingot")
+addCompressorRecipe("kubejs:nickel_plate", "kubejs:nickel_ingot")
+addCompressorRecipe("kubejs:osmium_plate", "kubejs:osmium_ingot")
+addCompressorRecipe("kubejs:platinum_plate", "kubejs:platinum_ingot")
+addCompressorRecipe("kubejs:refined_glowstone_plate", "kubejs:refined_glowstone_ingot")
+addCompressorRecipe("kubejs:refined_obsidian_plate", "kubejs:refined_obsidian_ingot")
+addCompressorRecipe("kubejs:signalum_plate", "kubejs:signalum_ingot")
+addCompressorRecipe("kubejs:silver_plate", "kubejs:silver_ingot")
+addCompressorRecipe("kubejs:steel_plate", "kubejs:steel_ingot")
+addCompressorRecipe("kubejs:tin_plate", "kubejs:tin_ingot")
+addCompressorRecipe("kubejs:titanium_plate", "kubejs:titanium_ingot")
+addCompressorRecipe("kubejs:tungsten_plate", "kubejs:tungsten_ingot")
+addCompressorRecipe("kubejs:zinc_plate", "kubejs:zinc_ingot")
+
+
+
+
+
+
