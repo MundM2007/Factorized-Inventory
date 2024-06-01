@@ -10,7 +10,7 @@ global.recipes.furnace = {
     "minecraft:black_terracotta": {input: "minecraft:black_terracotta", output: "minecraft:black_glazed_terracotta", time: 200.0}, 
     "minecraft:iron_ore": {input: "minecraft:iron_ore", output: "minecraft:iron_ingot", time: 200.0}, 
     "minecraft:light_gray_terracotta": {input: "minecraft:light_gray_terracotta", output: "minecraft:light_gray_glazed_terracotta", time: 200.0}, 
-    "ae2:cut_quartz_block": {input: "ae2:cut_quartz_block", output: "ae2:smooth_quartz_block", time: 200.0}, 
+    //"ae2:cut_quartz_block": {input: "ae2:cut_quartz_block", output: "ae2:smooth_quartz_block", time: 200.0}, 
     "minecraft:lime_terracotta": {input: "minecraft:lime_terracotta", output: "minecraft:lime_glazed_terracotta", time: 200.0}, 
     "minecraft:deepslate_emerald_ore": {input: "minecraft:deepslate_emerald_ore", output: "minecraft:emerald", time: 200.0}, 
     "minecraft:deepslate_tiles": {input: "minecraft:deepslate_tiles", output: "minecraft:cracked_deepslate_tiles", time: 200.0}, 
@@ -51,23 +51,22 @@ global.recipes.furnace = {
     "minecraft:mutton": {input: "minecraft:mutton", output: "minecraft:cooked_mutton", time: 200.0}, 
     "biomesoplenty:black_sandstone": {input: "biomesoplenty:black_sandstone", output: "biomesoplenty:smooth_black_sandstone", time: 200.0}, 
     "minecraft:raw_iron": {input: "minecraft:raw_iron", output: "minecraft:iron_ingot", time: 200.0}, 
-    "minecraft:nether_gold_ore": {input: "minecraft:nether_gold_ore", output: "minecraft:gold_ingot", time: 200.0}, 
-    "minecraft:dark_oak_log": {input: "minecraft:dark_oak_log", output: "minecraft:charcoal", time: 200.0}, 
+    "minecraft:nether_gold_ore": {input: "minecraft:nether_gold_ore", output: "minecraft:gold_ingot", time: 200.0},
     "minecraft:porkchop": {input: "minecraft:porkchop", output: "minecraft:cooked_porkchop", time: 200.0}, 
     "minecraft:cactus": {input: "minecraft:cactus", output: "minecraft:green_dye", time: 200.0}, 
     "minecraft:blue_terracotta": {input: "minecraft:blue_terracotta", output: "minecraft:blue_glazed_terracotta", time: 200.0}, 
-    "ae2:sky_dust": {input: "ae2:sky_dust", output: "ae2:sky_stone_block", time: 200.0}, 
+    //"ae2:sky_dust": {input: "ae2:sky_dust", output: "ae2:sky_stone_block", time: 200.0}, 
     "minecraft:clay": {input: "minecraft:clay", output: "minecraft:terracotta", time: 200.0}, 
     "minecraft:coal_ore": {input: "minecraft:coal_ore", output: "minecraft:coal", time: 200.0}, 
     "minecraft:cobbled_deepslate": {input: "minecraft:cobbled_deepslate", output: "minecraft:deepslate", time: 200.0}, 
     "minecraft:wet_sponge": {input: "minecraft:wet_sponge", output: "minecraft:sponge", time: 200.0}, 
     "minecraft:potato": {input: "minecraft:potato", output: "minecraft:baked_potato", time: 200.0}, 
     "minecraft:salmon": {input: "minecraft:salmon", output: "minecraft:cooked_salmon", time: 200.0}, 
-    "ae2:sky_stone_block": {input: "ae2:sky_stone_block", output: "ae2:smooth_sky_stone_block", time: 200.0}, 
+    //"ae2:sky_stone_block": {input: "ae2:sky_stone_block", output: "ae2:smooth_sky_stone_block", time: 200.0}, 
     "minecraft:orange_terracotta": {input: "minecraft:orange_terracotta", output: "minecraft:orange_glazed_terracotta", time: 200.0}, 
     "minecraft:chicken": {input: "minecraft:chicken", output: "minecraft:cooked_chicken", time: 200.0}, 
     "minecraft:netherrack": {input: "minecraft:netherrack", output: "minecraft:nether_brick", time: 200.0}, 
-    "ae2:certus_quartz_dust": {input: "ae2:certus_quartz_dust", output: "ae2:silicon", time: 200.0}, 
+    //"ae2:certus_quartz_dust": {input: "ae2:certus_quartz_dust", output: "ae2:silicon", time: 200.0}, 
     "minecraft:deepslate_copper_ore": {input: "minecraft:deepslate_copper_ore", output: "minecraft:copper_ingot", time: 200.0}, 
     "minecraft:cobblestone": {input: "minecraft:cobblestone", output: "minecraft:stone", time: 200.0}, 
     "minecraft:stone": {input: "minecraft:stone", output: "minecraft:smooth_stone", time: 200.0}, 
@@ -78,98 +77,155 @@ global.recipes.furnace = {
     "minecraft:white_terracotta": {input: "minecraft:white_terracotta", output: "minecraft:white_glazed_terracotta", time: 200.0}
 }
 
+// charcoal from log
+addFurnaceRecipe("minecraft:charcoal", "minecraft:oak_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:spruce_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:birch_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:jungle_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:acacia_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:dark_oak_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:mangrove_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:cherry_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:crimson_stem")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:warped_stem")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:fir_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:redwood_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:mahogany_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:jacaranda_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:palm_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:willow_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:dead_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:magic_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:umbran_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:hellbark_log")
+
+// charcoal from stripped log
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_oak_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_spruce_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_birch_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_jungle_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_acacia_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_dark_oak_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_mangrove_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_cherry_log")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_crimson_stem")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_warped_stem")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_fir_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_redwood_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_mahogany_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_jacaranda_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_palm_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_willow_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_dead_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_magic_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_umbran_log")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_hellbark_log")
+
+// charcoal from wood
+addFurnaceRecipe("minecraft:charcoal", "minecraft:oak_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:spruce_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:birch_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:jungle_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:acacia_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:dark_oak_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:mangrove_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:cherry_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:crimson_hyphae")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:warped_hyphae")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:fir_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:redwood_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:mahogany_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:jacaranda_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:palm_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:willow_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:dead_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:magic_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:umbran_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:hellbark_wood")
+
+// charcoal from stripped wood
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_oak_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_spruce_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_birch_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_jungle_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_acacia_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_dark_oak_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_mangrove_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_cherry_wood")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_crimson_hyphae")
+addFurnaceRecipe("minecraft:charcoal", "minecraft:stripped_warped_hyphae")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_fir_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_redwood_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_mahogany_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_jacaranda_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_palm_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_willow_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_dead_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_magic_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_umbran_wood")
+addFurnaceRecipe("minecraft:charcoal", "biomesoplenty:stripped_hellbark_wood")
+
 
 // ingot from dust
-addFurnaceRecipe("kubejs:advanced_alloy_ingot", "kubejs:advanced_alloy_dust")
 addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_dust")
-addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_dust")
+addFurnaceRecipe("kubejs:battery_alloy_ingot", "kubejs:battery_alloy_dust")
 addFurnaceRecipe("kubejs:brass_ingot", "kubejs:brass_dust")
 addFurnaceRecipe("kubejs:bronze_ingot", "kubejs:bronze_dust")
+addFurnaceRecipe("minecraft:coal", "kubejs:coal_dust")
 addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_dust")
 addFurnaceRecipe("kubejs:constantan_ingot", "kubejs:constantan_dust")
 addFurnaceRecipe("minecraft:copper_ingot", "kubejs:copper_dust")
-addFurnaceRecipe("minecraft:gold_ingot", "kubejs:gold_dust")
+addFurnaceRecipe("minecraft:diamond", "kubejs:diamond_dust")
 addFurnaceRecipe("kubejs:electrum_ingot", "kubejs:electrum_dust")
 addFurnaceRecipe("minecraft:emerald", "kubejs:emerald_dust")
-addFurnaceRecipe("kubejs:enderium_ingot", "kubejs:enderium_dust")
+addFurnaceRecipe("minecraft:gold_ingot", "kubejs:gold_dust")
+addFurnaceRecipe("kubejs:invar_ingot", "kubejs:invar_dust")
+addFurnaceRecipe("kubejs:iridium_ingot", "kubejs:iridium_dust")
+addFurnaceRecipe("kubejs:iridium_alloy_ingot", "kubejs:iridium_alloy_dust")
 addFurnaceRecipe("minecraft:iron_ingot", "kubejs:iron_dust")
 addFurnaceRecipe("minecraft:lapis_lazuli", "kubejs:lapis_lazuli_dust")
-addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_dust")
-addFurnaceRecipe("kubejs:lumium_ingot", "kubejs:lumium_dust")
-addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_dust")
-addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_dust")
-addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_dust")
 addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_dust")
-addFurnaceRecipe("kubejs:refined_glowstone_ingot", "kubejs:refined_glowstone_dust")
-addFurnaceRecipe("kubejs:refined_obsidian_ingot", "kubejs:refined_obsidian_dust")
-addFurnaceRecipe("kubejs:signalum_ingot", "kubejs:signalum_dust")
-addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_dust")
 addFurnaceRecipe("kubejs:steel_ingot", "kubejs:steel_dust")
 addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_dust")
 addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_dust")
-addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_dust")
 addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_dust")
 
 
 // ingot from ore
 addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_ore")
 addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_ore_deepslate")
-addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_ore")
-addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_ore_deepslate")
+addFurnaceRecipe("kubejs:antimony_dust", "kubejs:antimony_ore")
+addFurnaceRecipe("kubejs:antimony_dust", "kubejs:antimony_ore_deepslate")
 addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_ore")
-addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_ore_deepslate")
-addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_ore")
-addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_ore_deepslate")
-addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_ore")
-addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_ore_deepslate")
-addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_ore")
-addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_ore_deepslate")
-addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_ore")
-addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_ore_deepslate")
 addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_ore")
 addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_ore_deepslate")
-addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_ore")
-addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_ore_deepslate")
 addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_ore")
 addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_ore_deepslate")
 addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_ore")
-addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_ore_deepslate")
-addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_ore")
-addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_ore_deepslate")
 addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_ore")
 addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_ore_deepslate")
 
 
 // ingot from crushed ore
 addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_crushed_ore")
-addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_crushed_ore")
 addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_crushed_ore")
 addFurnaceRecipe("minecraft:copper_ingot", "kubejs:copper_crushed_ore")
 addFurnaceRecipe("minecraft:gold_ingot", "kubejs:gold_crushed_ore")
 addFurnaceRecipe("minecraft:iron_ingot", "kubejs:iron_crushed_ore")
-addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_crushed_ore")
-addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_crushed_ore")
-addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_crushed_ore")
-addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_crushed_ore")
 addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_crushed_ore")
-addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_crushed_ore")
 addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_crushed_ore")
 addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_crushed_ore")
-addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_crushed_ore")
 addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_crushed_ore")
 
 
 // ingot from raw material
 addFurnaceRecipe("kubejs:aluminum_ingot", "kubejs:aluminum_raw_material")
-addFurnaceRecipe("kubejs:bismuth_ingot", "kubejs:bismuth_raw_material")
 addFurnaceRecipe("kubejs:cobalt_ingot", "kubejs:cobalt_raw_material")
-addFurnaceRecipe("kubejs:lead_ingot", "kubejs:lead_raw_material")
-addFurnaceRecipe("kubejs:magnesium_ingot", "kubejs:magnesium_raw_material")
-addFurnaceRecipe("kubejs:nickel_ingot", "kubejs:nickel_raw_material")
-addFurnaceRecipe("kubejs:osmium_ingot", "kubejs:osmium_raw_material")
 addFurnaceRecipe("kubejs:platinum_ingot", "kubejs:platinum_raw_material")
-addFurnaceRecipe("kubejs:silver_ingot", "kubejs:silver_raw_material")
 addFurnaceRecipe("kubejs:tin_ingot", "kubejs:tin_raw_material")
 addFurnaceRecipe("kubejs:titanium_ingot", "kubejs:titanium_raw_material")
-addFurnaceRecipe("kubejs:tungsten_ingot", "kubejs:tungsten_raw_material")
 addFurnaceRecipe("kubejs:zinc_ingot", "kubejs:zinc_raw_material")
+
+
+// tier 2
+addFurnaceRecipe("kubejs:coal_coke", "minecraft:coal")

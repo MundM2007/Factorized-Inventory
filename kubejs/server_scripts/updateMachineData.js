@@ -12,9 +12,21 @@ function updateMachineDataPlayer(player){
         if(isInventoryItem(item)){
             let dataInventoryItem = global.inventoryItems[item.id]
             if(player.persistentData.machineData.hasOwnProperty("t" + dataInventoryItem.ticks.toString())){
-                player.persistentData.machineData.get("t" + dataInventoryItem.ticks.toString()).push({slotIndex: i, item: item.id, count: dataInventoryItem.count})
+                player.persistentData.machineData.get("t" + dataInventoryItem.ticks.toString()).push({
+                    slotIndex: i, 
+                    item: item.id,
+                    countProcess: dataInventoryItem.countProcess,
+                    ticksPerTick: dataInventoryItem.ticksPerTick,
+                    fuelPerTick: dataInventoryItem.fuelPerTick
+                })
             }else{
-                player.persistentData.machineData.put("t" + dataInventoryItem.ticks.toString(), [{slotIndex: i, item: item.id, count: dataInventoryItem.count}])
+                player.persistentData.machineData.put("t" + dataInventoryItem.ticks.toString(), [{
+                    slotIndex: i, 
+                    item: item.id,
+                    countProcess: dataInventoryItem.countProcess,
+                    ticksPerTick: dataInventoryItem.ticksPerTick,
+                    fuelPerTick: dataInventoryItem.fuelPerTick
+                }])
             }
         }
     }
@@ -30,9 +42,21 @@ global.updateMachineDataBlockEntity = function(entity){
         if(isInventoryItem(item)){
             let dataInventoryItem = global.inventoryItems[item.id]
             if(entity.data.machineData.hasOwnProperty("t" + dataInventoryItem.ticks.toString())){
-                entity.data.machineData.get("t" + dataInventoryItem.ticks.toString()).push({slotIndex: i, item: item.id, count: dataInventoryItem.count})
+                entity.data.machineData.get("t" + dataInventoryItem.ticks.toString()).push({
+                    slotIndex: i, 
+                    item: item.id,
+                    countProcess: dataInventoryItem.countProcess,
+                    ticksPerTick: dataInventoryItem.ticksPerTick,
+                    fuelPerTick: dataInventoryItem.fuelPerTick
+                })
             }else{
-                entity.data.machineData.put("t" + dataInventoryItem.ticks.toString(), [{slotIndex: i, item: item.id, count: dataInventoryItem.count}])
+                entity.data.machineData.put("t" + dataInventoryItem.ticks.toString(), [{
+                    slotIndex: i, 
+                    item: item.id,
+                    countProcess: dataInventoryItem.countProcess,
+                    ticksPerTick: dataInventoryItem.ticksPerTick,
+                    fuelPerTick: dataInventoryItem.fuelPerTick
+                }])
             }
         }
     }

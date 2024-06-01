@@ -1,1 +1,0 @@
-{"parent": "item/handheld", "textures": {"layer0": "kubejs:item/mi/steam_blast_furnace/tier_4"}, "overrides": [{"predicate": { "custom_model_data": 1}, "model": "kubejs:item/mi/steam_blast_furnace/tier_4_on"}]}

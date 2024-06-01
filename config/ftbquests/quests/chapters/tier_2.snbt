@@ -1,0 +1,339 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tier_2"
+	group: ""
+	icon: "kubejs:inventory_furnace_tier_2"
+	id: "78ADAF09F53AE154"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["6E218DB979693E0A"]
+			id: "179E417BF0A525A8"
+			rewards: [{
+				count: 4
+				id: "6EADFB589758807B"
+				item: "kubejs:bronze_plate"
+				type: "item"
+			}]
+			tasks: [{
+				id: "5F431448BBE00AC6"
+				item: "kubejs:inventory_coke_oven_tier_1"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["54B9AE41BF71177D"]
+			id: "43071F4EA5EC597E"
+			rewards: [{
+				count: 4
+				id: "74558FFAB9747450"
+				item: "kubejs:bronze_plate"
+				type: "item"
+			}]
+			tasks: [{
+				id: "1FD3534B91BFBC6D"
+				item: "kubejs:inventory_blast_furnace_tier_1"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 4.0d
+		}
+		{
+			dependencies: [
+				"179E417BF0A525A8"
+				"745CC3A8ED2E0BDD"
+			]
+			id: "54B9AE41BF71177D"
+			rewards: [{
+				count: 4
+				id: "384DDA30E20224F8"
+				item: "kubejs:coal_coke"
+				type: "item"
+			}]
+			tasks: [
+				{
+					id: "008E7F8E2259501B"
+					item: "kubejs:coal_coke"
+					type: "item"
+				}
+				{
+					id: "3D65B5330508C3A0"
+					item: "kubejs:coal_coke_dust"
+					type: "item"
+				}
+			]
+			x: 0.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"43071F4EA5EC597E"
+				"54B9AE41BF71177D"
+			]
+			id: "7090CBD448091823"
+			rewards: [{
+				id: "27A7842E84C134DC"
+				item: "kubejs:steel_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				count: 8L
+				id: "56B89A63970C2540"
+				item: { Count: 8, id: "kubejs:steel_ingot" }
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["43071F4EA5EC597E"]
+			id: "283D59EB633ED985"
+			tasks: [{
+				count: 4L
+				id: "350A34035677A480"
+				item: "kubejs:nickel_ingot"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["43071F4EA5EC597E"]
+			id: "0D5AAB6F1AAD61AA"
+			tasks: [{
+				id: "1DA306E73F5244D7"
+				item: "kubejs:lead_ingot"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["283D59EB633ED985"]
+			id: "400201A6EE94AFD8"
+			rewards: [{
+				count: 2
+				id: "0EE9D8BCA4AF8A5A"
+				item: "kubejs:invar_ingot"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 2L
+					id: "7073443C637AE019"
+					item: { Count: 2, id: "kubejs:invar_dust" }
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "372BAA6F53A36D7F"
+					item: { Count: 8, id: "kubejs:invar_ingot" }
+					type: "item"
+				}
+			]
+			title: "Invar"
+			x: 4.0d
+			y: 6.0d
+		}
+		{
+			dependencies: [
+				"6F5938E276B1D189"
+				"52EF61F25A34A604"
+			]
+			id: "70D2338BE06BAA4D"
+			rewards: [
+				{
+					count: 8
+					id: "449330C9632C2972"
+					item: "kubejs:invar_ingot"
+					type: "item"
+				}
+				{
+					count: 12
+					id: "66E4DFDFA445EB72"
+					item: "kubejs:steel_ingot"
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "6FCB96C0EB3129EE"
+					item: "kubejs:inventory_furnace_tier_2"
+					type: "item"
+				}
+				{
+					id: "6E71F8B9A376D583"
+					item: "kubejs:inventory_compressor_tier_2"
+					type: "item"
+				}
+				{
+					id: "06CFB64DF1E432E0"
+					item: "kubejs:inventory_cutting_machine_tier_2"
+					type: "item"
+				}
+				{
+					id: "0B636B0AB71EA5D4"
+					item: "kubejs:inventory_macerator_tier_2"
+					type: "item"
+				}
+			]
+			x: 4.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["7090CBD448091823"]
+			id: "6F5938E276B1D189"
+			rewards: [{
+				count: 2
+				id: "0A13848873A284FA"
+				item: "kubejs:steel_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "3CDA04346F33F115"
+				item: "kubejs:steel_machine_casing"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"6F5938E276B1D189"
+				"52EF61F25A34A604"
+			]
+			id: "3D58E0BAEB32BCC5"
+			rewards: [{
+				count: 4
+				id: "06F322EB9F72C374"
+				item: "kubejs:steel_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "2AA3B46BE8966967"
+				item: "kubejs:inventory_wiremill_tier_1"
+				type: "item"
+			}]
+			x: 8.0d
+			y: 4.0d
+		}
+		{
+			dependencies: [
+				"6F5938E276B1D189"
+				"52EF61F25A34A604"
+			]
+			id: "6636DFB4118C49BC"
+			rewards: [
+				{
+					count: 3
+					id: "7EBA106600118915"
+					item: "minecraft:gold_ingot"
+					type: "item"
+				}
+				{
+					count: 3
+					id: "7D6D2D494B8CC5B7"
+					item: "kubejs:steel_ingot"
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "1CB90E65D88A43C4"
+				item: "kubejs:inventory_mixer_tier_1"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["400201A6EE94AFD8"]
+			id: "52EF61F25A34A604"
+			rewards: [{
+				count: 8
+				id: "44080E1F1D60FB55"
+				item: "kubejs:invar_ingot"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 2L
+					id: "374E52C10634E14F"
+					item: { Count: 2, id: "kubejs:invar_gear" }
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "343E059B02BBE535"
+					item: { Count: 2, id: "kubejs:invar_rotor" }
+					type: "item"
+				}
+			]
+			title: "Advanced Invar Products"
+			x: 6.0d
+			y: 6.0d
+		}
+		{
+			dependencies: ["3D58E0BAEB32BCC5"]
+			id: "4DEAC363E2F95CC1"
+			tasks: [{
+				count: 3L
+				id: "3B53588EC6B77AE8"
+				item: { Count: 3, id: "kubejs:invar_wire" }
+				type: "item"
+			}]
+			x: 10.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["4DEAC363E2F95CC1"]
+			id: "1DCF97179B23AC20"
+			rewards: [{
+				count: 2
+				id: "0CFD88E273C75965"
+				item: "kubejs:invar_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "2CA8092558512BC2"
+				item: "kubejs:inventory_blast_furnace_tier_2"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 5.0d
+		}
+		{
+			dependencies: ["4DEAC363E2F95CC1"]
+			id: "70087B5C713E4E7E"
+			rewards: [{
+				count: 2
+				id: "6FA5895A7AFFF5CD"
+				item: "kubejs:invar_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "19DD2E77778FDC48"
+				item: "kubejs:inventory_coke_oven_tier_2"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 3.0d
+		}
+		{
+			dependencies: ["0D5AAB6F1AAD61AA"]
+			id: "1F12E6AEDCD0D1A5"
+			tasks: [{
+				count: 2L
+				id: "5E22B44505745198"
+				item: { Count: 2, id: "kubejs:battery_alloy_ingot" }
+				type: "item"
+			}]
+			x: 0.0d
+			y: 8.0d
+		}
+	]
+	title: "Tier 2"
+}

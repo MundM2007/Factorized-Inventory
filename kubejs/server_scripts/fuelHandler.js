@@ -1,9 +1,11 @@
 let fuelItems = {}
-Ingredient.all.stacks.forEach(item => {
-    let burnTime = $ForgeHooks.getBurnTime(item, $RecipeType.SMELTING)
-    if (burnTime > 0) {
-        fuelItems[item.id] = burnTime
-    }
+ServerEvents.recipes(event => {
+    Ingredient.all.stacks.forEach(item => {
+        let burnTime = $ForgeHooks.getBurnTime(item, $RecipeType.SMELTING)
+        if (burnTime > 0) {
+            fuelItems[item.id] = burnTime
+        }
+    })
 })
 
 
@@ -17,7 +19,7 @@ function getFuel(inventory, extractSlotIndex){
     if(slotItem.nbt.BlockEntityTag.Items.length == 0) return Item.of("minecraft:air")
     for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
         let item = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
-        if(fuelItems[item.id]) item
+        if(fuelItems[item.id]) return item
     }
     return Item.of("minecraft:air")
 }

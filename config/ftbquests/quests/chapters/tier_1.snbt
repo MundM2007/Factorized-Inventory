@@ -1,0 +1,608 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tier_1"
+	group: ""
+	icon: "kubejs:inventory_furnace_tier_1"
+	id: "5735AF4AE590B287"
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			id: "2DC20F25FBFD1857"
+			tasks: [{
+				id: "03747FBA895750DB"
+				title: "Welcome!"
+				type: "checkmark"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["2DC20F25FBFD1857"]
+			id: "6E64903CE915B436"
+			tasks: [
+				{
+					count: 8L
+					icon: "minecraft:oak_log"
+					id: "62D6F04C9B4511B7"
+					item: {
+						Count: 1
+						id: "itemfilters:tag"
+						tag: {
+							value: "minecraft:logs"
+						}
+					}
+					title: "8x Any Log"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "5117462B31C50A77"
+					item: { Count: 16, id: "minecraft:cobblestone" }
+					type: "item"
+				}
+			]
+			title: "First Materials"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6E64903CE915B436"]
+			id: "371DE111B8E77694"
+			rewards: [{
+				count: 2
+				id: "4AB53FB5A54DE9E0"
+				item: "minecraft:raw_iron"
+				type: "item"
+			}]
+			tasks: [{
+				count: 8L
+				id: "411E372FD7B44C26"
+				item: { Count: 8, id: "minecraft:raw_iron" }
+				type: "item"
+			}]
+			x: 4.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6E64903CE915B436"]
+			id: "486D8DF7F591A6EC"
+			rewards: [{
+				count: 4
+				id: "53B00F3795D78F9D"
+				item: "minecraft:raw_copper"
+				type: "item"
+			}]
+			tasks: [{
+				count: 16L
+				id: "3C3664332017FB1F"
+				item: { Count: 16, id: "minecraft:raw_copper" }
+				type: "item"
+			}]
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6E64903CE915B436"]
+			id: "445E7089F5DA761E"
+			rewards: [{
+				id: "1679D7C15CBB4015"
+				item: "kubejs:tin_raw_material"
+				type: "item"
+			}]
+			tasks: [{
+				count: 4L
+				id: "17070F566FE6D750"
+				item: { Count: 4, id: "kubejs:tin_raw_material" }
+				type: "item"
+			}]
+			x: 4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"445E7089F5DA761E"
+				"486D8DF7F591A6EC"
+				"371DE111B8E77694"
+			]
+			hide_text_until_complete: true
+			id: "6EE8C4CF6CE27690"
+			tasks: [
+				{
+					id: "703B495E508D0A67"
+					item: "minecraft:campfire"
+					type: "item"
+				}
+				{
+					id: "6E01FDD261FD7CA2"
+					item: "minecraft:iron_ingot"
+					type: "item"
+				}
+				{
+					id: "43BCFFB99BB6E90B"
+					item: "minecraft:copper_ingot"
+					type: "item"
+				}
+				{
+					id: "5F2F27DA219698F7"
+					item: "kubejs:tin_ingot"
+					type: "item"
+				}
+			]
+			title: "First Ingots"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6EE8C4CF6CE27690"]
+			id: "452939822265AF89"
+			rewards: [{
+				id: "739F2A72B2967714"
+				item: {
+					Count: 1
+					id: "kubejs:hammer"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			tasks: [{
+				id: "094D79CFAC90760C"
+				item: {
+					Count: 1
+					id: "kubejs:hammer"
+					tag: {
+						Damage: 0
+					}
+				}
+				type: "item"
+			}]
+			x: 8.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["6EE8C4CF6CE27690"]
+			id: "49AD5C6252216881"
+			tasks: [{
+				count: 12L
+				id: "7B4CBFF1838C0C2E"
+				item: "minecraft:brick"
+				type: "item"
+			}]
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["452939822265AF89"]
+			id: "66E59D83D9110763"
+			rewards: [{
+				id: "7FA5C203AC4E7A72"
+				item: "kubejs:bronze_plate"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 3L
+					id: "5E295645AE853867"
+					item: "kubejs:bronze_dust"
+					type: "item"
+				}
+				{
+					id: "3B1ADBB7DE82F8D1"
+					item: "kubejs:bronze_ingot"
+					type: "item"
+				}
+				{
+					count: 5L
+					id: "7DE732BEC841E2C9"
+					item: { Count: 5, id: "kubejs:bronze_plate" }
+					type: "item"
+				}
+			]
+			title: "Bronze"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"66E59D83D9110763"
+				"49AD5C6252216881"
+			]
+			id: "6ED0522FE7D6C8B3"
+			tasks: [{
+				id: "37B2CE31562840C9"
+				item: "kubejs:inventory_furnace_tier_1"
+				type: "item"
+			}]
+			x: 8.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["452939822265AF89"]
+			id: "5DE18E962C6C3D6A"
+			rewards: [{
+				id: "29997F048F2FCE2D"
+				item: "kubejs:iron_plate"
+				type: "item"
+			}]
+			tasks: [{
+				count: 4L
+				id: "3B8CF246BFA936C7"
+				item: "kubejs:iron_plate"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["5DE18E962C6C3D6A"]
+			description: ["Did you know that any of the Inventory Machines and Hoppers can also Insert into and take items from any Shulker Box if not specified otherwise? This allows you to set up bulk processing while you're mining for example. Pretty cool, huh? Here Take some Shulker Boxes."]
+			id: "3EEF611C46074BE9"
+			rewards: [{
+				count: 2
+				id: "5AF37D578614D1B0"
+				item: "minecraft:shulker_box"
+				type: "item"
+			}]
+			tasks: [{
+				id: "473DBB31E21C23D3"
+				item: "kubejs:inventory_hopper_tier_1"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"6ED0522FE7D6C8B3"
+				"5833082CEB234051"
+			]
+			id: "79EFA909AEE21BBC"
+			rewards: [{
+				id: "11256BA998B9DF20"
+				item: "kubejs:zinc_ingot"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 2L
+					id: "17A7C073FB647DC4"
+					item: "kubejs:zinc_ingot"
+					type: "item"
+				}
+				{
+					id: "1819B232D3620E90"
+					item: "kubejs:zinc_dust"
+					type: "item"
+				}
+			]
+			title: "Zinc"
+			x: 10.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["6E64903CE915B436"]
+			hide_dependency_lines: true
+			id: "5833082CEB234051"
+			tasks: [{
+				id: "25BF5A8CA2AED770"
+				item: "kubejs:zinc_raw_material"
+				type: "item"
+			}]
+			x: 10.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["79EFA909AEE21BBC"]
+			id: "1D1E0A17D132FDCB"
+			rewards: [{
+				id: "31B9864026EA4584"
+				item: "kubejs:brass_ingot"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 3L
+					id: "1FC25014D27C0158"
+					item: "kubejs:brass_dust"
+					type: "item"
+				}
+				{
+					id: "71D6DAFD74462108"
+					item: "kubejs:brass_ingot"
+					type: "item"
+				}
+			]
+			title: "Brass"
+			x: 12.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"452939822265AF89"
+				"66E59D83D9110763"
+			]
+			id: "181FC26EE48FD573"
+			rewards: [{
+				id: "0F69902D7D38B7E0"
+				item: "kubejs:bronze_plate"
+				type: "item"
+			}]
+			tasks: [
+				{
+					id: "538C3836730AC4E9"
+					item: "kubejs:bronze_ring"
+					type: "item"
+				}
+				{
+					id: "6B05CA4C07DEE58F"
+					item: "kubejs:bronze_gear"
+					type: "item"
+				}
+			]
+			title: "Bronze Gear"
+			x: 10.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["181FC26EE48FD573"]
+			id: "6E218DB979693E0A"
+			tasks: [{
+				id: "0559D7B6795AB70A"
+				item: "kubejs:bronze_machine_casing"
+				type: "item"
+			}]
+			x: 12.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"1D1E0A17D132FDCB"
+				"6E218DB979693E0A"
+			]
+			id: "1F416E8C49043422"
+			tasks: [{
+				id: "39E927FE00E97FFE"
+				item: "kubejs:inventory_compressor_tier_1"
+				type: "item"
+			}]
+			x: 14.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["1F416E8C49043422"]
+			id: "0E45BBB6570A1BDD"
+			tasks: [{
+				count: 4L
+				id: "5923E79E7C234B7E"
+				item: { Count: 4, id: "kubejs:bronze_curved_plate" }
+				type: "item"
+			}]
+			x: 16.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"0E45BBB6570A1BDD"
+				"0C713F7BA45B8843"
+				"5B2A03F7A2E8337D"
+			]
+			id: "72FF6AB5B08F79F3"
+			tasks: [{
+				id: "74DC1C576BBA80B9"
+				item: "kubejs:inventory_cutting_machine_tier_1"
+				type: "item"
+			}]
+			x: 18.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"72FF6AB5B08F79F3"
+				"5B2A03F7A2E8337D"
+			]
+			id: "0A733248FAB2C2E6"
+			rewards: [{
+				count: 2
+				id: "10EF024B1B8D9733"
+				item: "kubejs:brass_curved_plate"
+				type: "item"
+			}]
+			tasks: [
+				{
+					count: 4L
+					id: "2A8E63E314253198"
+					item: { Count: 4, id: "kubejs:brass_bolt" }
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "74BE56D246A27C92"
+					item: { Count: 2, id: "kubejs:brass_rotor" }
+					type: "item"
+				}
+			]
+			title: "2x Brass Rotor"
+			x: 20.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"0A733248FAB2C2E6"
+				"0C713F7BA45B8843"
+				"26A2379608658147"
+			]
+			id: "745CC3A8ED2E0BDD"
+			tasks: [{
+				id: "04D0AE38180DA7E9"
+				item: "kubejs:inventory_macerator_tier_1"
+				type: "item"
+			}]
+			x: 22.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["6EE8C4CF6CE27690"]
+			hide_dependency_lines: true
+			id: "0C713F7BA45B8843"
+			tasks: [{
+				id: "56D6A4807D02398C"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			x: 20.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["1D1E0A17D132FDCB"]
+			hide_dependency_lines: false
+			id: "5B2A03F7A2E8337D"
+			rewards: [{
+				count: 2
+				id: "40B33CEAF1B39ED7"
+				item: "kubejs:brass_plate"
+				type: "item"
+			}]
+			tasks: [
+				{
+					id: "716DC8D32FE827E3"
+					item: "kubejs:brass_ring"
+					type: "item"
+				}
+				{
+					count: 2L
+					id: "5D4EEA7FE1275EAF"
+					item: { Count: 2, id: "kubejs:brass_gear" }
+					type: "item"
+				}
+			]
+			title: "2x Brass Gear"
+			x: 16.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"3EEF611C46074BE9"
+				"1F416E8C49043422"
+			]
+			id: "3E8CCEC151A892AD"
+			rewards: [{
+				count: 2
+				id: "34B9A854229D1C4B"
+				item: "minecraft:shulker_box"
+				type: "item"
+			}]
+			tasks: [{
+				id: "23A39F01F12E96FC"
+				item: "kubejs:inventory_hopper_tier_2"
+				type: "item"
+			}]
+			x: 14.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"3E8CCEC151A892AD"
+				"72FF6AB5B08F79F3"
+			]
+			id: "2AE80A61E00B507B"
+			rewards: [{
+				count: 2
+				id: "041CB39555D6E71E"
+				item: "minecraft:shulker_box"
+				type: "item"
+			}]
+			tasks: [{
+				id: "72103444504AAC1B"
+				item: "kubejs:inventory_hopper_tier_3"
+				type: "item"
+			}]
+			x: 18.0d
+			y: -2.0d
+		}
+		{
+			dependencies: ["72FF6AB5B08F79F3"]
+			id: "26A2379608658147"
+			tasks: [
+				{
+					count: 2L
+					id: "2437D9D3279B515A"
+					item: { Count: 2, id: "kubejs:bronze_bolt" }
+					type: "item"
+				}
+				{
+					id: "35EEA628DC0DDFA3"
+					item: "kubejs:bronze_rotor"
+					type: "item"
+				}
+			]
+			title: "Bronze Rotor"
+			x: 20.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["745CC3A8ED2E0BDD"]
+			id: "7E60A9CCC87D8334"
+			tasks: [{
+				id: "252F4B43CDC8E832"
+				item: "kubejs:gold_dust"
+				type: "item"
+			}]
+			x: 24.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0C713F7BA45B8843"]
+			id: "12E4BFD2E7199023"
+			rewards: [{
+				id: "5738F5CC86E62071"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "11E07DA7E2B58FD3"
+				item: "kubejs:diamond_gear"
+				type: "item"
+			}]
+			x: 24.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"7E60A9CCC87D8334"
+				"5E1E8C13C348E412"
+				"12E4BFD2E7199023"
+			]
+			id: "10CA3F10A35BEF95"
+			tasks: [{
+				id: "00CAC83E67ACD09D"
+				item: "kubejs:inventory_simulator_tier_1"
+				type: "item"
+			}]
+			x: 26.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["5DE18E962C6C3D6A"]
+			hide_dependency_lines: true
+			id: "5E1E8C13C348E412"
+			rewards: [{
+				count: 2
+				id: "7C5E6E08B99595B3"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				count: 2L
+				id: "7A6D06BDF26B2BF4"
+				item: { Count: 2, id: "kubejs:iron_gear" }
+				type: "item"
+			}]
+			x: 24.0d
+			y: 2.0d
+		}
+	]
+	title: "Tier 1"
+}

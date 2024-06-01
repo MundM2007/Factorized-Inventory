@@ -1,8 +1,9 @@
 StartupEvents.registry('block', event => {
-    event.create('kubejs:inventory_simulator')
+    event.create('kubejs:inventory_simulator_tier_1')
     .soundType('metal')
+    .displayName('Tier 1 Inventory Simulator')
     .blockEntity(entityInfo => {
-        entityInfo.inventory(9, 6)
+        entityInfo.inventory(9, 3)
         entityInfo.initialData({age: 0, machineData: {}})
         entityInfo.rightClickOpensInventory()
         entityInfo.serverTick(1, 0, entity => {

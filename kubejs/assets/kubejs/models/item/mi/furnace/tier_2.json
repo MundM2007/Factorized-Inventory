@@ -1,1 +1,0 @@
-{"parent": "item/handheld", "textures": {"layer0": "kubejs:item/mi/furnace/tier_2"}, "overrides": [{"predicate": { "custom_model_data": 1}, "model": "kubejs:item/mi/furnace/tier_2_on"}]}

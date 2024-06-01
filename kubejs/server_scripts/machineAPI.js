@@ -38,7 +38,7 @@ function getAmountCanInsert(inventory, slotIndex, item){
     if(slotIndex == null) return 0
     if(inventory.getContainerSize() < slotIndex) return 0
     let slotItem = inventory.getItem(slotIndex)
-    if(slotItem.isEmpty()) item.getMaxStackSize()
+    if(slotItem.isEmpty()) return item.getMaxStackSize()
     if($ItemStack.isSameItemSameTags(slotItem, item)){
         if(slotItem.getMaxStackSize() - slotItem.count > item.count) return item.count
         return slotItem.getMaxStackSize() - slotItem.count
