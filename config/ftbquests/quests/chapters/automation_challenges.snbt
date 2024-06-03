@@ -1,0 +1,129 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "automation_challenges"
+	group: ""
+	id: "76433B85AB408E7D"
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["72FF6AB5B08F79F3"]
+			id: "60BC0BBD74C6186B"
+			tasks: [
+				{
+					count: 128L
+					id: "318CD279CED57082"
+					item: { Count: 128, id: "kubejs:brass_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "1D6ADA05B0F5224D"
+					item: { Count: 128, id: "kubejs:bronze_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "78C3E922A82F68A3"
+					item: { Count: 128, id: "kubejs:copper_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "2824B67B0D12B901"
+					item: { Count: 128, id: "kubejs:diamond_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "5BE32C2177C98BF0"
+					item: { Count: 128, id: "kubejs:emerald_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "4687695B58AA647A"
+					item: { Count: 128, id: "kubejs:gold_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "48FFC0A514D2AF6D"
+					item: { Count: 128, id: "kubejs:invar_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "4826D0D86F03784E"
+					item: { Count: 128, id: "kubejs:iron_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "5AE5B051D908C5AB"
+					item: { Count: 128, id: "kubejs:lapis_lazuli_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "689B8D2A763ADB10"
+					item: "kubejs:lead_rotor"
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "59BE9DFDA5E4B3FD"
+					item: { Count: 128, id: "kubejs:nickel_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "13015C8D50C1BF3B"
+					item: { Count: 128, id: "kubejs:steel_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "441CF752DBD0A0F2"
+					item: { Count: 128, id: "kubejs:tin_rotor" }
+					type: "item"
+				}
+				{
+					count: 128L
+					id: "177385FBEE70392D"
+					item: { Count: 128, id: "kubejs:zinc_rotor" }
+					type: "item"
+				}
+			]
+			title: "Rotors"
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["631D7FD9225166D3"]
+			id: "5C52AB120FD7AE47"
+			tasks: [{
+				count: 256L
+				id: "61D8DB2B8F76C668"
+				item: "kubejs:motor"
+				type: "item"
+			}]
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3AAF08B835A461A4"]
+			id: "46E32298723F5F65"
+			tasks: [{
+				count: 512L
+				id: "55F3FD3C824F66B2"
+				item: { Count: 64, id: "kubejs:analog_circuit" }
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+	]
+	title: "Automation Challenges"
+}

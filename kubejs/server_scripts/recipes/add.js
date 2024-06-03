@@ -68,22 +68,26 @@ function addBaseNBTRecipeIndexedMachine(item){
     return Item.of(item, '{"currentRecipe": -1, "fuel": 0, "recipeProgress": 0, currentTime: 0}')
 }
 
+function addBaseNBTQuarry(item){
+    return Item.of(item, '{"currentInputItem": "minecraft:air", "currentOutputItem": "minecraft:air", "fuel": 0, "recipeProgress": 0, currentTime: 0}')
+}
+
 ServerEvents.recipes(event => {
-    addStorageAll(event, "aluminum")
+    //addStorageAll(event, "aluminum")
     addStorage(event, "brass")
     addStorage(event, "bronze")
-    addStorageAll(event, "cobalt")
-    addStorage(event, "constantan")
-    addStorage(event, "electrum")
+    //addStorageAll(event, "cobalt")
+    //addStorage(event, "constantan")
+    //addStorage(event, "electrum")
     addStorage(event, "invar")
-    addStorageAll(event, "iridium")
-    addStorage(event, "iridium_alloy")
+    //addStorageAll(event, "iridium")
+    //addStorage(event, "iridium_alloy")
     addStorageAll(event, "lead")
     addStorageAll(event, "nickel")
-    addStorageAll(event, "platinum")
+    //addStorageAll(event, "platinum")
     addStorage(event, "steel")
     addStorageAll(event, "tin")
-    addStorageAll(event, "titanium")
+    //addStorageAll(event, "titanium")
     addStorageAll(event, "zinc")
     event.shapeless("minecraft:copper_ingot", "9x kubejs:copper_nugget")
     event.shapeless("9x kubejs:copper_nugget", "minecraft:copper_ingot")
@@ -137,27 +141,27 @@ ServerEvents.recipes(event => {
     event.shapeless("kubejs:zinc_ring", ["kubejs:zinc_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
     event.shapeless("kubejs:zinc_plate", ["kubejs:zinc_ingot", "kubejs:zinc_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
 
-    addGearRotorRecipe(event, "aluminum")
+    //addGearRotorRecipe(event, "aluminum")
     addGearRotorRecipe(event, "brass")
     addGearRotorRecipe(event, "bronze")
-    addGearRotorRecipe(event, "cobalt")
-    addGearRotorRecipe(event, "constantan")
+    //addGearRotorRecipe(event, "cobalt")
+    //addGearRotorRecipe(event, "constantan")
     addGearRotorRecipe(event, "copper")
     addGearRotorRecipe(event, "diamond")
-    addGearRotorRecipe(event, "electrum")
+    //addGearRotorRecipe(event, "electrum")
     addGearRotorRecipe(event, "emerald")
     addGearRotorRecipe(event, "gold")
     addGearRotorRecipe(event, "invar")
-    addGearRotorRecipe(event, "iridium")
-    addGearRotorRecipe(event, "iridium_alloy")
+    //addGearRotorRecipe(event, "iridium")
+    //addGearRotorRecipe(event, "iridium_alloy")
     addGearRotorRecipe(event, "iron")
     addGearRotorRecipe(event, "lapis_lazuli")
     addGearRotorRecipe(event, "lead")
     addGearRotorRecipe(event, "nickel")
-    addGearRotorRecipe(event, "platinum")
+    //addGearRotorRecipe(event, "platinum")
     addGearRotorRecipe(event, "steel")
     addGearRotorRecipe(event, "tin")
-    addGearRotorRecipe(event, "titanium")
+    //addGearRotorRecipe(event, "titanium")
     addGearRotorRecipe(event, "zinc")
 
     event.shaped("kubejs:bronze_machine_casing", [
@@ -383,7 +387,7 @@ ServerEvents.recipes(event => {
         R: "minecraft:redstone",
         B: "kubejs:steel_bolt"
     })
-    event.shaped("kubejs:invar_dust", ["II", "N"], {I: "kubejs:iron_dust", N: "kubejs:nickel_dust"})
+    event.shaped("kubejs:invar_dust", ["II", "N "], {I: "kubejs:iron_dust", N: "kubejs:nickel_dust"})
 
     event.shaped(addBaseNBT("kubejs:inventory_furnace_tier_2"), [
         "PGP", 
@@ -473,5 +477,227 @@ ServerEvents.recipes(event => {
         W: "kubejs:invar_wire",
         P: "kubejs:steel_curved_plate",
         I: "kubejs:invar_gear"
+    })
+
+    event.shaped("kubejs:copper_drill_head", [
+        "BCP", 
+        "RGC", 
+        "IRB"
+    ], {
+        C: "kubejs:copper_curved_plate",
+        R: "kubejs:copper_rod",
+        G: "kubejs:copper_gear",
+        P: "kubejs:copper_plate",
+        B: "kubejs:copper_bolt",
+        I: "kubejs:copper_ring"
+    })
+    event.shaped("kubejs:bronze_drill_head", [
+        "BCP", 
+        "RGC", 
+        "IRB"
+    ], {
+        C: "kubejs:bronze_curved_plate",
+        R: "kubejs:bronze_rod",
+        G: "kubejs:bronze_gear",
+        P: "kubejs:bronze_plate",
+        B: "kubejs:bronze_bolt",
+        I: "kubejs:bronze_ring"
+    })
+    event.shaped("kubejs:steel_drill_head", [
+        "BCP", 
+        "RGC", 
+        "IRB"
+    ], {
+        C: "kubejs:steel_curved_plate",
+        R: "kubejs:steel_rod",
+        G: "kubejs:steel_gear",
+        P: "kubejs:steel_plate",
+        B: "kubejs:steel_bolt",
+        I: "kubejs:steel_ring"
+    })
+    event.shaped("kubejs:gold_drill_head", [
+        "BCP", 
+        "RGC", 
+        "IRB"
+    ], {
+        G: "kubejs:gold_curved_plate",
+        R: "kubejs:gold_rod",
+        C: "kubejs:gold_gear",
+        P: "kubejs:gold_plate",
+        B: "kubejs:gold_bolt",
+        I: "kubejs:gold_ring"
+    })
+
+    event.shaped("kubejs:motor", [
+        "PWB", 
+        "WRW", 
+        "GWP"
+    ], {
+        G: "kubejs:steel_gear",
+        R: "kubejs:steel_rod",
+        P: "kubejs:steel_curved_plate",
+        W: "kubejs:copper_wire",
+        B: "kubejs:steel_bolt"
+    })
+    event.shaped("kubejs:motor", [
+        "BWP", 
+        "WRW", 
+        "PWG"
+    ], {
+        G: "kubejs:steel_gear",
+        R: "kubejs:steel_rod",
+        P: "kubejs:steel_curved_plate",
+        W: "kubejs:copper_wire",
+        B: "kubejs:steel_bolt"
+    })
+
+    event.shaped("kubejs:capacitor", [
+        " P ", 
+        "WIW", 
+        " P "
+    ], {
+        P: "kubejs:gold_plate",
+        W: "kubejs:copper_wire",
+        I: "kubejs:battery_alloy_plate"
+    })
+    event.shaped("kubejs:resistor", [
+        "W W", 
+        "WBW", 
+        "W W"
+    ], {
+        B: "minecraft:brick",
+        W: "kubejs:copper_wire"
+    })
+    event.shaped("kubejs:inductor", [
+        "WWW", 
+        "WRW", 
+        "WWW"
+    ], {
+        W: "kubejs:copper_wire",
+        R: "kubejs:steel_rod"
+    })
+
+    event.shaped("kubejs:analog_circuit", [
+        "WPW", 
+        "CWC", 
+        "RIR"
+    ], {
+        P: "kubejs:lapis_lazuli_plate",
+        W: "kubejs:copper_wire",
+        C: "kubejs:capacitor",
+        R: "kubejs:resistor",
+        I: "kubejs:inductor"
+    })
+
+    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_assembler_tier_1"), [
+        "PMP", 
+        "ACA", 
+        "PMP"
+    ], {
+        C: "kubejs:steel_machine_casing",
+        A: "kubejs:analog_circuit",
+        P: "kubejs:steel_curved_plate",
+        M: "kubejs:motor"
+    })
+
+    event.shaped("4x kubejs:copper_drill", [
+        " BH", 
+        "GIB",
+        "IG "
+    ], {
+        H: "kubejs:copper_drill_head",
+        G: "kubejs:iron_gear",
+        B: "kubejs:iron_bolt",
+        I: "kubejs:iron_rod"
+    })
+    event.shaped("4x kubejs:bronze_drill", [
+        " BH", 
+        "GIB",
+        "IG "
+    ], {
+        H: "kubejs:bronze_drill_head",
+        G: "kubejs:iron_gear",
+        B: "kubejs:iron_bolt",
+        I: "kubejs:iron_rod"
+    })
+
+    event.shaped("4x kubejs:steel_drill", [
+        "BGH", 
+        "MAG",
+        "IMB"
+    ], {
+        H: "kubejs:steel_drill_head",
+        G: "kubejs:iron_gear",
+        B: "kubejs:iron_bolt",
+        I: "kubejs:iron_rod",
+        M: "kubejs:motor",
+        A: "kubejs:analog_circuit"
+    })
+    event.shaped("4x kubejs:gold_drill", [
+        "BGH", 
+        "MAG",
+        "IMB"
+    ], {
+        H: "kubejs:gold_drill_head",
+        G: "kubejs:iron_gear",
+        B: "kubejs:iron_bolt",
+        I: "kubejs:iron_rod",
+        M: "kubejs:motor",
+        A: "kubejs:analog_circuit"
+    })
+
+    event.shapeless("kubejs:inventory_puller_tier_1", ["kubejs:inventory_puller_tier_1", Ingredient.all]).modifyResult((grid, result) => {
+        let storedItem = grid.find("kubejs:inventory_puller_tier_1").nbt.Item
+        for(let i = 0; i < 2; i++){
+            if(!grid.get(i).is("kubejs:inventory_puller_tier_1")){
+                if(storedItem){
+                    return result.withNBT({filter: grid.get(i).id, Item: storedItem})
+                }
+                return result.withNBT({filter: grid.get(i).id})
+            }
+        }
+    })
+
+    event.shaped("kubejs:inventory_pusher_tier_1", [
+        "CHC", 
+        "CGC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_3",
+        C: "minecraft:cobblestone",
+        G: "kubejs:iron_gear"
+    })
+
+    event.shaped(Item.of("kubejs:inventory_puller_tier_1", '{"filter": "minecraft:air"}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_3",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+
+    event.shaped("kubejs:inventory_simulator_tier_2", [
+        "PGS", 
+        "IHI", 
+        "PGP"
+    ], {
+        S: "kubejs:inventory_simulator_tier_1",
+        G: "kubejs:gold_dust",
+        H: "#kubejs:inventory_hoppers_tier_3",
+        I: "kubejs:steel_gear",
+        P: "kubejs:steel_curved_plate"
+    })
+
+    event.shaped(addBaseNBTQuarry("kubejs:inventory_quarry_tier_1"), [
+        "PAP", 
+        "MCM", 
+        "MCM"
+    ], {
+        C: "kubejs:steel_machine_casing",
+        A: "kubejs:analog_circuit",
+        P: "kubejs:steel_curved_plate",
+        M: "kubejs:motor"
     })
 })

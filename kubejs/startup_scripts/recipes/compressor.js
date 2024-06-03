@@ -10,21 +10,21 @@ function addCompressorRecipes(material){
 }
 
 // plate
-addCompressorRecipes("aluminum")
+//addCompressorRecipes("aluminum")
 addCompressorRecipes("brass")
 addCompressorRecipes("bronze")
-addCompressorRecipes("cobalt")
-addCompressorRecipes("constantan")
-addCompressorRecipes("electrum")
+//addCompressorRecipes("cobalt")
+//addCompressorRecipes("constantan")
+//addCompressorRecipes("electrum")
 addCompressorRecipes("invar")
-addCompressorRecipes("iridium")
-addCompressorRecipes("iridium_alloy")
+//addCompressorRecipes("iridium")
+//addCompressorRecipes("iridium_alloy")
 addCompressorRecipes("lead")
 addCompressorRecipes("nickel")
-addCompressorRecipes("platinum")
+//addCompressorRecipes("platinum")
 addCompressorRecipes("steel")
 addCompressorRecipes("tin")
-addCompressorRecipes("titanium")
+//addCompressorRecipes("titanium")
 addCompressorRecipes("zinc")
 
 addCompressorRecipe("kubejs:battery_alloy_plate", "kubejs:battery_alloy_ingot");

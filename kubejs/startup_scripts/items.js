@@ -1,5 +1,6 @@
 StartupEvents.registry("item", event => {
     //materials
+    /*
     event.create("aluminum_bolt").texture("kubejs:item/materials/aluminum/aluminum_bolt")
     event.create("aluminum_crushed_ore").displayName("Crushed Aluminum Ore").texture("kubejs:item/materials/aluminum/aluminum_crushed_ore")
     event.create("aluminum_curved_plate").texture("kubejs:item/materials/aluminum/aluminum_curved_plate")
@@ -13,6 +14,7 @@ StartupEvents.registry("item", event => {
     event.create("aluminum_rod").texture("kubejs:item/materials/aluminum/aluminum_rod")
     event.create("aluminum_rotor").texture("kubejs:item/materials/aluminum/aluminum_rotor")
     event.create("aluminum_wire").texture("kubejs:item/materials/aluminum/aluminum_wire")
+    */
 
     event.create("antimony_dust").texture("kubejs:item/materials/antimony/antimony_dust")
 
@@ -47,6 +49,7 @@ StartupEvents.registry("item", event => {
     event.create("bronze_rotor").texture("kubejs:item/materials/bronze/bronze_rotor")
     event.create("bronze_wire").texture("kubejs:item/materials/bronze/bronze_wire")
 
+    /*
     event.create("cobalt_bolt").texture("kubejs:item/materials/cobalt/cobalt_bolt")
     event.create("cobalt_crushed_ore").displayName("Crushed Cobalt Ore").texture("kubejs:item/materials/cobalt/cobalt_crushed_ore")
     event.create("cobalt_curved_plate").texture("kubejs:item/materials/cobalt/cobalt_curved_plate")
@@ -60,9 +63,11 @@ StartupEvents.registry("item", event => {
     event.create("cobalt_rod").texture("kubejs:item/materials/cobalt/cobalt_rod")
     event.create("cobalt_rotor").texture("kubejs:item/materials/cobalt/cobalt_rotor")
     event.create("cobalt_wire").texture("kubejs:item/materials/cobalt/cobalt_wire")
+    */
 
     event.create("coal_dust").texture("kubejs:item/materials/coal/coal_dust")
 
+    /*
     event.create("constantan_bolt").texture("kubejs:item/materials/constantan/constantan_bolt")
     event.create("constantan_curved_plate").texture("kubejs:item/materials/constantan/constantan_curved_plate")
     event.create("constantan_dust").texture("kubejs:item/materials/constantan/constantan_dust")
@@ -74,6 +79,7 @@ StartupEvents.registry("item", event => {
     event.create("constantan_rod").texture("kubejs:item/materials/constantan/constantan_rod")
     event.create("constantan_rotor").texture("kubejs:item/materials/constantan/constantan_rotor")
     event.create("constantan_wire").texture("kubejs:item/materials/constantan/constantan_wire")
+    */
 
     event.create("copper_bolt").texture("kubejs:item/materials/copper/copper_bolt")
     event.create("copper_chunk").texture("kubejs:item/materials/copper/copper_chunk")
@@ -98,6 +104,7 @@ StartupEvents.registry("item", event => {
     event.create("diamond_rotor").texture("kubejs:item/materials/diamond/diamond_rotor")
     event.create("diamond_wire").texture("kubejs:item/materials/diamond/diamond_wire")
 
+    /*
     event.create("electrum_bolt").texture("kubejs:item/materials/electrum/electrum_bolt")
     event.create("electrum_curved_plate").texture("kubejs:item/materials/electrum/electrum_curved_plate")
     event.create("electrum_dust").texture("kubejs:item/materials/electrum/electrum_dust")
@@ -109,6 +116,7 @@ StartupEvents.registry("item", event => {
     event.create("electrum_rod").texture("kubejs:item/materials/electrum/electrum_rod")
     event.create("electrum_rotor").texture("kubejs:item/materials/electrum/electrum_rotor")
     event.create("electrum_wire").texture("kubejs:item/materials/electrum/electrum_wire")
+    */
 
     event.create("emerald_bolt").texture("kubejs:item/materials/emerald/emerald_bolt")
     event.create("emerald_curved_plate").texture("kubejs:item/materials/emerald/emerald_curved_plate")
@@ -143,6 +151,7 @@ StartupEvents.registry("item", event => {
     event.create("invar_rotor").texture("kubejs:item/materials/invar/invar_rotor")
     event.create("invar_wire").texture("kubejs:item/materials/invar/invar_wire")
 
+    /*
     event.create("iridium_bolt").texture("kubejs:item/materials/iridium/iridium_bolt")
     event.create("iridium_crushed_ore").displayName("Crushed Iridium Ore").texture("kubejs:item/materials/iridium/iridium_crushed_ore")
     event.create("iridium_curved_plate").texture("kubejs:item/materials/iridium/iridium_curved_plate")
@@ -156,7 +165,9 @@ StartupEvents.registry("item", event => {
     event.create("iridium_rod").texture("kubejs:item/materials/iridium/iridium_rod")
     event.create("iridium_rotor").texture("kubejs:item/materials/iridium/iridium_rotor")
     event.create("iridium_wire").texture("kubejs:item/materials/iridium/iridium_wire")
+    */
 
+    /*
     event.create("iridium_alloy_bolt").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_bolt")
     event.create("iridium_alloy_curved_plate").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_curved_plate")
     event.create("iridium_alloy_dust").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_dust")
@@ -168,6 +179,7 @@ StartupEvents.registry("item", event => {
     event.create("iridium_alloy_rod").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_rod")
     event.create("iridium_alloy_rotor").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_rotor")
     event.create("iridium_alloy_wire").texture("kubejs:item/materials/iridium_alloy/iridium_alloy_wire")
+    */
 
     event.create("iron_bolt").texture("kubejs:item/materials/iron/iron_bolt")
     event.create("iron_chunk").texture("kubejs:item/materials/iron/iron_chunk")
@@ -219,6 +231,7 @@ StartupEvents.registry("item", event => {
     event.create("nickel_rotor").texture("kubejs:item/materials/nickel/nickel_rotor")
     event.create("nickel_wire").texture("kubejs:item/materials/nickel/nickel_wire")
 
+    /*
     event.create("platinum_bolt").texture("kubejs:item/materials/platinum/platinum_bolt")
     event.create("platinum_crushed_ore").displayName("Crushed Platinum Ore").texture("kubejs:item/materials/platinum/platinum_crushed_ore")
     event.create("platinum_curved_plate").texture("kubejs:item/materials/platinum/platinum_curved_plate")
@@ -232,6 +245,7 @@ StartupEvents.registry("item", event => {
     event.create("platinum_rod").texture("kubejs:item/materials/platinum/platinum_rod")
     event.create("platinum_rotor").texture("kubejs:item/materials/platinum/platinum_rotor")
     event.create("platinum_wire").texture("kubejs:item/materials/platinum/platinum_wire")
+    */
 
     event.create("steel_bolt").texture("kubejs:item/materials/steel/steel_bolt")
     event.create("steel_curved_plate").texture("kubejs:item/materials/steel/steel_curved_plate")
@@ -260,6 +274,7 @@ StartupEvents.registry("item", event => {
     event.create("tin_rotor").texture("kubejs:item/materials/tin/tin_rotor")
     event.create("tin_wire").texture("kubejs:item/materials/tin/tin_wire")
 
+    /*
     event.create("titanium_bolt").texture("kubejs:item/materials/titanium/titanium_bolt")
     event.create("titanium_crushed_ore").displayName("Crushed Titanium Ore").texture("kubejs:item/materials/titanium/titanium_crushed_ore")
     event.create("titanium_curved_plate").texture("kubejs:item/materials/titanium/titanium_curved_plate")
@@ -273,6 +288,7 @@ StartupEvents.registry("item", event => {
     event.create("titanium_rod").texture("kubejs:item/materials/titanium/titanium_rod")
     event.create("titanium_rotor").texture("kubejs:item/materials/titanium/titanium_rotor")
     event.create("titanium_wire").texture("kubejs:item/materials/titanium/titanium_wire")
+    */
 
     event.create("zinc_bolt").texture("kubejs:item/materials/zinc/zinc_bolt")
     event.create("zinc_crushed_ore").displayName("Crushed Zinc Ore").texture("kubejs:item/materials/zinc/zinc_crushed_ore")
@@ -295,4 +311,24 @@ StartupEvents.registry("item", event => {
     //tier 2
     event.create("coal_coke").texture("kubejs:item/materials/coal_coke/coal_coke").burnTime(3200)
     event.create("coal_coke_dust").texture("kubejs:item/materials/coal_coke/coal_coke_dust")
+    event.create("steel_hammer").texture("kubejs:item/ee/steel_hammer").maxDamage(768)
+
+    //event.create("aluminum_drill_head").texture("kubejs:item/mi/drill/aluminum_drill_head")
+    //event.create("aluminum_drill").texture("kubejs:item/mi/drill/aluminum_drill")
+    event.create("bronze_drill_head").texture("kubejs:item/mi/drill/bronze_drill_head")
+    event.create("bronze_drill").texture("kubejs:item/mi/drill/bronze_drill")
+    event.create("copper_drill_head").texture("kubejs:item/mi/drill/copper_drill_head")
+    event.create("copper_drill").texture("kubejs:item/mi/drill/copper_drill")
+    event.create("gold_drill_head").texture("kubejs:item/mi/drill/gold_drill_head")
+    event.create("gold_drill").texture("kubejs:item/mi/drill/gold_drill")
+    event.create("steel_drill_head").texture("kubejs:item/mi/drill/steel_drill_head")
+    event.create("steel_drill").texture("kubejs:item/mi/drill/steel_drill")
+    //event.create("titanium_drill_head").texture("kubejs:item/mi/drill/titanium_drill_head")
+    //event.create("titanium_drill").texture("kubejs:item/mi/drill/titanium_drill")
+
+    event.create("motor").texture("kubejs:item/mi/motor")
+    event.create("capacitor").texture("kubejs:item/mi/capacitor")
+    event.create("resistor").texture("kubejs:item/mi/resistor")
+    event.create("inductor").texture("kubejs:item/mi/inductor")
+    event.create("analog_circuit").displayName("Circuit").texture("kubejs:item/mi/analog_circuit")
 })  

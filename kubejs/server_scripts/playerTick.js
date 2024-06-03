@@ -15,7 +15,7 @@ PlayerEvents.tick(event => {
                 }
             }
             for(let data of machineData[ticks]){
-                global.tickInventoryItem(inventory, data, "player")
+                global.tickInventoryItem("", inventory, data, "player")
             }
         }
     }

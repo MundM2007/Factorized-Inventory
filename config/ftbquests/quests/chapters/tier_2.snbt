@@ -22,8 +22,8 @@
 				item: "kubejs:inventory_coke_oven_tier_1"
 				type: "item"
 			}]
-			x: -2.0d
-			y: 2.0d
+			x: -4.0d
+			y: 6.0d
 		}
 		{
 			dependencies: ["54B9AE41BF71177D"]
@@ -40,7 +40,7 @@
 				type: "item"
 			}]
 			x: 0.0d
-			y: 4.0d
+			y: 6.0d
 		}
 		{
 			dependencies: [
@@ -66,14 +66,11 @@
 					type: "item"
 				}
 			]
-			x: 0.0d
-			y: 2.0d
+			x: -2.0d
+			y: 6.0d
 		}
 		{
-			dependencies: [
-				"43071F4EA5EC597E"
-				"54B9AE41BF71177D"
-			]
+			dependencies: ["43071F4EA5EC597E"]
 			id: "7090CBD448091823"
 			rewards: [{
 				id: "27A7842E84C134DC"
@@ -87,7 +84,7 @@
 				type: "item"
 			}]
 			x: 2.0d
-			y: 2.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["43071F4EA5EC597E"]
@@ -98,7 +95,7 @@
 				item: "kubejs:nickel_ingot"
 				type: "item"
 			}]
-			x: 2.0d
+			x: 4.0d
 			y: 6.0d
 		}
 		{
@@ -110,7 +107,7 @@
 				type: "item"
 			}]
 			x: 0.0d
-			y: 6.0d
+			y: 4.0d
 		}
 		{
 			dependencies: ["283D59EB633ED985"]
@@ -136,7 +133,7 @@
 				}
 			]
 			title: "Invar"
-			x: 4.0d
+			x: 8.0d
 			y: 6.0d
 		}
 		{
@@ -181,7 +178,8 @@
 					type: "item"
 				}
 			]
-			x: 4.0d
+			title: "Tier 2 Machines"
+			x: 6.0d
 			y: 4.0d
 		}
 		{
@@ -198,7 +196,7 @@
 				item: "kubejs:steel_machine_casing"
 				type: "item"
 			}]
-			x: 6.0d
+			x: 4.0d
 			y: 2.0d
 		}
 		{
@@ -218,8 +216,8 @@
 				item: "kubejs:inventory_wiremill_tier_1"
 				type: "item"
 			}]
-			x: 8.0d
-			y: 4.0d
+			x: 6.0d
+			y: 0.0d
 		}
 		{
 			dependencies: [
@@ -247,7 +245,7 @@
 				type: "item"
 			}]
 			x: 6.0d
-			y: 4.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["400201A6EE94AFD8"]
@@ -273,8 +271,8 @@
 				}
 			]
 			title: "Advanced Invar Products"
-			x: 6.0d
-			y: 6.0d
+			x: 8.0d
+			y: 2.0d
 		}
 		{
 			dependencies: ["3D58E0BAEB32BCC5"]
@@ -285,8 +283,8 @@
 				item: { Count: 3, id: "kubejs:invar_wire" }
 				type: "item"
 			}]
-			x: 10.0d
-			y: 4.0d
+			x: 6.0d
+			y: -2.0d
 		}
 		{
 			dependencies: ["4DEAC363E2F95CC1"]
@@ -302,8 +300,8 @@
 				item: "kubejs:inventory_blast_furnace_tier_2"
 				type: "item"
 			}]
-			x: 12.0d
-			y: 5.0d
+			x: 7.0d
+			y: -4.0d
 		}
 		{
 			dependencies: ["4DEAC363E2F95CC1"]
@@ -319,20 +317,235 @@
 				item: "kubejs:inventory_coke_oven_tier_2"
 				type: "item"
 			}]
-			x: 12.0d
-			y: 3.0d
+			x: 5.0d
+			y: -4.0d
 		}
 		{
 			dependencies: ["0D5AAB6F1AAD61AA"]
 			id: "1F12E6AEDCD0D1A5"
+			rewards: [{
+				id: "3A1E22F2A3C00A53"
+				item: "kubejs:battery_alloy_ingot"
+				type: "item"
+			}]
 			tasks: [{
 				count: 2L
 				id: "5E22B44505745198"
 				item: { Count: 2, id: "kubejs:battery_alloy_ingot" }
 				type: "item"
 			}]
+			x: -2.0d
+			y: 4.0d
+		}
+		{
+			dependencies: ["1F12E6AEDCD0D1A5"]
+			id: "44C6D54CED63DC9A"
+			rewards: [{
+				id: "626F8D96511085B3"
+				item: "kubejs:gold_plate"
+				type: "item"
+			}]
+			tasks: [{
+				count: 2L
+				id: "6B1CA951A0CF7571"
+				item: "kubejs:capacitor"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"44C6D54CED63DC9A"
+				"58D79080884E961C"
+				"0029608BFA3B970F"
+			]
+			id: "3AAF08B835A461A4"
+			tasks: [{
+				id: "2CE01C34B111D1D0"
+				item: "kubejs:analog_circuit"
+				type: "item"
+			}]
+			x: -2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: [
+				"7090CBD448091823"
+				"3D58E0BAEB32BCC5"
+			]
+			id: "631D7FD9225166D3"
+			rewards: [{
+				id: "4CD486CEA57612CE"
+				item: "kubejs:steel_gear"
+				type: "item"
+			}]
+			tasks: [{
+				count: 2L
+				id: "73D9089489EA6901"
+				item: "kubejs:motor"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["7090CBD448091823"]
+			id: "58D79080884E961C"
+			rewards: [{
+				count: 2
+				id: "1B3345D7613E2460"
+				item: "kubejs:copper_wire"
+				type: "item"
+			}]
+			tasks: [{
+				id: "791BA12CB991863A"
+				item: "kubejs:inductor"
+				type: "item"
+			}]
 			x: 0.0d
-			y: 8.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["3D58E0BAEB32BCC5"]
+			hide_dependency_lines: true
+			id: "0029608BFA3B970F"
+			rewards: [{
+				count: 3
+				id: "0AC14A54C535363E"
+				item: "kubejs:copper_wire"
+				type: "item"
+			}]
+			tasks: [{
+				count: 2L
+				id: "45D0B36CB00C58F7"
+				item: "kubejs:resistor"
+				type: "item"
+			}]
+			x: -4.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"631D7FD9225166D3"
+				"3AAF08B835A461A4"
+			]
+			id: "5DE5CDE954A91B5D"
+			rewards: [{
+				id: "01D2A7DB67FC05EE"
+				item: "kubejs:analog_circuit"
+				type: "item"
+			}]
+			tasks: [{
+				id: "45774B9AAE9D1804"
+				item: "kubejs:inventory_assembler_tier_1"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -2.0d
+		}
+		{
+			dependencies: [
+				"631D7FD9225166D3"
+				"3AAF08B835A461A4"
+			]
+			id: "38BA90B4B95C0951"
+			rewards: [{
+				exclude_from_claim_all: true
+				id: "4F1FC6DF57AFA0DC"
+				table_id: 5245591705369640276L
+				type: "choice"
+			}]
+			tasks: [{
+				id: "0FB324EBA3624CD8"
+				item: "kubejs:inventory_quarry_tier_1"
+				type: "item"
+			}]
+			x: 0.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["38BA90B4B95C0951"]
+			id: "47FAA8A60740948B"
+			rewards: [{
+				count: 8
+				id: "63056293F173DD2E"
+				item: "kubejs:copper_drill"
+				type: "item"
+			}]
+			tasks: [{
+				count: 64L
+				id: "566E14B726530571"
+				item: { Count: 64, id: "kubejs:copper_drill" }
+				type: "item"
+			}]
+			x: -3.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["38BA90B4B95C0951"]
+			id: "2E165882400D8FA7"
+			rewards: [{
+				count: 8
+				id: "2351F87F1B206130"
+				item: "kubejs:bronze_drill"
+				type: "item"
+			}]
+			tasks: [{
+				count: 64L
+				id: "4AE35F1477C39D54"
+				item: { Count: 64, id: "kubejs:bronze_drill" }
+				type: "item"
+			}]
+			x: -1.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["38BA90B4B95C0951"]
+			id: "3770D5342B040816"
+			rewards: [{
+				count: 2
+				id: "4735FBA57A8C11BE"
+				item: "kubejs:steel_drill"
+				type: "item"
+			}]
+			tasks: [{
+				count: 16L
+				id: "6E079F454851663F"
+				item: { Count: 16, id: "kubejs:steel_drill" }
+				type: "item"
+			}]
+			x: 3.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["38BA90B4B95C0951"]
+			id: "0A62B0031E5A0087"
+			rewards: [{
+				count: 2
+				id: "05B407A3EEF6D920"
+				item: "kubejs:gold_drill"
+				type: "item"
+			}]
+			tasks: [{
+				count: 16L
+				id: "24E93E7294BD3DAA"
+				item: { Count: 16, id: "kubejs:gold_drill" }
+				type: "item"
+			}]
+			x: 1.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["7090CBD448091823"]
+			id: "734BC0E0F5F753F2"
+			tasks: [{
+				id: "2678C0A686CAD964"
+				item: "kubejs:inventory_simulator_tier_2"
+				type: "item"
+			}]
+			x: 4.0d
+			y: 4.0d
 		}
 	]
 	title: "Tier 2"

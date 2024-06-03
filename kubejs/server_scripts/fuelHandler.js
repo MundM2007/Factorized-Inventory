@@ -1,13 +1,11 @@
 let fuelItems = {}
-ServerEvents.recipes(event => {
-    Ingredient.all.stacks.forEach(item => {
-        let burnTime = $ForgeHooks.getBurnTime(item, $RecipeType.SMELTING)
-        if (burnTime > 0) {
-            fuelItems[item.id] = burnTime
-        }
-    })
-})
 
+Ingredient.all.stacks.forEach(item => {
+    let burnTime = $ForgeHooks.getBurnTime(item, $RecipeType.SMELTING)
+    if (burnTime > 0) {
+        fuelItems[item.id] = burnTime
+    }
+})
 
 function getFuel(inventory, extractSlotIndex){
     if(!extractSlotIndex) return Item.of("minecraft:air")

@@ -1,0 +1,12 @@
+{
+	id: "48CC15DD1B4AFD54"
+	loot_size: 1
+	order_index: 0
+	rewards: [
+		{ count: 4, item: "kubejs:copper_drill" }
+		{ count: 4, item: "kubejs:bronze_drill" }
+		{ item: "kubejs:gold_drill" }
+		{ item: "kubejs:steel_drill" }
+	]
+	title: "Drills"
+}
