@@ -603,6 +603,42 @@
 			x: 24.0d
 			y: 2.0d
 		}
+		{
+			dependencies: ["2AE80A61E00B507B"]
+			description: ["Make sure to not insert any items while in the players Inventory. They won't be voided, but you'll need an Inventory Simulator to get them back out."]
+			id: "273DDE7AAE30AE67"
+			rewards: [{
+				count: 2
+				id: "7CE66750EDEC86E2"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "42C10AC35FC75C05"
+				item: "kubejs:inventory_pusher_tier_1"
+				type: "item"
+			}]
+			x: 17.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["2AE80A61E00B507B"]
+			description: ["You can set a filter on this item by crafting it with any other item."]
+			id: "7FF668661D37C5C0"
+			rewards: [{
+				count: 2
+				id: "05D44DC0686D9086"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "100D2FAD9394C160"
+				item: "kubejs:inventory_puller_tier_1"
+				type: "item"
+			}]
+			x: 19.0d
+			y: -4.0d
+		}
 	]
 	title: "Tier 1"
 }

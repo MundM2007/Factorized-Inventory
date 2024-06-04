@@ -189,16 +189,16 @@ ItemEvents.tooltip(event => {
         if (!event.shift) {
             text.add(1, [Text.gray('Hold [Shift] for more info.')])
         } else {
-            text.add(1, Text.gray('Pushes up to 10 items inserted into itself'))
-            text.add(2, Text.gray('into the block below the Inventory Simulator'))
-            text.add(3, Text.red('Only works in the inventory simulator'))
+            text.add(1, Text.red('Only works in the Inventory Simulator'))
+            text.add(2, Text.gray('Pushes up to 10 items inserted into itself'))
+            text.add(3, Text.gray('into the block below the Inventory Simulator'))
             if(item.nbt){
                 if(item.nbt.Item){
                     let count = ""
                     if(item.nbt.Item.Count > 1){
                         count = item.nbt.Item.Count.toFixed(0) + "x "
                     }
-                    text.add(3, Text.green('Currently Holding: ' + count).append(Text.green(Component.translatable(Item.of(item.nbt.Item.id).item.getDescriptionId()))))
+                    text.add(4, Text.green('Currently Holding: ' + count).append(Text.green(Component.translatable(Item.of(item.nbt.Item.id).item.getDescriptionId()))))
                 }
             }
         }
@@ -208,9 +208,9 @@ ItemEvents.tooltip(event => {
         if (!event.shift) {
             text.add(1, [Text.gray('Hold [Shift] for more info.')])
         } else {
-            text.add(1, Text.gray('Pulls up to 10 items from the block above the Inventory Simulator'))
-            text.add(2, Text.gray('into itself to be extracted from'))
-            text.add(3, Text.red('Only works in the inventory simulator'))
+            text.add(1, Text.red('Only works in the Inventory Simulator'))
+            text.add(2, Text.gray('Pulls up to 10 items from the block above the Inventory Simulator'))
+            text.add(3, Text.gray('into itself to be extracted from'))
             if(item.nbt){
                 let itemExtra = 0
                 if(item.nbt.Item){
@@ -218,11 +218,11 @@ ItemEvents.tooltip(event => {
                     if(item.nbt.Item.Count > 1){
                         count = item.nbt.Item.Count.toFixed(0) + "x "
                     }
-                    text.add(3, Text.green('Currently Holding: ' + count).append(Text.green(Component.translatable(Item.of(item.nbt.Item.id).item.getDescriptionId()))))
+                    text.add(4, Text.green('Currently Holding: ' + count).append(Text.green(Component.translatable(Item.of(item.nbt.Item.id).item.getDescriptionId()))))
                     itemExtra = 1
                 }
                 if(item.nbt.filter && item.nbt.filter != "minecraft:air"){
-                    text.add(3 + itemExtra, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter).item.getDescriptionId()))))
+                    text.add(4 + itemExtra, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter).item.getDescriptionId()))))
                 }
             }
         }

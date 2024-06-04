@@ -659,9 +659,9 @@ ServerEvents.recipes(event => {
     })
 
     event.shaped("kubejs:inventory_pusher_tier_1", [
-        "CHC", 
+        "CCC", 
         "CGC", 
-        "CCC"
+        "CHC"
     ], {
         H: "kubejs:inventory_hopper_tier_3",
         C: "minecraft:cobblestone",
