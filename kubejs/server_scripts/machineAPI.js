@@ -139,7 +139,7 @@ function insertItem(inventory, slotIndex, item){
                 if($ItemStack.isSameItemSameTags(shulkerItem, item)){
                     let countCanInsert = shulkerItem.getMaxStackSize() - shulkerItem.count
                     if(countCanInsert < leftToInsert) {
-                        shulkerItemJson.Count = slotItem.getMaxStackSize()
+                        shulkerItemJson.Count = shulkerItem.getMaxStackSize()
                         leftToInsert -= countCanInsert
                     }else{
                         shulkerItemJson.Count = leftToInsert + shulkerItem.count
