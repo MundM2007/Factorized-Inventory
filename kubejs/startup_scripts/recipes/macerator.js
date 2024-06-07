@@ -68,6 +68,8 @@ addMaceratorRecipe("6x minecraft:redstone", "minecraft:redstone_ore", 400)
 addMaceratorRecipe("6x minecraft:redstone", "minecraft:deepslate_redstone_ore", 400)
 
 
+addMaceratorRecipe("4x minecraft:clay_ball", "minecraft:clay", 100)
+
 function addMaceratorRecipes(material) {
     // dust from ingot
     addMaceratorRecipe(`kubejs:${material}_dust`, `kubejs:${material}_ingot`);
