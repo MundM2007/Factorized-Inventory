@@ -152,5 +152,5 @@ function getRecipeMixer(slotItems){
 
 
 function getRecipeAssembler(slotItems){
-    return getRecipeIndexedMachineRecipe(global.recipes.assembler, slotItems, 3)
+    return getRecipeIndexedMachineRecipe(global.recipes.assembler, slotItems, 5)
 }
