@@ -91,6 +91,7 @@ addQuarryRecipe(
         "5x minecraft:soul_sand",
         "5x minecraft:soul_soil",
         "4x minecraft:magma_block",
+        "4x biomesoplenty:brimstone",
         "4x minecraft:glowstone",
         "2x minecraft:nether_quartz_ore",
         "minecraft:nether_gold_ore",
@@ -101,13 +102,14 @@ addQuarryRecipe(
         20,
         10,
         10,
-        8, //+1
         7, //+1
-        6,
-        6,
+        6, //+1
+        5,
+        5,
+        5,
         20,
         10,
-        3
+        2
         //2
     ],
     "kubejs:gold_drill",

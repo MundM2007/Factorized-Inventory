@@ -1,20 +1,3 @@
-function addStorage(event, material){
-    event.shapeless(`kubejs:${material}_storage_block`, `9x kubejs:${material}_ingot`)
-    event.shapeless(`9x kubejs:${material}_ingot`, `kubejs:${material}_storage_block`)
-    event.shapeless(`kubejs:${material}_ingot`, `9x kubejs:${material}_nugget`)
-    event.shapeless(`9x kubejs:${material}_nugget`, `kubejs:${material}_ingot`)
-}
-
-function addStorageOre(event, material){
-    event.shapeless(`kubejs:${material}_raw_block`, `9x kubejs:${material}_raw_material`)
-    event.shapeless(`9x kubejs:${material}_raw_material`, `kubejs:${material}_raw_block`)
-}
-
-function addStorageAll(event, material){
-    addStorage(event, material)
-    addStorageOre(event, material)
-}
-
 function addGearRotorRecipe(event, material){
     event.shaped(`kubejs:${material}_gear`, [
         "P P",
@@ -73,26 +56,6 @@ function addBaseNBTQuarry(item){
 }
 
 ServerEvents.recipes(event => {
-    //addStorageAll(event, "aluminum")
-    addStorage(event, "brass")
-    addStorage(event, "bronze")
-    //addStorageAll(event, "cobalt")
-    //addStorage(event, "constantan")
-    //addStorage(event, "electrum")
-    addStorage(event, "invar")
-    //addStorageAll(event, "iridium")
-    //addStorage(event, "iridium_alloy")
-    addStorageAll(event, "lead")
-    addStorageAll(event, "nickel")
-    //addStorageAll(event, "platinum")
-    addStorage(event, "steel")
-    addStorageAll(event, "tin")
-    //addStorageAll(event, "titanium")
-    addStorageAll(event, "zinc")
-    event.shapeless("minecraft:copper_ingot", "9x kubejs:copper_nugget")
-    event.shapeless("9x kubejs:copper_nugget", "minecraft:copper_ingot")
-
-    // Tier 1
     event.campfireCooking("kubejs:bronze_chunk", "kubejs:bronze_dust").cookingTime(400)
     event.shapeless("6x kubejs:bronze_nugget", "kubejs:bronze_chunk")
     event.campfireCooking("kubejs:copper_chunk", "minecraft:raw_copper").cookingTime(400)
@@ -334,6 +297,159 @@ ServerEvents.recipes(event => {
     })
     event.shapeless("kubejs:inventory_hopper_right_facing_tier_3", ["kubejs:inventory_upper_tier_3"])
 
+    event.shaped("kubejs:inventory_puller_tier_1", [
+        "PI ",
+        "   ",
+        "   "
+    ], {
+        P: "kubejs:inventory_puller_tier_1",
+        I: Ingredient.all
+    })
+    .noShrink()
+    .noMirror()
+    .keepIngredient(1)
+    .modifyResult((grid, result) => {
+        let storedItem = grid.get(0).nbt.Item
+        if(storedItem){
+            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
+        }
+        return result.withNBT({filter: grid.get(1).id})
+    })
+    event.shaped("kubejs:inventory_puller_tier_2", [
+        "PI ",
+        "   ",
+        "   "
+    ], {
+        P: "kubejs:inventory_puller_tier_2",
+        I: Ingredient.all
+    })
+    .noShrink()
+    .noMirror()
+    .keepIngredient(1)
+    .modifyResult((grid, result) => {
+        let storedItem = grid.get(0).nbt.Item
+        if(storedItem){
+            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
+        }
+        return result.withNBT({filter: grid.get(1).id})
+    })
+    event.shaped("kubejs:inventory_puller_tier_3", [
+        "PI ",
+        "   ",
+        "   "
+    ], {
+        P: "kubejs:inventory_puller_tier_3",
+        I: Ingredient.all
+    })
+    .noShrink()
+    .noMirror()
+    .keepIngredient(1)
+    .modifyResult((grid, result) => {
+        let storedItem = grid.get(0).nbt.Item
+        if(storedItem){
+            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
+        }
+        return result.withNBT({filter: grid.get(1).id})
+    })
+
+    event.shaped("kubejs:inventory_pusher_tier_1", [
+        "CCC", 
+        "CGC", 
+        "CHC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_1",
+        C: "minecraft:cobblestone",
+        G: "kubejs:iron_gear"
+    })
+    event.shaped("kubejs:inventory_pusher_tier_2", [
+        "CCC", 
+        "CGC", 
+        "CHC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_2",
+        C: "minecraft:cobblestone",
+        G: "kubejs:iron_gear"
+    })
+    event.shaped("kubejs:inventory_pusher_tier_2", [
+        "IGI", 
+        "IPI", 
+        " I "
+    ], {
+        G: "kubejs:gold_gear",
+        I: "minecraft:gold_ingot",
+        P: "kubejs:inventory_pusher_tier_1"
+    })
+    event.shaped("kubejs:inventory_pusher_tier_3", [
+        "CCC", 
+        "CGC", 
+        "CHC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_3",
+        C: "minecraft:cobblestone",
+        G: "kubejs:iron_gear"
+    })
+    event.shaped("kubejs:inventory_pusher_tier_3", [
+        "IRI", 
+        "IPI", 
+        " I "
+    ], {
+        R: "kubejs:diamond_rotor",
+        I: "minecraft:diamond",
+        P: "kubejs:inventory_pusher_tier_2"
+    })
+
+    event.shaped(Item.of("kubejs:inventory_puller_tier_1", '{"filter": "minecraft:air"}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_1",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped(Item.of("kubejs:inventory_puller_tier_2", '{"filter": "minecraft:air"}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_2",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("kubejs:inventory_puller_tier_2", [
+        "IGI", 
+        "IPI", 
+        " I "
+    ], {
+        G: "kubejs:gold_gear",
+        I: "minecraft:gold_ingot",
+        P: "kubejs:inventory_puller_tier_1"
+    }).modifyResult((grid, result) => {
+        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
+        return result.withNBT(item.nbt)
+    })
+    event.shaped(Item.of("kubejs:inventory_puller_tier_3", '{"filter": "minecraft:air"}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_tier_3",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("kubejs:inventory_puller_tier_3", [
+        "IRI", 
+        "IPI", 
+        " I "
+    ], {
+        R: "kubejs:diamond_rotor",
+        I: "minecraft:diamond",
+        P: "kubejs:inventory_puller_tier_2"
+    }).modifyResult((grid, result) => {
+        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
+        return result.withNBT(item.nbt)
+    })
+
     event.shaped("kubejs:inventory_simulator_tier_1", [
         "PGD", 
         "IHI", 
@@ -346,358 +462,175 @@ ServerEvents.recipes(event => {
         P: "kubejs:iron_curved_plate"
     })
 
-    // tier 2
-    event.shaped(addBaseNBT("kubejs:inventory_coke_oven_tier_1"), [
-        "PBP", 
-        "BCB", 
-        "BCB"
-    ], {
-        B: "minecraft:bricks",
-        C: "kubejs:bronze_machine_casing",
-        P: "kubejs:bronze_plate"
-    })
-    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_blast_furnace_tier_1"), [
-        "BDB", 
-        "BCB", 
-        "PCP"
-    ], {
-        D: "kubejs:coal_coke_dust",
-        C: "kubejs:bronze_machine_casing",
-        P: "kubejs:bronze_plate",
-        B: "minecraft:bricks"
-    })
-
-    event.shaped("kubejs:steel_machine_casing", [
-        "PRP", 
-        "BGB", 
-        "PRP"
-    ], {
-        G: "kubejs:steel_gear",
-        P: "kubejs:steel_plate",
-        R: "minecraft:redstone",
-        B: "kubejs:steel_bolt"
-    })
-    event.shaped("kubejs:steel_machine_casing", [
-        "PBP", 
-        "RGR", 
-        "PBP"
-    ], {
-        G: "kubejs:steel_gear",
-        P: "kubejs:steel_plate",
-        R: "minecraft:redstone",
-        B: "kubejs:steel_bolt"
-    })
-    event.shaped("kubejs:invar_dust", ["II", "N "], {I: "kubejs:iron_dust", N: "kubejs:nickel_dust"})
-
-    event.shaped(addBaseNBT("kubejs:inventory_furnace_tier_2"), [
-        "PGP", 
-        "ICI", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_furnace_tier_1",
-        G: "kubejs:invar_gear",
-        P: "kubejs:steel_plate",
-        I: "kubejs:invar_plate"
-    })
-    event.shaped(addBaseNBT("kubejs:inventory_compressor_tier_2"), [
-        "PGP", 
-        "ICI", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_compressor_tier_1",
-        G: "kubejs:invar_gear",
-        P: "kubejs:steel_plate",
-        I: "kubejs:invar_plate"
-    })
-    event.shaped(addBaseNBT("kubejs:inventory_cutting_machine_tier_2"), [
-        "PGP", 
-        "ICI", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_cutting_machine_tier_1",
-        G: "kubejs:invar_gear",
-        P: "kubejs:steel_plate",
-        I: "kubejs:invar_plate"
-    })
-    event.shaped(addBaseNBT("kubejs:inventory_macerator_tier_2"), [
-        "PGP", 
-        "ICI", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_macerator_tier_1",
-        G: "kubejs:invar_gear",
-        P: "kubejs:steel_plate",
-        I: "kubejs:invar_plate"
-    })
-
-    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_mixer_tier_1"), [
-        "PGP", 
-        "ICI", 
-        "PSP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        G: "kubejs:gold_gear",
-        P: "kubejs:steel_curved_plate",
-        I: "kubejs:invar_rotor",
-        S: "kubejs:steel_rotor"
-    })
-    event.shaped(addBaseNBT("kubejs:inventory_wiremill_tier_1"), [
-        "PGP", 
-        "ICI", 
-        "PGP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        G: "kubejs:steel_gear",
-        P: "kubejs:steel_curved_plate",
-        I: "kubejs:invar_rotor",
-    })
-
-    event.shaped(addBaseNBT("kubejs:inventory_coke_oven_tier_2"), [
-        "PIP", 
-        "WCW", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_coke_oven_tier_1",
-        W: "kubejs:invar_wire",
-        P: "kubejs:steel_curved_plate",
-        I: "kubejs:invar_plate"
-    })
-    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_blast_furnace_tier_2"), [
-        "PWP", 
-        "ICI", 
-        "PFP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        F: "kubejs:inventory_blast_furnace_tier_1",
-        W: "kubejs:invar_wire",
-        P: "kubejs:steel_curved_plate",
-        I: "kubejs:invar_gear"
-    })
-
-    event.shaped("kubejs:copper_drill_head", [
-        "BCP", 
-        "RGC", 
-        "IRB"
-    ], {
-        C: "kubejs:copper_curved_plate",
-        R: "kubejs:copper_rod",
-        G: "kubejs:copper_gear",
-        P: "kubejs:copper_plate",
-        B: "kubejs:copper_bolt",
-        I: "kubejs:copper_ring"
-    })
-    event.shaped("kubejs:bronze_drill_head", [
-        "BCP", 
-        "RGC", 
-        "IRB"
+    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_packer_tier_1"), [
+        "CPC",
+        "GBG",
+        "CPC"
     ], {
         C: "kubejs:bronze_curved_plate",
-        R: "kubejs:bronze_rod",
-        G: "kubejs:bronze_gear",
-        P: "kubejs:bronze_plate",
-        B: "kubejs:bronze_bolt",
-        I: "kubejs:bronze_ring"
+        P: "minecraft:piston",
+        G: "kubejs:brass_gear",
+        B: "kubejs:bronze_machine_casing"
     })
-    event.shaped("kubejs:steel_drill_head", [
-        "BCP", 
-        "RGC", 
-        "IRB"
+    event.shaped(addBaseNBT("kubejs:inventory_unpacker_tier_1"), [
+        "CPC",
+        "GBG",
+        "CPC"
     ], {
-        C: "kubejs:steel_curved_plate",
-        R: "kubejs:steel_rod",
-        G: "kubejs:steel_gear",
-        P: "kubejs:steel_plate",
-        B: "kubejs:steel_bolt",
-        I: "kubejs:steel_ring"
-    })
-    event.shaped("kubejs:gold_drill_head", [
-        "BCP", 
-        "RGC", 
-        "IRB"
-    ], {
-        G: "kubejs:gold_curved_plate",
-        R: "kubejs:gold_rod",
-        C: "kubejs:gold_gear",
-        P: "kubejs:gold_plate",
-        B: "kubejs:gold_bolt",
-        I: "kubejs:gold_ring"
+        C: "kubejs:bronze_curved_plate",
+        P: "minecraft:sticky_piston",
+        G: "kubejs:brass_gear",
+        B: "kubejs:bronze_machine_casing"
     })
 
-    event.shaped("kubejs:motor", [
-        "PWB", 
-        "WRW", 
-        "GWP"
+    // templates
+    event.shaped("kubejs:block_template", [
+        "SSS", 
+        "SPS", 
+        "SSS"
     ], {
-        G: "kubejs:steel_gear",
-        R: "kubejs:steel_rod",
-        P: "kubejs:steel_curved_plate",
-        W: "kubejs:copper_wire",
-        B: "kubejs:steel_bolt"
+        P: "minecraft:paper",
+        S: "minecraft:stone"
     })
-    event.shaped("kubejs:motor", [
-        "BWP", 
-        "WRW", 
-        "PWG"
+    event.shaped("kubejs:boat_template", [
+        "BBB", 
+        "BPB", 
+        "BBB"
     ], {
-        G: "kubejs:steel_gear",
-        R: "kubejs:steel_rod",
-        P: "kubejs:steel_curved_plate",
-        W: "kubejs:copper_wire",
-        B: "kubejs:steel_bolt"
+        P: "minecraft:paper",
+        B: '#minecraft:boats'
     })
-
-    event.shaped("kubejs:capacitor", [
-        " P ", 
-        "WIW", 
-        " P "
+    event.shaped("kubejs:button_template", [
+        "BBB", 
+        "BPB", 
+        "BBB"
     ], {
-        P: "kubejs:gold_plate",
-        W: "kubejs:copper_wire",
-        I: "kubejs:battery_alloy_plate"
+        P: "minecraft:paper",
+        B: '#minecraft:buttons'
     })
-    event.shaped("kubejs:resistor", [
-        "W W", 
-        "WBW", 
-        "W W"
+    event.shaped("kubejs:carpet_template", [
+        "CCC",
+        "CPC",
+        "CCC",
     ], {
-        B: "minecraft:brick",
-        W: "kubejs:copper_wire"
+        P: "minecraft:paper",
+        C: Ingredient.of(['#minecraft:wool_carpets', 'minecraft:moss_carpet'])
     })
-    event.shaped("kubejs:inductor", [
+    event.shaped("kubejs:color_template", [
+        "ROY", 
+        "MPI", 
+        "UBL"
+    ], {
+        P: "minecraft:paper",
+        R: "minecraft:red_dye",
+        O: "minecraft:orange_dye",
+        Y: "minecraft:yellow_dye",
+        M: "minecraft:magenta_dye",
+        I: "minecraft:lime_dye",
+        U: "minecraft:purple_dye",
+        B: "minecraft:blue_dye",
+        L: "minecraft:light_blue_dye"
+    })
+    event.shaped("kubejs:door_template", [
+        "DDD", 
+        "DPD", 
+        "DDD"
+    ], {
+        P: "minecraft:paper",
+        D: '#minecraft:doors'
+    })
+    event.shaped("kubejs:fence_gate_template", [
+        "FFF", 
+        "FPF", 
+        "FFF"
+    ], {
+        P: "minecraft:paper",
+        F: '#forge:fence_gates'
+    })
+    event.shaped("kubejs:fence_template", [
+        "FFF", 
+        "FPF", 
+        "FFF"
+    ], {
+        P: "minecraft:paper",
+        F: '#minecraft:fences'
+    })
+    event.shaped("kubejs:glass_pane_template", [
+        "GGG", 
+        "GPG", 
+        "GGG"
+    ], {
+        P: "minecraft:paper",
+        G: '#forge:glass_panes'
+    })
+    event.shaped("kubejs:log_template", [
+        "LLL", 
+        "LPL", 
+        "LLL"
+    ], {
+        P: "minecraft:paper",
+        L: '#minecraft:logs'
+    })
+    event.shaped("kubejs:pressure_plate_template", [
+        "SSS", 
+        "SPS", 
+        "SSS"
+    ], {
+        P: "minecraft:paper",
+        S: Ingredient.of([
+            '#minecraft:wooden_pressure_plates', 
+            "minecraft:stone_pressure_plate", 
+            "minecraft:polished_blackstone_pressure_plate", 
+            "minecraft:light_weighted_pressure_plate", 
+            "minecraft:heavy_weighted_pressure_plate"
+        ])
+    })
+    event.shaped("kubejs:sign_template", [
+        "SSS", 
+        "SPS", 
+        "SSS"
+    ], {
+        P: "minecraft:paper",
+        S: '#minecraft:signs'
+    })
+    event.shaped("kubejs:slab_template", [
+        "SSS", 
+        "SPS", 
+        "SSS"
+    ], {
+        P: "minecraft:paper",
+        S: '#minecraft:slabs'
+    })
+    event.shaped("kubejs:stairs_template", [
+        "SSS", 
+        "SPS", 
+        "SSS"
+    ], {
+        P: "minecraft:paper",
+        S: '#minecraft:stairs'
+    })
+    event.shaped("kubejs:trapdoor_template", [
+        "TTT", 
+        "TPT", 
+        "TTT"
+    ], {
+        P: "minecraft:paper",
+        T: '#minecraft:trapdoors'
+    })
+    event.shaped("kubejs:wall_template", [
         "WWW", 
-        "WRW", 
+        "WPW", 
         "WWW"
     ], {
-        W: "kubejs:copper_wire",
-        R: "kubejs:steel_rod"
+        P: "minecraft:paper",
+        W: '#minecraft:walls'
     })
-
-    event.shaped("kubejs:analog_circuit", [
+    event.shaped("kubejs:waxing_template", [
+        "WWW", 
         "WPW", 
-        "CWC", 
-        "RIR"
+        "WWW"
     ], {
-        P: "kubejs:lapis_lazuli_plate",
-        W: "kubejs:copper_wire",
-        C: "kubejs:capacitor",
-        R: "kubejs:resistor",
-        I: "kubejs:inductor"
-    })
-
-    event.shaped(addBaseNBTRecipeIndexedMachine("kubejs:inventory_assembler_tier_1"), [
-        "PMP", 
-        "ACA", 
-        "PMP"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        A: "kubejs:analog_circuit",
-        P: "kubejs:steel_curved_plate",
-        M: "kubejs:motor"
-    })
-
-    event.shaped("4x kubejs:copper_drill", [
-        " BH", 
-        "GIB",
-        "IG "
-    ], {
-        H: "kubejs:copper_drill_head",
-        G: "kubejs:iron_gear",
-        B: "kubejs:iron_bolt",
-        I: "kubejs:iron_rod"
-    })
-    event.shaped("4x kubejs:bronze_drill", [
-        " BH", 
-        "GIB",
-        "IG "
-    ], {
-        H: "kubejs:bronze_drill_head",
-        G: "kubejs:iron_gear",
-        B: "kubejs:iron_bolt",
-        I: "kubejs:iron_rod"
-    })
-
-    event.shaped("4x kubejs:steel_drill", [
-        "BGH", 
-        "MAG",
-        "IMB"
-    ], {
-        H: "kubejs:steel_drill_head",
-        G: "kubejs:iron_gear",
-        B: "kubejs:iron_bolt",
-        I: "kubejs:iron_rod",
-        M: "kubejs:motor",
-        A: "kubejs:analog_circuit"
-    })
-    event.shaped("4x kubejs:gold_drill", [
-        "BGH", 
-        "MAG",
-        "IMB"
-    ], {
-        H: "kubejs:gold_drill_head",
-        G: "kubejs:iron_gear",
-        B: "kubejs:iron_bolt",
-        I: "kubejs:iron_rod",
-        M: "kubejs:motor",
-        A: "kubejs:analog_circuit"
-    })
-
-    event.shapeless("kubejs:inventory_puller_tier_1", ["kubejs:inventory_puller_tier_1", Ingredient.all]).modifyResult((grid, result) => {
-        let storedItem = grid.find("kubejs:inventory_puller_tier_1").nbt.Item
-        for(let i = 0; i < 2; i++){
-            if(!grid.get(i).is("kubejs:inventory_puller_tier_1")){
-                if(storedItem){
-                    return result.withNBT({filter: grid.get(i).id, Item: storedItem})
-                }
-                return result.withNBT({filter: grid.get(i).id})
-            }
-        }
-    })
-
-    event.shaped("kubejs:inventory_pusher_tier_1", [
-        "CCC", 
-        "CGC", 
-        "CHC"
-    ], {
-        H: "kubejs:inventory_hopper_tier_3",
-        C: "minecraft:cobblestone",
-        G: "kubejs:iron_gear"
-    })
-
-    event.shaped(Item.of("kubejs:inventory_puller_tier_1", '{"filter": "minecraft:air"}'), [
-        "CHC", 
-        "CRC", 
-        "CCC"
-    ], {
-        H: "kubejs:inventory_hopper_tier_3",
-        C: "minecraft:cobblestone",
-        R: "minecraft:redstone_block"
-    })
-
-    event.shaped("kubejs:inventory_simulator_tier_2", [
-        "PGS", 
-        "IHI", 
-        "PGP"
-    ], {
-        S: "kubejs:inventory_simulator_tier_1",
-        G: "kubejs:gold_dust",
-        H: "#kubejs:inventory_hoppers_tier_3",
-        I: "kubejs:steel_gear",
-        P: "kubejs:steel_curved_plate"
-    })
-
-    event.shaped(addBaseNBTQuarry("kubejs:inventory_quarry_tier_1"), [
-        "PAP", 
-        "MCM", 
-        "MCM"
-    ], {
-        C: "kubejs:steel_machine_casing",
-        A: "kubejs:analog_circuit",
-        P: "kubejs:steel_curved_plate",
-        M: "kubejs:motor"
+        P: "minecraft:paper",
+        W: 'minecraft:honeycomb'
     })
 })

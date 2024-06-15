@@ -53,3 +53,6 @@ addCompressorRecipe("kubejs:iron_ring", "kubejs:iron_rod");
 addCompressorRecipe("kubejs:lapis_lazuli_plate", "minecraft:lapis_lazuli");
 addCompressorRecipe("kubejs:lapis_lazuli_curved_plate", "2x kubejs:lapis_lazuli_plate");
 addCompressorRecipe("kubejs:lapis_lazuli_ring", "kubejs:lapis_lazuli_rod");
+
+// blaze rod
+addCompressorRecipe("kubejs:blaze_rod", "5x minecraft:blaze_powder");

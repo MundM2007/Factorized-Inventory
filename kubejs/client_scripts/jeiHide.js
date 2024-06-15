@@ -7,6 +7,10 @@ JEIEvents.hideItems(event => {
     event.hide("kubejs:inventory_compressor_tier_4")
     event.hide("kubejs:inventory_cutting_machine_tier_3")
     event.hide("kubejs:inventory_cutting_machine_tier_4")
+    event.hide("kubejs:inventory_packer_tier_3")
+    event.hide("kubejs:inventory_packer_tier_4")
+    event.hide("kubejs:inventory_unpacker_tier_3")
+    event.hide("kubejs:inventory_unpacker_tier_4")
     event.hide("kubejs:inventory_wiremill_tier_2")
     event.hide("kubejs:inventory_wiremill_tier_3")
     event.hide("kubejs:inventory_coke_oven_tier_3")
@@ -36,4 +40,6 @@ JEIEvents.hideItems(event => {
     event.hide("kubejs:nickel_crushed_ore")
     event.hide("kubejs:tin_crushed_ore")
     event.hide("kubejs:zinc_crushed_ore")
+
+    event.hide(/itemfilters:.*/)
 })

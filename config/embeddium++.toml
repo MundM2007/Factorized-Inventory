@@ -1,0 +1,6 @@
+
+[embeddiumplus]
+
+	[embeddiumplus.general]
+		fpsDisplay = "SIMPLE"
+		fpsDisplayGravity = "RIGHT"

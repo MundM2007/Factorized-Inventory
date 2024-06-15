@@ -305,6 +305,25 @@ StartupEvents.registry("item", event => {
     event.create("zinc_wire").texture("kubejs:item/materials/zinc/zinc_wire")
 
 
+    event.create("block_template").texture("kubejs:item/itemfilters/block_template")
+    event.create("boat_template").texture("kubejs:item/itemfilters/boat_template")
+    event.create("button_template").texture("kubejs:item/itemfilters/button_template")
+    event.create("carpet_template").texture("kubejs:item/itemfilters/carpet_template")
+    event.create("color_template").texture("kubejs:item/itemfilters/color_template")
+    event.create("door_template").texture("kubejs:item/itemfilters/door_template")
+    event.create("fence_gate_template").texture("kubejs:item/itemfilters/fence_gate_template")
+    event.create("fence_template").texture("kubejs:item/itemfilters/fence_template")
+    event.create("glass_pane_template").texture("kubejs:item/itemfilters/glass_pane_template")
+    event.create("log_template").texture("kubejs:item/itemfilters/log_template")
+    event.create("pressure_plate_template").texture("kubejs:item/itemfilters/pressure_plate_template")
+    event.create("sign_template").texture("kubejs:item/itemfilters/sign_template")
+    event.create("slab_template").texture("kubejs:item/itemfilters/slab_template")
+    event.create("stairs_template").texture("kubejs:item/itemfilters/stairs_template")
+    event.create("trapdoor_template").texture("kubejs:item/itemfilters/trapdoor_template")
+    event.create("wall_template").texture("kubejs:item/itemfilters/wall_template")
+    event.create("waxing_template").texture("kubejs:item/itemfilters/waxing_template")
+
+
     //tier 1
     event.create("hammer").texture("kubejs:item/ee/hammer").maxDamage(256)
 
@@ -330,5 +349,5 @@ StartupEvents.registry("item", event => {
     event.create("capacitor").texture("kubejs:item/mi/capacitor")
     event.create("resistor").texture("kubejs:item/mi/resistor")
     event.create("inductor").texture("kubejs:item/mi/inductor")
-    event.create("analog_circuit").displayName("Circuit").texture("kubejs:item/mi/analog_circuit")
+    event.create("analog_circuit").displayName("Circuit").texture("kubejs:item/create/analog_circuit")
 })  

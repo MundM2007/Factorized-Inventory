@@ -1,1 +1,1 @@
-{"parent": "item/handheld", "textures": {"layer0": "kubejs:item/mi/quarry/tier_3_on"}}
+{"parent": "item/generated", "textures": {"layer0": "kubejs:item/mi/quarry/tier_3_on"}}

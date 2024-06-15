@@ -374,6 +374,11 @@
 		{
 			dependencies: ["1F416E8C49043422"]
 			id: "0E45BBB6570A1BDD"
+			rewards: [{
+				id: "3ECAD7094401AE50"
+				item: "kubejs:bronze_curved_plate"
+				type: "item"
+			}]
 			tasks: [{
 				count: 4L
 				id: "5923E79E7C234B7E"
@@ -525,6 +530,11 @@
 		{
 			dependencies: ["72FF6AB5B08F79F3"]
 			id: "26A2379608658147"
+			rewards: [{
+				id: "6672A6723A246C59"
+				item: "kubejs:bronze_curved_plate"
+				type: "item"
+			}]
 			tasks: [
 				{
 					count: 2L
@@ -604,40 +614,151 @@
 			y: 2.0d
 		}
 		{
-			dependencies: ["2AE80A61E00B507B"]
-			description: ["Make sure to not insert any items while in the players Inventory. They won't be voided, but you'll need an Inventory Simulator to get them back out."]
-			id: "273DDE7AAE30AE67"
+			dependencies: ["3EEF611C46074BE9"]
+			description: [
+				"Pushes items into Inventories below the Inventory Simulator"
+				"Make sure to not insert any items while in the players Inventory. They won't be voided, but you'll need an Inventory Simulator to get them back out."
+			]
+			id: "3CA27E6CC8A5AFE2"
 			rewards: [{
 				count: 2
-				id: "7CE66750EDEC86E2"
-				item: "minecraft:diamond"
+				id: "226022F167462133"
+				item: "minecraft:iron_ingot"
 				type: "item"
 			}]
 			tasks: [{
-				id: "42C10AC35FC75C05"
+				id: "51EEB208C81A9EEB"
 				item: "kubejs:inventory_pusher_tier_1"
 				type: "item"
 			}]
-			x: 17.0d
+			x: 12.0d
 			y: -4.0d
 		}
 		{
-			dependencies: ["2AE80A61E00B507B"]
-			description: ["You can set a filter on this item by crafting it with any other item."]
-			id: "7FF668661D37C5C0"
+			dependencies: ["3EEF611C46074BE9"]
+			description: [
+				"Pulls items from inventories above the Inventory Simulator"
+				"You can set a filter on this item by crafting it with any other item. If you want to clear the filter craft it without any item."
+			]
+			id: "61846178CFF984A4"
 			rewards: [{
 				count: 2
-				id: "05D44DC0686D9086"
+				id: "3BA65336A0B33DB6"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "1DB55321B1952524"
+				item: "kubejs:inventory_puller_tier_1"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["3CA27E6CC8A5AFE2"]
+			id: "3EAB3F7CF8DF05BA"
+			rewards: [{
+				count: 3
+				id: "5657B35BA1210995"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "1894FDA994E3A23D"
+				item: "kubejs:inventory_pusher_tier_2"
+				type: "item"
+			}]
+			x: 14.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["61846178CFF984A4"]
+			id: "24369946308F0010"
+			rewards: [{
+				count: 3
+				id: "14C76D37FA6338F2"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "34206C872EBB606D"
+				item: "kubejs:inventory_puller_tier_2"
+				type: "item"
+			}]
+			x: 14.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["3EAB3F7CF8DF05BA"]
+			id: "259BA74B408FFB5E"
+			rewards: [{
+				count: 3
+				id: "6A83C78EFE8ED0C9"
 				item: "minecraft:diamond"
 				type: "item"
 			}]
 			tasks: [{
-				id: "100D2FAD9394C160"
-				item: "kubejs:inventory_puller_tier_1"
+				id: "0EB67943F7480CA9"
+				item: "kubejs:inventory_pusher_tier_3"
 				type: "item"
 			}]
-			x: 19.0d
+			x: 16.0d
 			y: -4.0d
+		}
+		{
+			dependencies: ["24369946308F0010"]
+			id: "2978EFE8EEE7B98A"
+			rewards: [{
+				count: 3
+				id: "3DFB8A0281698048"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "72863E44D542F7F3"
+				item: "kubejs:inventory_puller_tier_3"
+				type: "item"
+			}]
+			x: 16.0d
+			y: -6.0d
+		}
+		{
+			dependencies: [
+				"1F416E8C49043422"
+				"5B2A03F7A2E8337D"
+				"0E45BBB6570A1BDD"
+			]
+			id: "1AAF33791BEFB5D8"
+			rewards: [
+				{
+					count: 8
+					id: "75BB939F0047A828"
+					item: "kubejs:bronze_ingot"
+					type: "item"
+				}
+				{
+					count: 6
+					id: "0199903C39277C55"
+					item: "kubejs:brass_ingot"
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "1EC1C01D42DF5DBD"
+					item: "kubejs:inventory_packer_tier_1"
+					type: "item"
+				}
+				{
+					id: "18F78C0FC67E3BC2"
+					item: "kubejs:inventory_unpacker_tier_1"
+					type: "item"
+				}
+			]
+			title: "Tier 1 Inventory Packer \\& Unpacker"
+			x: 15.0d
+			y: 1.0d
 		}
 	]
 	title: "Tier 1"

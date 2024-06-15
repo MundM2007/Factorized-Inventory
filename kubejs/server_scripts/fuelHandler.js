@@ -10,6 +10,11 @@ Ingredient.all.stacks.forEach(item => {
 function getFuel(inventory, extractSlotIndex){
     if(!extractSlotIndex) return Item.of("minecraft:air")
     let slotItem = inventory.getItem(extractSlotIndex)
+    return getFuelItem(slotItem)
+}
+
+
+function getFuelItem(slotItem){
     if(/minecraft:.*shulker_box/.test(slotItem.id)){
         if(!slotItem.nbt) return Item.of("minecraft:air")
         if(!slotItem.nbt.BlockEntityTag) return Item.of("minecraft:air")
@@ -20,7 +25,7 @@ function getFuel(inventory, extractSlotIndex){
             if(fuelItems[item.id]) return item
         }
         return Item.of("minecraft:air")
-    }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+    }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return Item.of("minecraft:air")
         if(!slotItem.nbt.Item) return Item.of("minecraft:air")
         let item = $ItemStack.of(slotItem.nbt.Item)

@@ -1,3 +1,7 @@
+// sea lantern
+addAssemblerRecipe('minecraft:sea_lantern', ['5x minecraft:prismarine_crystals', '4x minecraft:prismarine_shard'], 100, 1)   
+
+
 addAssemblerRecipe("kubejs:copper_drill_head", ["2x kubejs:copper_curved_plate", "2x kubejs:copper_rod", "kubejs:copper_gear", "kubejs:copper_plate"])
 addAssemblerRecipe("kubejs:bronze_drill_head", ["2x kubejs:bronze_curved_plate", "2x kubejs:bronze_rod", "kubejs:bronze_gear", "kubejs:bronze_plate"])
 addAssemblerRecipe("kubejs:steel_drill_head", ["2x kubejs:steel_curved_plate", "2x kubejs:steel_rod", "kubejs:steel_gear", "kubejs:steel_plate"])
@@ -5,8 +9,8 @@ addAssemblerRecipe("kubejs:gold_drill_head", ["2x kubejs:gold_curved_plate", "2x
 
 addAssemblerRecipe("4x kubejs:copper_drill", ["kubejs:copper_drill_head", "2x kubejs:iron_gear", "2x kubejs:iron_rod"])
 addAssemblerRecipe("4x kubejs:bronze_drill", ["kubejs:bronze_drill_head", "2x kubejs:iron_gear", "2x kubejs:iron_rod"])
-addAssemblerRecipe("4x kubejs:steel_drill", ["kubejs:steel_drill_head", "2x kubejs:iron_gear", "2x kubejs:motor", "kubejs:analog_circuit"])
-addAssemblerRecipe("4x kubejs:gold_drill", ["kubejs:gold_drill_head", "2x kubejs:iron_gear", "2x kubejs:motor", "kubejs:analog_circuit"])
+addAssemblerRecipe("4x kubejs:steel_drill", ["kubejs:steel_drill_head", "2x kubejs:iron_gear", "2x kubejs:analog_circuit", "kubejs:motor"])
+addAssemblerRecipe("4x kubejs:gold_drill", ["kubejs:gold_drill_head", "2x kubejs:iron_gear", "2x kubejs:analog_circuit", "kubejs:motor"])
 
 addAssemblerRecipe("kubejs:capacitor", ["2x kubejs:gold_plate", "2x kubejs:copper_wire", "kubejs:battery_alloy_plate"])
 addAssemblerRecipe("kubejs:resistor", ["minecraft:brick", "6x kubejs:copper_wire"])
@@ -43,3 +47,4 @@ addAssemblerRecipe("kubejs:nickel_rotor", ["4x kubejs:nickel_curved_plate", "kub
 addAssemblerRecipe("kubejs:steel_rotor", ["4x kubejs:steel_curved_plate", "kubejs:steel_rod", "kubejs:steel_ring"])
 addAssemblerRecipe("kubejs:tin_rotor", ["4x kubejs:tin_curved_plate", "kubejs:tin_rod", "kubejs:tin_ring"])
 addAssemblerRecipe("kubejs:zinc_rotor", ["4x kubejs:zinc_curved_plate", "kubejs:zinc_rod", "kubejs:zinc_ring"])
+
