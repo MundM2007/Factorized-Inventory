@@ -41,8 +41,8 @@ function addRecipeIndexedMachineTooltip(event, machineItem, machine, data){
                     text.add(1, [Text.gray('Hold [Shift] for more info.')])
                 }else{
                     text.add(1, Text.blue('Current Progress: ' + 
-                        + Math.round(item.nbt.recipeProgress / (2 * data.timeFactor * data.speed)) / 10 + " s/"
-                        + Math.round(item.nbt.currentTime / (2 * data.timeFactor * data.speed)) / 10 + " s"))
+                        + Math.round(item.nbt.recipeProgress / (2 * data.speed)) / 10 + " s/"
+                        + Math.round(item.nbt.currentTime / (2 * data.speed)) / 10 + " s"))
                     text.add(2, Text.red('Fuel Amount left: ' + item.nbt.fuel ))
                     text.add(3, [Text.gray('Hold [Shift] for more info.')])
                 }
