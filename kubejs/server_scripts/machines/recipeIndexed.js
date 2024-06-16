@@ -122,6 +122,7 @@ function tickRecipeIndexedMachine(inventory, machine, data, type, tier, amountSl
 
 function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
     let possibleRecipes = {}
+    let seenSlotItems = []
     for(let slotIndex = 0; slotIndex < slotItems.length; slotIndex++){
         let slotItem = slotItems[slotIndex]
         if(slotItem.isEmpty()){
@@ -137,25 +138,26 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
             let inputCounts = {}
             for(let k = 0; k < slotItem.nbt.BlockEntityTag.Items.length; k++){
                 let shulkerItem = slotItem.nbt.BlockEntityTag.Items[k]
-                let breakLoop = false
+                if(seenSlotItems.includes(shulkerItem.id)) continue
                 let doneSomething = false
                 for(let i = 0; i < amountSlots; i++){
                     let recipeIndexes = recipes["i" + i][shulkerItem.id]
                     if(recipeIndexes) {
-                        breakLoop = true
                         for(let j = 0; j < recipeIndexes.length; j++){
                             let recipe = recipes["r" + recipeIndexes[j]]
                             if(tier < recipe.tier) continue
-                            if(Item.of(recipe["inputs"][i]).count > shulkerItem.Count){
-                                let inputCount = inputCounts[recipe.input]
+                            let inputItem = Item.of(recipe["inputs"][i])
+                            if(inputItem.count > shulkerItem.Count){
+                                let inputCount = inputCounts[inputItem.id]
                                 if(inputCount){
                                     inputCount += shulkerItem.Count
-                                    if(inputCount >= Item.of(recipe.input).count) return [ $ItemStack.of(shulkerItem).copyWithCount(inputCount), recipe]
+                                    if(inputCount < inputItem.count) continue
                                 }else{
-                                    inputCounts[recipe.input] = shulkerItem.Count
+                                    inputCounts[inputItem.id] = shulkerItem.Count
+                                    continue
                                 }
-                                continue
                             }
+                            breakLoop = true
                             doneSomething = true
                             let possibleRecipe = possibleRecipes["r" + recipeIndexes[j]]
                             if(!possibleRecipe){
@@ -166,7 +168,7 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
                                 possibleRecipes["r" + recipeIndexes[j]] = [1, [Array.concat(extraArray, [[slotItem, i]])]]
                             }else{
                                 possibleRecipe[0]++
-                                possibleRecipe[1].push([ $ItemStack.of(shulkerItem), i])
+                                possibleRecipe[1].push([$ItemStack.of(shulkerItem), i])
                             }
                         }
                     }
@@ -175,14 +177,17 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
                     for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
                         possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
                     }
+                }else{
+                    seenSlotItems.push(slotItem.id)
+                    break
                 }
-                if(breakLoop) break
             }
         }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
             if(!slotItem.nbt) continue
             if(!slotItem.nbt.Item) continue
             let doneSomething = false
             let pullerItem = $ItemStack.of(slotItem.nbt.Item)
+            if(seenSlotItems.includes(pullerItem.id)) continue
             for(let i = 0; i < amountSlots; i++){
                 let recipeIndexes = recipes["i" + i][pullerItem.id]
                 if(recipeIndexes) {
@@ -209,9 +214,12 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
                 for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
                     possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
                 }
+            }else{
+                seenSlotItems.push(slotItem.id)
             }
         }else{
             let doneSomething = false
+            if(seenSlotItems.includes(slotItem.id)) continue
             for(let i = 0; i < amountSlots; i++){
                 let recipeIndexes = recipes["i" + i][slotItem.id]
                 if(recipeIndexes) {
@@ -238,6 +246,8 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
                 for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
                     possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
                 }
+            }else{
+                seenSlotItems.push(slotItem.id)
             }
         }
     }
