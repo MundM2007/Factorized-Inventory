@@ -251,6 +251,8 @@ addMaceratorRecipe("4x minecraft:clay_ball", "minecraft:clay", 200)
 addMaceratorRecipe("4x minecraft:glowstone_dust", "minecraft:glowstone", 200)
 // blaze powder
 addMaceratorRecipe("4x minecraft:blaze_powder", "minecraft:blaze_rod", 200)
+// sugar
+addMaceratorRecipe("minecraft:sugar", "minecraft:sugar_cane", 100)
 // concrete
 for(let i = 0; i < 16; i++){
     addMaceratorRecipe(`minecraft:${colors[i]}_concrete_powder`, `minecraft:${colors[i]}_concrete`, 100)

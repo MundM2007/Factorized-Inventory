@@ -77,7 +77,7 @@ function tickRecipeIndexedMachine(inventory, machine, data, type, tier, amountSl
                 fuelRequired = 1
             }
             extractItem(inventory, slot, fuel.copyWithCount(fuelRequired))
-            machineItem.nbt.fuel = fuelItems[fuel.id] * fuelRequired
+            machineItem.nbt.fuel += fuelItems[fuel.id] * fuelRequired
             machineItem.nbt.CustomModelData = 1
         }
         machineItem.nbt.recipeProgress += ticksPerTick
@@ -87,11 +87,10 @@ function tickRecipeIndexedMachine(inventory, machine, data, type, tier, amountSl
             let canProcess = countProcess
             let inputItems = []
             for(let i = 0; i < slotItems.length; i++){
-                let slotItem = slotItems[i]
+                let slotItem = slotItems[i][0]
                 let inputItem = Item.of(recipe.inputs[slotItems[i][1]])
                 inputItems.push(inputItem)
                 if(slotItem.count < canProcess * inputItem.count) canProcess = Math.floor(slotItem.count / inputItem.count)
-
             }
             for(let i = 0; i < inputItems.length; i++){
                 let inputSlotIndex = inputSlotIndexes[i]

@@ -62,7 +62,7 @@ function tickSimpleMachine(inventory, machine, data, type, tier){
                 fuelRequired = 1
             }
             extractItem(inventory, slot, fuel.copyWithCount(fuelRequired))
-            machineItem.nbt.fuel = fuelItems[fuel.id] * fuelRequired
+            machineItem.nbt.fuel += fuelItems[fuel.id] * fuelRequired
             machineItem.nbt.CustomModelData = 1
         }
         machineItem.nbt.recipeProgress += ticksPerTick

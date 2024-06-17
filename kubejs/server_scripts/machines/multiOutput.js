@@ -67,7 +67,7 @@ function tickMultiOutput(inventory, machine, data, type, tier, amountSlots) {
                 fuelRequired = 1
             }
             extractItem(inventory, slot, fuel.copyWithCount(fuelRequired))
-            machineItem.nbt.fuel = fuelItems[fuel.id] * fuelRequired
+            machineItem.nbt.fuel += fuelItems[fuel.id] * fuelRequired
             machineItem.nbt.CustomModelData = 1
         }
         machineItem.nbt.recipeProgress += ticksPerTick

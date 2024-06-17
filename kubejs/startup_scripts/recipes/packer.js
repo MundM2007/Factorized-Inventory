@@ -247,6 +247,8 @@ addPackerRecipe('minecraft:glass_bottle', ['minecraft:glass'], 100, 1)
 addPackerRecipe('2x minecraft:tinted_glass', ['minecraft:glass', '4x minecraft:amethyst_shard'], 100, 1, "block_template")
 // candle
 addPackerRecipe('minecraft:candle', ['minecraft:string', "minecraft:honeycomb"], 100, 1, "block_template")
+// paper
+addPackerRecipe('minecraft:paper', ['minecraft:sugar_cane'], 100)
 // rose quartz
 addPackerRecipe('biomesoplenty:rose_quartz_block', ['4x biomesoplenty:rose_quartz_chunk'], 100, 1, "block_template")
 // white sandstone

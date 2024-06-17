@@ -66,7 +66,7 @@ function tickPacker(inventory, data, type, tier){
             }
             if(fuel.isEmpty()){resetRecipeIndexedMachineItemNbt(machineItem, true); return}
             if(fuelItems[fuel.id] < fuelPerTick - machineItem.nbt.fuel){
-                fuelRequired = Math.ceil((fuelPerTick - machineItem.nbt.fuel) / fuelItems[fuel.id])
+                fuelRequired += Math.ceil((fuelPerTick - machineItem.nbt.fuel) / fuelItems[fuel.id])
                 if(fuelRequired > fuel.count){resetRecipeIndexedMachineItemNbt(machineItem, true); return}
             }else{
                 fuelRequired = 1
@@ -82,7 +82,7 @@ function tickPacker(inventory, data, type, tier){
             let canProcess = countProcess
             let inputItems = []
             for(let i = 0; i < slotItems.length; i++){
-                let slotItem = slotItems[i]
+                let slotItem = slotItems[i][0]
                 let inputItem = Item.of(recipe.inputs[slotItems[i][1]])
                 inputItems.push(inputItem)
                 if(slotItem.count < canProcess * inputItem.count) canProcess = Math.floor(slotItem.count / inputItem.count)

@@ -71,6 +71,8 @@ addUnpackerRecipe(["9x minecraft:dried_kelp"], "minecraft:dried_kelp_block", 100
 addUnpackerRecipe(["9x minecraft:wheat"], "minecraft:hay_block", 100)
 // honey
 addUnpackerRecipe(["minecraft:honey_block", "4x minecraft:glass_bottle"], "4x minecraft:honey_bottle", 100)
+// sugar
+addUnpackerRecipe(["3x minecraft:sugar", "minecraft:glass_bottle"], "minecraft:honey_bottle", 100)
 // others
 addUnpackerRecipe(["minecraft:honeycomb", "minecraft:string"], "minecraft:candle", 100, 1, "#minecraft:candles")
 let concretePowders = colors.map(color => `minecraft:${color}_concrete_powder`)

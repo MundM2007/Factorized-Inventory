@@ -349,4 +349,6 @@ ServerEvents.recipes(event => {
         P: "kubejs:steel_curved_plate",
         M: "kubejs:motor"
     })
+
+    event.shaped("kubejs:hammer", [" I ", " SI", "S  "], {I: "kubejs:steel_ingot", S: "minecraft:stick"})
 })

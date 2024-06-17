@@ -31,7 +31,7 @@ global.tickInventoryItem = function(block, inventory, data, type){
     }else if(/kubejs:inventory_coke_oven_tier_.$/.test(item)){
         tickSimpleMachine(inventory, "cokeOven", data, type, parseInt(item.charAt(item.length - 1)))
     }else if(/kubejs:inventory_blast_furnace_tier_.$/.test(item)){
-        tickRecipeIndexedMachine(inventory, "blastFurnace", data, type, parseInt(item.charAt(item.length - 1)) + 1, 3)
+        tickRecipeIndexedMachine(inventory, "blastFurnace", data, type, parseInt(item.charAt(item.length - 1)), 3)
     }else if(/kubejs:inventory_mixer_tier_.$/.test(item)){
         tickRecipeIndexedMachine(inventory, "mixer", data, type, parseInt(item.charAt(item.length - 1)) + 1, 3)
     }else if(/kubejs:inventory_quarry_tier_.$/.test(item)){
