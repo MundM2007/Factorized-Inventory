@@ -25,8 +25,9 @@ function tickPacker(inventory, data, type, tier){
 
         for(let direction of ["left", "right"] ){
             let slot = getSlotInDirection(slotIndex, direction, type)
+            if(slot == null) continue
             let item = inventory.getItem(slot)
-            if(/kubejs:.*_template/.test(item.id)){templateItem = item; templateDirection = direction; break}
+            if(/kubejs:.*_template/.test(item.id) || item.id == "minecraft:water_bucket"){templateItem = item; templateDirection = direction; break}
         }
 
         let slotItems = []

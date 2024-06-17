@@ -138,7 +138,12 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
             let inputCounts = {}
             for(let k = 0; k < slotItem.nbt.BlockEntityTag.Items.length; k++){
                 let shulkerItem = slotItem.nbt.BlockEntityTag.Items[k]
-                if(seenSlotItems.includes(shulkerItem.id)) continue
+                if(seenSlotItems.includes(shulkerItem.id)){
+                    for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
+                        possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
+                    }
+                    continue
+                }
                 let doneSomething = false
                 for(let i = 0; i < amountSlots; i++){
                     let recipeIndexes = recipes["i" + i][shulkerItem.id]
@@ -187,7 +192,12 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
             if(!slotItem.nbt.Item) continue
             let doneSomething = false
             let pullerItem = $ItemStack.of(slotItem.nbt.Item)
-            if(seenSlotItems.includes(pullerItem.id)) continue
+            if(seenSlotItems.includes(pullerItem.id)){
+                for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
+                    possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
+                }
+                continue
+            }
             for(let i = 0; i < amountSlots; i++){
                 let recipeIndexes = recipes["i" + i][pullerItem.id]
                 if(recipeIndexes) {
@@ -219,7 +229,12 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
             }
         }else{
             let doneSomething = false
-            if(seenSlotItems.includes(slotItem.id)) continue
+            if(seenSlotItems.includes(slotItem.id)){
+                for(let i = 0; i < Object.keys(possibleRecipes).length; i++){
+                    possibleRecipes[Object.keys(possibleRecipes)[i]][1].push(["", -1])
+                }
+                continue
+            }
             for(let i = 0; i < amountSlots; i++){
                 let recipeIndexes = recipes["i" + i][slotItem.id]
                 if(recipeIndexes) {
