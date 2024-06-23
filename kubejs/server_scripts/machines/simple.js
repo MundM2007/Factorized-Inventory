@@ -114,7 +114,7 @@ function getRecipeSimpleMachine(machine, slotItem, tier, templateItem){
                 return [$ItemStack.of(shulkerItem), recipe]
             }
         }
-    }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+    }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return []
         if(!slotItem.nbt.Item) return []
         let pullerItem = $ItemStack.of(slotItem.nbt.Item)

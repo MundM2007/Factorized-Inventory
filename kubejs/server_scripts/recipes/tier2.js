@@ -45,8 +45,9 @@ ServerEvents.recipes(event => {
     ], {
         I: "kubejs:iron_dust", 
         N: "kubejs:nickel_ingot",
-        H: "kubejs:hammer"}
-    ).damageIngredient("kubejs:hammer", 1)
+        H: global.hammers
+    }
+    ).damageIngredient(global.hammers, 1)
 
     event.shaped(addBaseNBT("kubejs:inventory_furnace_tier_2"), [
         "PGP", 
@@ -350,5 +351,28 @@ ServerEvents.recipes(event => {
         M: "kubejs:motor"
     })
 
-    event.shaped("kubejs:hammer", [" I ", " SI", "S  "], {I: "kubejs:steel_ingot", S: "minecraft:stick"})
+    event.shaped("kubejs:steel_hammer", [" I ", " SI", "S  "], {I: "kubejs:steel_ingot", S: "minecraft:stick"})
+    
+    event.shaped("storagedrawers:controller", [
+        "SGS",
+        "CDC",
+        "SIS"
+    ], {
+        S: "kubejs:steel_plate",
+        I: "minecraft:diamond",
+        C: "minecraft:comparator",
+        D: "#storagedrawers:drawers",
+        G: "kubejs:invar_gear"
+    })
+    event.shaped("storagedrawers:controller_slave", [
+        "SGS",
+        "CDC",
+        "SIS"
+    ], {
+        S: "kubejs:steel_plate",
+        I: "minecraft:gold_ingot",
+        C: "minecraft:comparator",
+        D: "#storagedrawers:drawers",
+        G: "kubejs:invar_gear"
+    })
 })

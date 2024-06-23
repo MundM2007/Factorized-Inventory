@@ -1,4 +1,98 @@
 // priority: 1000
+const sands = [
+    'minecraft:sand',
+    'minecraft:red_sand',
+    'minecraft:suspicious_sand',
+    'biomesoplenty:black_sand',
+    'biomesoplenty:mossy_black_sand',
+    'biomesoplenty:orange_sand',
+    'biomesoplenty:white_sand',
+]
+const sands4 = sands.map(sand => "4x " + sand)
+const logs = [
+    "minecraft:oak_log",
+    "minecraft:spruce_log",
+    "minecraft:birch_log",
+    "minecraft:jungle_log",
+    "minecraft:acacia_log",
+    "minecraft:dark_oak_log",
+    "minecraft:mangrove_log",
+    "minecraft:cherry_log",
+    "minecraft:crimson_stem",
+    "minecraft:warped_stem",
+    "biomesoplenty:fir_log",
+    "biomesoplenty:redwood_log",
+    "biomesoplenty:mahogany_log",
+    "biomesoplenty:jacaranda_log",
+    "biomesoplenty:palm_log",
+    "biomesoplenty:willow_log",
+    "biomesoplenty:dead_log",
+    "biomesoplenty:magic_log",
+    "biomesoplenty:umbran_log",
+    "biomesoplenty:hellbark_log",
+    "minecraft:stripped_oak_log",
+    "minecraft:stripped_spruce_log",
+    "minecraft:stripped_birch_log",
+    "minecraft:stripped_jungle_log",
+    "minecraft:stripped_acacia_log",
+    "minecraft:stripped_dark_oak_log",
+    "minecraft:stripped_mangrove_log",
+    "minecraft:stripped_cherry_log",
+    "minecraft:stripped_crimson_stem",
+    "minecraft:stripped_warped_stem",
+    "biomesoplenty:stripped_fir_log",
+    "biomesoplenty:stripped_redwood_log",
+    "biomesoplenty:stripped_mahogany_log",
+    "biomesoplenty:stripped_jacaranda_log",
+    "biomesoplenty:stripped_palm_log",
+    "biomesoplenty:stripped_willow_log",
+    "biomesoplenty:stripped_dead_log",
+    "biomesoplenty:stripped_magic_log",
+    "biomesoplenty:stripped_umbran_log",
+    "biomesoplenty:stripped_hellbark_log",
+    "minecraft:oak_wood",
+    "minecraft:spruce_wood",
+    "minecraft:birch_wood",
+    "minecraft:jungle_wood",
+    "minecraft:acacia_wood",
+    "minecraft:dark_oak_wood",
+    "minecraft:mangrove_wood",
+    "minecraft:cherry_wood",
+    "minecraft:crimson_hyphae",
+    "minecraft:warped_hyphae",
+    "biomesoplenty:fir_wood",
+    "biomesoplenty:redwood_wood",
+    "biomesoplenty:mahogany_wood",
+    "biomesoplenty:jacaranda_wood",
+    "biomesoplenty:palm_wood",
+    "biomesoplenty:willow_wood",
+    "biomesoplenty:dead_wood",
+    "biomesoplenty:magic_wood",
+    "biomesoplenty:umbran_wood",
+    "biomesoplenty:hellbark_wood",
+    "minecraft:stripped_oak_wood",
+    "minecraft:stripped_spruce_wood",
+    "minecraft:stripped_birch_wood",
+    "minecraft:stripped_jungle_wood",
+    "minecraft:stripped_acacia_wood",
+    "minecraft:stripped_dark_oak_wood",
+    "minecraft:stripped_mangrove_wood",
+    "minecraft:stripped_cherry_wood",
+    "minecraft:stripped_crimson_hyphae",
+    "minecraft:stripped_warped_hyphae",
+    "biomesoplenty:stripped_fir_wood",
+    "biomesoplenty:stripped_redwood_wood",
+    "biomesoplenty:stripped_mahogany_wood",
+    "biomesoplenty:stripped_jacaranda_wood",
+    "biomesoplenty:stripped_palm_wood",
+    "biomesoplenty:stripped_willow_wood",
+    "biomesoplenty:stripped_dead_wood",
+    "biomesoplenty:stripped_magic_wood",
+    "biomesoplenty:stripped_umbran_wood",
+    "biomesoplenty:stripped_hellbark_wood"
+]
+const logs3 = logs.map(log => "3x " + log)
+const logs4 = logs.map(log => "4x " + log)
 const planks = [
     "minecraft:oak_planks", 
     "minecraft:spruce_planks",
@@ -6,11 +100,11 @@ const planks = [
     "minecraft:jungle_planks",
     "minecraft:acacia_planks",
     "minecraft:dark_oak_planks",
+    "minecraft:crimson_planks",
+    "minecraft:warped_planks",
     "minecraft:mangrove_planks",
     "minecraft:cherry_planks",
     "minecraft:bamboo_planks",
-    "minecraft:crimson_planks",
-    "minecraft:warped_planks",
     "biomesoplenty:fir_planks",
     "biomesoplenty:redwood_planks",
     "biomesoplenty:mahogany_planks",
@@ -22,13 +116,29 @@ const planks = [
     "biomesoplenty:umbran_planks",
     "biomesoplenty:hellbark_planks"
 ]
+const planks2 = planks.map(plank => "2x " + plank)
+const planks3 = planks.map(plank => "3x " + plank)
+const planks4 = planks.map(plank => "4x " + plank)
+const planks6 = planks.map(plank => "6x " + plank)
+const planks8 = planks.map(plank => "8x " + plank)
+const slabs2 = planks2.map(plank => plank.replace("planks", "slab"))
+const slabs3 = planks3.map(plank => plank.replace("planks", "slab"))
+const slabs6 = planks6.map(plank => plank.replace("planks", "slab"))
 const colors = ["white", "light_gray", "gray", "black", "brown", "red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink"]
+const chests = ["minecraft:chest", "minecraft:trapped_chest"]
+const soul_fire_base_blocks = ["minecraft:soul_soil", "minecraft:soul_sand"]
+const stone_tool_materials = ["minecraft:cobblestone", 'minecraft:blackstone', 'minecraft:cobbled_deepslate']
+const stone_tool_materials3 = stone_tool_materials.map(material => `3x ${material}`)
+const stone_tool_materials8 = stone_tool_materials.map(material => `8x ${material}`)
 
 global.recipes = {
     furnace: {}, 
     macerator: {}, 
     compressor: {}, 
-    cuttingMachine: {    
+    cuttingMachine: {
+        drawer_template_1x1: {},
+        drawer_template_1x2: {},
+        drawer_template_2x2: {},    
         air: {},
         block_template: {},
         boat_template: {},
@@ -50,6 +160,9 @@ global.recipes = {
         waxing_template: {}
     },
     packer: {
+        drawer_template_1x1: {count: 0, i0: {}, i1: {}, i2: {}},
+        drawer_template_1x2: {count: 0, i0: {}, i1: {}, i2: {}},
+        drawer_template_2x2: {count: 0, i0: {}, i1: {}, i2: {}},
         air: {count: 0, i0: {}, i1: {}, i2: {}},
         block_template: {count: 0, i0: {}, i1: {}, i2: {}},
         boat_template: {count: 0, i0: {}, i1: {}, i2: {}},

@@ -70,7 +70,10 @@ JEIAddedEvents.registerRecipes((event) => {
     }
     let cuttingMachine = event.custom("kubejs:inventory_cutting_machine_tier_1")
     let cuttingMachineTemplate = event.custom("kubejs:inventory_cutting_machine_tier_1_template")
-    let seenCuttingMachineDisplay = {
+    let seenCuttingMachineDisplay = {        
+        drawer_template_1x1: {},
+        drawer_template_1x2: {},
+        drawer_template_2x2: {},
         air: {},
         block_template: {},
         boat_template: {},
@@ -102,6 +105,9 @@ JEIAddedEvents.registerRecipes((event) => {
     let packer = event.custom("kubejs:inventory_packer_tier_1")
     let packerTemplate = event.custom("kubejs:inventory_packer_tier_1_template")
     let seenPackerDisplay = {
+        drawer_template_1x1: {},
+        drawer_template_1x2: {},
+        drawer_template_2x2: {},
         air: {},
         block_template: {},
         boat_template: {},

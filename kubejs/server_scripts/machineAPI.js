@@ -30,7 +30,7 @@ function canInsert(inventory, slotIndex, item){
                 if(leftToInsert <= 0) return true
             }
         }
-    }else if(slotItem.is("kubejs:inventory_pusher_tier_1")){
+    }else if(/kubejs:inventory_pusher_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return true
         if(!slotItem.nbt.Item) return true
         let pusherItem = $ItemStack.of(slotItem.nbt.Item)
@@ -52,7 +52,7 @@ function canInsertAnyItem(inventory, slotIndex){
         if(!slotItem.nbt.BlockEntityTag) return true
         if(!slotItem.nbt.BlockEntityTag.Items) return true
         if(slotItem.nbt.BlockEntityTag.Items.length < 27) return true
-    }else if(slotItem.is("kubejs:inventory_pusher_tier_1")){
+    }else if(/kubejs:inventory_pusher_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return true
         if(!slotItem.nbt.Item) return true
         if($ItemStack.of(slotItem.nbt.Item).isEmpty()) return true
@@ -71,16 +71,16 @@ function getAmountCanInsert(inventory, slotIndex, item){
         if(!slotItem.nbt.BlockEntityTag) return item.count
         if(!slotItem.nbt.BlockEntityTag.Items) return item.count
         if(slotItem.nbt.BlockEntityTag.Items.length < 27) return item.count
-        let canInsert = item.count
+        let canInsert = 0
         for(let i = 0; i < slotItem.nbt.BlockEntityTag.Items.length; i++){
             let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
             if($ItemStack.isSameItemSameTags(shulkerItem, item)){
-                leftToInsert += shulkerItem.getMaxStackSize() - shulkerItem.count
+                canInsert += shulkerItem.getMaxStackSize() - shulkerItem.count
                 if(canInsert > item.count) return item.count
             }
         }
         return canInsert
-    }else if(slotItem.is("kubejs:inventory_pusher_tier_1")){
+    }else if(/kubejs:inventory_pusher_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return item.count
         if(!slotItem.nbt.Item) return item.count
         let pusherItem = $ItemStack.of(slotItem.nbt.Item)
@@ -148,7 +148,7 @@ function insertItem(inventory, slotIndex, item){
                 }
             }
         }
-    }else if(slotItem.is("kubejs:inventory_pusher_tier_1")){
+    }else if(/kubejs:inventory_pusher_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) slotItem.nbt = {Item: convertToJson(item, 0)}
         else{
             if(slotItem.nbt.Item){ slotItem.nbt.Item.Count += item.count}
@@ -211,7 +211,7 @@ function canExtract(inventory, slotIndex, item){
                 if(leftToExtract <= 0) return true
             }
         }
-    }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+    }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return false
         if(!slotItem.nbt.Item) return false
         let pullerItem = $ItemStack.of(slotItem.nbt.Item)
@@ -259,7 +259,7 @@ function extractItem(inventory, slotIndex, item){
         for(let i = toSplice.length - 1; i >= 0; i--){
             slotItem.nbt.BlockEntityTag.Items.remove(toSplice[i])
         }
-    }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+    }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
         let pullerItem = $ItemStack.of(slotItem.nbt.Item)
         if(pullerItem.count > item.count){
             slotItem.nbt.Item.Count = pullerItem.count - item.count
@@ -305,7 +305,7 @@ function getExtractItem(inventory, slotIndex){
             return $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
         }
         return Item.of("minecraft:air")
-    }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+    }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
         if(!slotItem.nbt) return Item.of("minecraft:air")
         if(!slotItem.nbt.Item) return Item.of("minecraft:air")
         return $ItemStack.of(slotItem.nbt.Item)

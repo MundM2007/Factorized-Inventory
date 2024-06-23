@@ -6,8 +6,8 @@ function addGearRotorRecipe(event, material){
     ], {
         R: `kubejs:${material}_ring`,
         P: `kubejs:${material}_plate`,
-        H: "kubejs:hammer"
-    }).damageIngredient("kubejs:hammer", 2)
+        H: global.hammers
+    }).damageIngredient(global.hammers, 2)
     event.shaped(`kubejs:${material}_gear`, [
         "PHP",
         "PRP",
@@ -15,8 +15,8 @@ function addGearRotorRecipe(event, material){
     ], {
         R: `kubejs:${material}_ring`,
         P: `kubejs:${material}_plate`,
-        H: "kubejs:hammer"
-    }).damageIngredient("kubejs:hammer", 2)
+        H: global.hammers
+    }).damageIngredient(global.hammers, 2)
 
     event.shaped(`kubejs:${material}_rotor`, [
         "PMP",
@@ -27,8 +27,8 @@ function addGearRotorRecipe(event, material){
         P: `kubejs:${material}_curved_plate`,
         M: `kubejs:${material}_rod`,
         B: `kubejs:${material}_bolt`,
-        H: "kubejs:hammer"
-    }).damageIngredient("kubejs:hammer", 3)
+        H: global.hammers
+    }).damageIngredient(global.hammers, 3)
     event.shaped(`kubejs:${material}_rotor`, [
         "PHP",
         "BRB",
@@ -38,8 +38,8 @@ function addGearRotorRecipe(event, material){
         P: `kubejs:${material}_curved_plate`,
         M: `kubejs:${material}_rod`,
         B: `kubejs:${material}_bolt`,
-        H: "kubejs:hammer"
-    }).damageIngredient("kubejs:hammer", 3)
+        H: global.hammers
+    }).damageIngredient(global.hammers, 3)
 
 }
 
@@ -77,32 +77,32 @@ ServerEvents.recipes(event => {
 
     event.shaped("3x kubejs:bronze_dust", ["CC", "CT"], {C: "kubejs:copper_dust", T: "kubejs:tin_dust"})
     event.shaped("3x kubejs:brass_dust", ["CT", "CT"], {C: "kubejs:copper_dust", T: "kubejs:zinc_dust"})
-    event.shaped("kubejs:hammer", [" I ", " SI", "S  "], {I: "minecraft:iron_ingot", S: "minecraft:stick"})
+    event.shaped("kubejs:iron_hammer", [" I ", " SI", "S  "], {I: "minecraft:iron_ingot", S: "minecraft:stick"})
 
-    event.shapeless("kubejs:brass_dust", ["kubejs:brass_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:brass_rod", ["kubejs:brass_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:brass_ring", ["kubejs:brass_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:brass_plate", ["kubejs:brass_ingot", "kubejs:brass_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
-    event.shapeless("kubejs:bronze_dust", ["kubejs:bronze_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:bronze_rod", ["kubejs:bronze_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:bronze_ring", ["kubejs:bronze_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:bronze_plate", ["kubejs:bronze_ingot", "kubejs:bronze_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
-    event.shapeless("kubejs:copper_dust", ["minecraft:copper_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:copper_rod", ["minecraft:copper_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:copper_ring", ["kubejs:copper_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:copper_plate", ["minecraft:copper_ingot", "minecraft:copper_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
-    event.shapeless("kubejs:iron_dust", ["minecraft:iron_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:iron_rod", ["minecraft:iron_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:iron_ring", ["kubejs:iron_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:iron_plate", ["minecraft:iron_ingot", "minecraft:iron_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
-    event.shapeless("kubejs:tin_dust", ["kubejs:tin_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:tin_rod", ["kubejs:tin_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:tin_ring", ["kubejs:tin_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:tin_plate", ["kubejs:tin_ingot", "kubejs:tin_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
-    event.shapeless("kubejs:zinc_dust", ["kubejs:zinc_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("2x kubejs:zinc_rod", ["kubejs:zinc_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 2)
-    event.shapeless("kubejs:zinc_ring", ["kubejs:zinc_rod", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 1)
-    event.shapeless("kubejs:zinc_plate", ["kubejs:zinc_ingot", "kubejs:zinc_ingot", "kubejs:hammer"]).damageIngredient("kubejs:hammer", 3)
+    event.shapeless("kubejs:brass_dust", ["kubejs:brass_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:brass_rod", ["kubejs:brass_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:brass_ring", ["kubejs:brass_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:brass_plate", ["kubejs:brass_ingot", "kubejs:brass_ingot", global.hammers]).damageIngredient(global.hammers, 3)
+    event.shapeless("kubejs:bronze_dust", ["kubejs:bronze_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:bronze_rod", ["kubejs:bronze_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:bronze_ring", ["kubejs:bronze_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:bronze_plate", ["kubejs:bronze_ingot", "kubejs:bronze_ingot", global.hammers]).damageIngredient(global.hammers, 3)
+    event.shapeless("kubejs:copper_dust", ["minecraft:copper_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:copper_rod", ["minecraft:copper_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:copper_ring", ["kubejs:copper_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:copper_plate", ["minecraft:copper_ingot", "minecraft:copper_ingot", global.hammers]).damageIngredient(global.hammers, 3)
+    event.shapeless("kubejs:iron_dust", ["minecraft:iron_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:iron_rod", ["minecraft:iron_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:iron_ring", ["kubejs:iron_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:iron_plate", ["minecraft:iron_ingot", "minecraft:iron_ingot", global.hammers]).damageIngredient(global.hammers, 3)
+    event.shapeless("kubejs:tin_dust", ["kubejs:tin_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:tin_rod", ["kubejs:tin_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:tin_ring", ["kubejs:tin_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:tin_plate", ["kubejs:tin_ingot", "kubejs:tin_ingot", global.hammers]).damageIngredient(global.hammers, 3)
+    event.shapeless("kubejs:zinc_dust", ["kubejs:zinc_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("2x kubejs:zinc_rod", ["kubejs:zinc_ingot", global.hammers]).damageIngredient(global.hammers, 2)
+    event.shapeless("kubejs:zinc_ring", ["kubejs:zinc_rod", global.hammers]).damageIngredient(global.hammers, 1)
+    event.shapeless("kubejs:zinc_plate", ["kubejs:zinc_ingot", "kubejs:zinc_ingot", global.hammers]).damageIngredient(global.hammers, 3)
 
     //addGearRotorRecipe(event, "aluminum")
     addGearRotorRecipe(event, "brass")
@@ -484,6 +484,30 @@ ServerEvents.recipes(event => {
     })
 
     // templates
+    event.shaped("kubejs:drawer_template_1x1", [
+        " D ", 
+        "DPD", 
+        " D "
+    ], {
+        P: "minecraft:paper",
+        D: /storagedrawers:.*_drawers_1/
+    })
+    event.shaped("kubejs:drawer_template_1x2", [
+        " D ",
+        "DPD",
+        " D "
+    ], {
+        P: "minecraft:paper",
+        D: /storagedrawers:.*_drawers_2/
+    })
+    event.shaped("kubejs:drawer_template_2x2", [
+        " D ",
+        "DPD",
+        " D "
+    ], {
+        P: "minecraft:paper",
+        D: /storagedrawers:.*_drawers_4/
+    })
     event.shaped("kubejs:block_template", [
         "SSS", 
         "SPS", 
@@ -632,5 +656,102 @@ ServerEvents.recipes(event => {
     ], {
         P: "minecraft:paper",
         W: 'minecraft:honeycomb'
+    })
+    
+    event.shaped("2x storagedrawers:compacting_drawers_3", [
+        "SIS",
+        "PDP",
+        "SRS"
+    ], {
+        S: "minecraft:stone",
+        I: "kubejs:iron_plate",
+        P: "minecraft:piston",
+        D: "#storagedrawers:drawers",
+        R: "kubejs:iron_rotor"
+    })
+    
+    event.shaped("storagedrawers:obsidian_storage_upgrade", [
+        "SSS",
+        "TOT",
+        "SSS"
+    ], {
+        S: "minecraft:stick",
+        T: "storagedrawers:upgrade_template",
+        O: "minecraft:obsidian"
+    })
+    event.shaped("2x storagedrawers:obsidian_storage_upgrade", [
+        "SCS",
+        "TOT",
+        "SCS"
+    ], {
+        S: "minecraft:stick",
+        C: "minecraft:coal",
+        T: "storagedrawers:upgrade_template",
+        O: "minecraft:obsidian"
+    })
+    event.shaped("storagedrawers:iron_storage_upgrade", [
+        "SSS",
+        "UIU",
+        "SSS"
+    ], {
+        S: "minecraft:stick",
+        U: "storagedrawers:obsidian_storage_upgrade",
+        I: "minecraft:iron_ingot"
+    })
+    event.shaped("storagedrawers:gold_storage_upgrade", [
+        "SSS",
+        "UIU",
+        "SSS"
+    ], {
+        S: "minecraft:stick",
+        U: "storagedrawers:iron_storage_upgrade",
+        I: "minecraft:gold_ingot"
+    })
+    event.shaped("storagedrawers:diamond_storage_upgrade", [
+        "SSS",
+        "UIU",
+        "SSS"
+    ], {
+        S: "minecraft:stick",
+        U: "storagedrawers:gold_storage_upgrade",
+        I: "minecraft:diamond"
+    })
+    event.shaped("storagedrawers:emerald_storage_upgrade", [
+        "SSS",
+        "UBU",
+        "SSS"
+    ], {
+        S: "minecraft:stick",
+        U: "storagedrawers:diamond_storage_upgrade",
+        B: "minecraft:emerald_block",
+    })
+
+    event.shaped("32x pipez:item_pipe", [
+        "BHB",
+        "DRD",
+        "BBB",
+    ], {
+        B: "kubejs:brass_plate",
+        H: "minecraft:hopper",
+        D: "minecraft:dropper",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("16x pipez:fluid_pipe", [
+        "CCC",
+        "BRB",
+        "CCC",
+    ], {
+        C: "kubejs:copper_plate",
+        B: "minecraft:bucket",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("3x pipez:ultimate_upgrade", [
+        "NRN",
+        "UUU",
+        "NRN",
+    ], {
+        N: "minecraft:netherite_ingot",
+        R: "minecraft:redstone_block",
+        U: "pipez:advanced_upgrade"
     })
 })

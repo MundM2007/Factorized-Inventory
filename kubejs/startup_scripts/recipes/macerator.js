@@ -66,6 +66,9 @@ addMaceratorRecipe("16x kubejs:lapis_lazuli_dust", "minecraft:lapis_ore", 400)
 addMaceratorRecipe("16x kubejs:lapis_lazuli_dust", "minecraft:deepslate_lapis_ore", 400)
 addMaceratorRecipe("6x minecraft:redstone", "minecraft:redstone_ore", 400)
 addMaceratorRecipe("6x minecraft:redstone", "minecraft:deepslate_redstone_ore", 400)
+addMaceratorRecipe("10x minecraft:gold_nugget", "minecraft:nether_gold_ore", 400)
+addMaceratorRecipe("2x minecraft:quartz", "minecraft:nether_quartz_ore", 400)
+addMaceratorRecipe("3x minecraft:netherite_scrap", "2x minecraft:ancient_debris", 400, 2)
 
 
 function addMaceratorRecipes(material, tier) {
@@ -198,17 +201,17 @@ addMaceratorRecipe("minecraft:diorite", "minecraft:polished_diorite", 100)
 // andesite
 addMaceratorRecipe("minecraft:andesite", "minecraft:polished_andesite", 100)
 // mud bricks
-addMaceratorRecipe("minecraft:packed_mud", "kubejs:mud_bricks", 100)
+addMaceratorRecipe("minecraft:packed_mud", "minecraft:mud_bricks", 200)
 // sand
-addMaceratorRecipe("minecraft:gravel", "minecraft:cobblestone", 100)
-addMaceratorRecipe("minecraft:sand", "minecraft:gravel", 100)
+addMaceratorRecipe("minecraft:gravel", "minecraft:cobblestone", 200)
+addMaceratorRecipe("minecraft:sand", "minecraft:gravel", 200)
 let sandstones = ["minecraft:sandstone", "minecraft:chiseled_sandstone", "minecraft:smooth_sandstone", "minecraft:cut_sandstone"]
 sandstones.forEach(sandstone => {addMaceratorRecipe("4x minecraft:sand", sandstone, 100, 1, sandstones)})
 let red_sandstones = ["minecraft:red_sandstone", "minecraft:chiseled_red_sandstone", "minecraft:smooth_red_sandstone", "minecraft:cut_red_sandstone"]
 red_sandstones.forEach(red_sandstone => {addMaceratorRecipe("4x minecraft:red_sand", red_sandstone, 100, 1, red_sandstones)})
 // prismarine
 addMaceratorRecipe("minecraft:prismarine_crystals", "minecraft:prismarine_shard", 100)
-addMaceratorRecipe("9x minecraft:prismarine_shard", "minecraft:sea_lantern", 100)
+addMaceratorRecipe("9x minecraft:prismarine_shard", "minecraft:sea_lantern", 200)
 // blackstone
 let blackstones = ["minecraft:chiseled_polished_blackstone", "minecraft:polished_blackstone", "minecraft:polished_blackstone_bricks", "minecraft:cracked_polished_blackstone_bricks"]
 blackstones.forEach(blackstone => {addMaceratorRecipe("minecraft:polished_blackstone", blackstone, 100, 1, blackstones)})
@@ -216,33 +219,33 @@ blackstones.forEach(blackstone => {addMaceratorRecipe("minecraft:polished_blacks
 let basalts = ["minecraft:smooth_basalt", "minecraft:polished_basalt"]
 basalts.forEach(basalt => {addMaceratorRecipe("minecraft:basalt", basalt, 100, 1, basalts)})
 // end stone
-addMaceratorRecipe("minecraft:end_stone", "minecraft:end_stone_bricks", 100)
+addMaceratorRecipe("minecraft:end_stone", "minecraft:end_stone_bricks", 200)
 // purpur
 let purpurs = ["minecraft:purpur_block", "minecraft:purpur_pillar"]
-purpurs.forEach(purpur => {addMaceratorRecipe("minecraft:popped_chorus_fruit", purpur, 100, 1, purpurs)})
+purpurs.forEach(purpur => {addMaceratorRecipe("minecraft:popped_chorus_fruit", purpur, 200, 1, purpurs)})
 // quartz
 let quartzs = ["minecraft:chiseled_quartz_block", "minecraft:quartz_bricks", "minecraft:quartz_pillar", "minecraft:smooth_quartz"]
-quartzs.forEach(quartz => {addMaceratorRecipe("4x minecraft:quartz", quartz, 100, 1, quartzs)})
+quartzs.forEach(quartz => {addMaceratorRecipe("4x minecraft:quartz", quartz, 200, 1, quartzs)})
 // amethyst
-addMaceratorRecipe("4x minecraft:amethyst_shard", "minecraft:amethyst_block", 100)
+addMaceratorRecipe("4x minecraft:amethyst_shard", "minecraft:amethyst_block", 200)
 // snow
-addMaceratorRecipe("4x minecraft:snow_ball", "minecraft:snow_block", 100)
-addMaceratorRecipe("2x minecraft:snow_block", "minecraft:snow", 100)
+addMaceratorRecipe("4x minecraft:snowball", "minecraft:snow_block", 200)
+addMaceratorRecipe("minecraft:snow_block", "2x minecraft:snow", 200)
 // ice
-addMaceratorRecipe("4x minecraft:snow_ball", "minecraft:ice", 100)
+addMaceratorRecipe("4x minecraft:snowball", "minecraft:ice", 200)
 // dripstone
-addMaceratorRecipe("4x minecraft:pointed_dripstone", "minecraft:dripstone_block", 100)
+addMaceratorRecipe("4x minecraft:pointed_dripstone", "minecraft:dripstone_block", 200)
 // magma
-addMaceratorRecipe("4x minecraft:magma_cream", "minecraft:magma_block", 100)
+addMaceratorRecipe("4x minecraft:magma_cream", "minecraft:magma_block", 200)
 // nether wart
-addMaceratorRecipe("9x minecraft:nether_wart", "minecraft:nether_wart_block", 100)
+addMaceratorRecipe("9x minecraft:nether_wart", "minecraft:nether_wart_block", 200)
 // honey
-addMaceratorRecipe("4x minecraft:honeycomb", "minecraft:honeycomb_block", 100)
+addMaceratorRecipe("4x minecraft:honeycomb", "minecraft:honeycomb_block", 200)
 // wool
 let wools = colors.map(color => `minecraft:${color}_wool`)
 let carpets = colors.map(color => `minecraft:${color}_carpet`)
 for(let i = 0; i < 16; i++){
-    addMaceratorRecipe("4x minecraft:string", `minecraft:${colors[i]}_wool`, 100, 1, wools)
+    addMaceratorRecipe("4x minecraft:string", `minecraft:${colors[i]}_wool`, 200, 1, wools)
     addMaceratorRecipe("2x minecraft:string", `minecraft:${colors[i]}_carpet`, 100, 1, carpets)
 }
 // clay
@@ -257,6 +260,8 @@ addMaceratorRecipe("minecraft:sugar", "minecraft:sugar_cane", 100)
 for(let i = 0; i < 16; i++){
     addMaceratorRecipe(`minecraft:${colors[i]}_concrete_powder`, `minecraft:${colors[i]}_concrete`, 100)
 }
+// bone meal
+addMaceratorRecipe("4x minecraft:bone_meal", "minecraft:bone", 200)
 // dye
 let dyes = {
     "minecraft:white_dye": ["minecraft:lily_of_the_valley", "minecraft:bone_meal", "biomesoplenty:white_petals"],
@@ -286,7 +291,7 @@ addMaceratorRecipe("4x minecraft:purple_dye", "biomesoplenty:tall_lavender", 100
 addMaceratorRecipe("4x minecraft:magenta_dye", "minecraft:lilac", 100)
 addMaceratorRecipe("4x minecraft:pink_dye", "minecraft:peony", 100)
 // rose quartz
-addMaceratorRecipe("4x biomesoplenty:rose_quartz", "biomesoplenty:rose_quartz_block", 200)
+addMaceratorRecipe("4x biomesoplenty:rose_quartz_chunk", "biomesoplenty:rose_quartz_block", 200)
 // white sandstone
 let white_sandstones = ["biomesoplenty:white_sandstone", "biomesoplenty:cut_white_sandstone", "biomesoplenty:chiseled_white_sandstone", "biomesoplenty:smooth_white_sandstone"]
 white_sandstones.forEach(white_sandstone => {addMaceratorRecipe("4x biomesoplenty:white_sand", white_sandstone, 100, 1, white_sandstones)})

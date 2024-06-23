@@ -51,16 +51,16 @@ addUnpackerRecipe(["9x minecraft:diamond"], "minecraft:diamond_block", 100)
 // netherite
 addUnpackerRecipe(["9x minecraft:netherite_ingot"], "minecraft:netherite_block", 100)
 // quartz
-addUnpackerRecipe(["9x minecraft:quartz"], "minecraft:quartz_block", 100)
+addUnpackerRecipe(["4x minecraft:quartz"], "minecraft:quartz_block", 100)
 // copper
 addUnpackerRecipe(["9x minecraft:copper_ingot"], "minecraft:copper_block", 100)
 addUnpackerRecipe(["9x kubejs:copper_nugget"], "minecraft:copper_ingot", 100)
 addUnpackerRecipe(["9x minecraft:raw_copper"], "minecraft:raw_copper_block", 100)
 // brick
-addUnpackerRecipe(["4x minecraft:brick"], "minecraft:bricks", 100)
+addUnpackerRecipe(["4x minecraft:brick"], "minecraft:bricks", 200)
 // nether brick
-addUnpackerRecipe(["4x minecraft:nether_brick"], "minecraft:nether_bricks", 100)
-addUnpackerRecipe(["2x minecraft:nether_brick", "2x minecraft:nether_wart"], "minecraft:red_nether_bricks", 100)
+addUnpackerRecipe(["4x minecraft:nether_brick"], "minecraft:nether_bricks", 200)
+addUnpackerRecipe(["2x minecraft:nether_brick", "2x minecraft:nether_wart"], "minecraft:red_nether_bricks", 200)
 // slime
 addUnpackerRecipe(["9x minecraft:slime_ball"], "minecraft:slime_block", 100)
 // bone
@@ -72,13 +72,15 @@ addUnpackerRecipe(["9x minecraft:wheat"], "minecraft:hay_block", 100)
 // honey
 addUnpackerRecipe(["minecraft:honey_block", "4x minecraft:glass_bottle"], "4x minecraft:honey_bottle", 100)
 // sugar
-addUnpackerRecipe(["3x minecraft:sugar", "minecraft:glass_bottle"], "minecraft:honey_bottle", 100)
+addUnpackerRecipe(["12x minecraft:sugar"], "minecraft:honey_block", 100)
 // others
 addUnpackerRecipe(["minecraft:honeycomb", "minecraft:string"], "minecraft:candle", 100, 1, "#minecraft:candles")
 let concretePowders = colors.map(color => `minecraft:${color}_concrete_powder`)
 for(let i = 0; i < 16; i++){
-    addUnpackerRecipe(["minecraft:honeycomb", "minecraft:string"], `minecraft:${colors[i]}_candle`, 100, 1, "#minecraft:candles")
-    addUnpackerRecipe([`6x minecraft:${colors[i]}_wool`, "minecraft:stick"], `minecraft:${colors[i]}_banner`, 100)
-    addUnpackerRecipe([`3x minecraft:${colors[i]}_wool`, "3x minecraft:oak"], `minecraft:${colors[i]}_bed`, 100) 
-    addUnpackerRecipe(["4x minecraft:sand", "4x minecraft:gravel"], `minecraft:${colors[i]}_concrete_powder`, 100, 1, concretePowders)
+    addUnpackerRecipe(["minecraft:honeycomb", "minecraft:string"], `minecraft:${colors[i]}_candle`, 200, 1, "#minecraft:candles")
+    addUnpackerRecipe([`6x minecraft:${colors[i]}_wool`, "minecraft:stick"], `minecraft:${colors[i]}_banner`, 200)
+    addUnpackerRecipe([`3x minecraft:${colors[i]}_wool`, "3x minecraft:oak"], `minecraft:${colors[i]}_bed`, 200) 
+    addUnpackerRecipe(["4x minecraft:sand", "4x minecraft:gravel"], `minecraft:${colors[i]}_concrete_powder`, 200, 1, concretePowders)
 }
+// melon
+addUnpackerRecipe(["9x minecraft:melon_slice"], "minecraft:melon", 100)

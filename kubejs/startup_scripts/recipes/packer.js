@@ -16,8 +16,10 @@ function addPackerRecipesWood(mod, material){
     addPackerRecipe(`4x ${mod}:${material}_wood`, [`4x ${mod}:${material}_log`], 100, 1, "block_template")
     addPackerRecipe(`4x ${mod}:stripped_${material}_wood`, [`4x ${mod}:stripped_${material}_log`], 100, 1, "block_template")
 
-    addPackerRecipe(`3x ${mod}:${material}_hanging_sign`, [`2x ${mod}:stripped_${material}_log`, "minecraft:chain"], 100, 1, "sign_template")
-    addPackerRecipe(`${mod}:${material}_chest_boat`, [`${mod}:${material}_boat`, "minecraft:chest"], 100, 1, "boat_template")
+    addPackerRecipe(`3x ${mod}:${material}_hanging_sign`, [`2x ${mod}:stripped_${material}_log`, "minecraft:chain"], 200, 1, "sign_template")
+    for(let i = 0; i < 2; i++){
+        addPackerRecipe(`${mod}:${material}_chest_boat`, [`${mod}:${material}_boat`, chests[i]], 100, 1, "boat_template", [`${mod}:${material}_boat`, chests])
+    } 
 }
 
 //addStoragePackerAll("aluminum")
@@ -50,16 +52,17 @@ addPackerRecipesWood("minecraft", "mangrove")
 addPackerRecipesWood("minecraft", "cherry")
 // bamboo
 addPackerRecipe('minecraft:bamboo_block', ['9x minecraft:bamboo'], 100, 1, "block_template")
-addPackerRecipe('3x minecraft:bamboo_hanging_sign', ['2x minecraft:stripped_bamboo_block', "minecraft:chain"], 100, 1, "sign_template")
-addPackerRecipe('minecraft:bamboo_chest_raft', ['minecraft:bamboo_raft', "minecraft:chest"], 100, 1, "boat_template")
+addPackerRecipe('3x minecraft:bamboo_hanging_sign', ['2x minecraft:stripped_bamboo_block', "minecraft:chain"], 200, 1, "sign_template")
+addPackerRecipe('minecraft:bamboo_chest_raft', ['minecraft:bamboo_raft', "minecraft:chest"], 100, 1, "boat_template", ["minecraft:bamboo_raft", chests])
+addPackerRecipe('minecraft:bamboo_chest_raft', ['minecraft:bamboo_raft', "minecraft:trapped_chest"], 100, 1, "boat_template", ["minecraft:bamboo_raft", chests])
 // crimson
 addPackerRecipe('4x minecraft:crimson_hyphae', ['4x minecraft:crimson_stem'], 100, 1, "block_template")
 addPackerRecipe('4x minecraft:stripped_crimson_hyphae' , ['4x minecraft:stripped_crimson_stem'], 100, 1, "block_template")
-addPackerRecipe('3x minecraft:crimson_hanging_sign', ['2x minecraft:stripped_crimson_stem', "minecraft:chain"], 100, 1, "sign_template")
+addPackerRecipe('3x minecraft:crimson_hanging_sign', ['2x minecraft:stripped_crimson_stem', "minecraft:chain"], 200, 1, "sign_template")
 // warped
 addPackerRecipe('4x minecraft:warped_hyphae', ['4x minecraft:warped_stem'], 100, 1, "block_template")
 addPackerRecipe('4x minecraft:stripped_warped_hyphae' , ['4x minecraft:stripped_warped_stem'], 100, 1, "block_template")
-addPackerRecipe('3x minecraft:warped_hanging_sign', ['2x minecraft:stripped_warped_stem', "minecraft:chain"], 100, 1, "sign_template")
+addPackerRecipe('3x minecraft:warped_hanging_sign', ['2x minecraft:stripped_warped_stem', "minecraft:chain"], 200, 1, "sign_template")
 //biomesoplenty
 addPackerRecipesWood("biomesoplenty", "fir")
 addPackerRecipesWood("biomesoplenty", "redwood")
@@ -71,8 +74,30 @@ addPackerRecipesWood("biomesoplenty", "dead")
 addPackerRecipesWood("biomesoplenty", "magic")
 addPackerRecipesWood("biomesoplenty", "umbran")
 addPackerRecipesWood("biomesoplenty", "hellbark")
-
-
+//traped chests
+addPackerRecipe('minecraft:trapped_chest', ['minecraft:chest', 'minecraft:tripwire_hook'], 100)
+//tripwire hook / chiseled bookshelf / barrel / note block / bowl
+for(let i = 0; i < planks.length; i++){
+    addPackerRecipe("2x minecraft:tripwire_hook", [planks[i], 'minecraft:iron_ingot'], 100, 1, "air", [planks, "minecraft:iron_ingot"])
+    addPackerRecipe("minecraft:chiseled_bookshelf", [planks6[i], slabs3[i]], 100, 1, "air", [planks6, slabs3])
+    addPackerRecipe("minecraft:barrel", [planks6[i], slabs2[i]], 100, 1, "block_template", [planks6, slabs2])
+    addPackerRecipe("minecraft:barrel", [slabs6[i], 'minecraft:stick'], 100, 1, "block_template", [slabs6, 'minecraft:stick'])
+    addAssemblerRecipe('minecraft:note_block', [planks8[i], 'minecraft:redstone'], 100, 1, [planks8, 'minecraft:redstone'])
+    addAssemblerRecipe('minecraft:bowl', [planks2[i], 'minecraft:stick'], 100, 1, [planks3, 'minecraft:stick'])
+}
+//drawers
+for(let i = 0; i < 8; i++){
+    let woodType = planks[i].split(":")[1].replace("_planks", "")
+    for(let j = 0; j < 2; j++){
+        addPackerRecipe(`storagedrawers:${woodType}_full_drawers_1`, ["4x " + planks[i], chests[j]], 100, 1, "drawer_template_1x1", ["4x " + planks[i], "#forge:chests/wooden"])
+        addPackerRecipe(`storagedrawers:${woodType}_full_drawers_2`, ["3x " + planks[i], chests[j]], 100, 1, "drawer_template_1x2", ["3x " + planks[i], "#forge:chests/wooden"])
+        addPackerRecipe(`storagedrawers:${woodType}_full_drawers_4`, [planks[i], chests[j]], 100, 1, "drawer_template_2x2", [planks[i], "#forge:chests/wooden"])
+        addPackerRecipe(`storagedrawers:${woodType}_half_drawers_1`, ["4x " + planks[i].replace("planks", "slab"), chests[j]], 100, 1, "drawer_template_1x1", ["4x " + planks[i].replace("planks", "slab"), "#forge:chests/wooden"])
+        addPackerRecipe(`storagedrawers:${woodType}_half_drawers_2`, ["3x " + planks[i].replace("planks", "slab"), chests[j]], 100, 1, "drawer_template_1x2", ["3x " + planks[i].replace("planks", "slab"), "#forge:chests/wooden"])
+        addPackerRecipe(`storagedrawers:${woodType}_half_drawers_4`, [planks[i].replace("planks", "slab"), chests[j]], 100, 1, "drawer_template_2x2", [planks[i].replace("planks", "slab"), "#forge:chests/wooden"])
+    }
+    addPackerRecipe(`storagedrawers:${woodType}_trim`, [planks[i], "minecraft:stick"], 100, 1, "block_template")
+}
 // mossy cobblestone
 addPackerRecipe('minecraft:mossy_cobblestone', ['minecraft:cobblestone', 'minecraft:moss_block'], 100, 1, "block_template")
 addPackerRecipe('minecraft:mossy_cobblestone', ['minecraft:cobblestone', 'minecraft:vine'], 100, 1, "block_template")
@@ -104,7 +129,7 @@ addPackerRecipe('minecraft:bricks', ['4x minecraft:brick'], 100, 1, "block_templ
 // mud bricks
 addPackerRecipe('4x minecraft:mud_bricks', ['4x minecraft:packed_mud'], 100, 1, "block_template")
 // packed mud
-addPackerRecipe('minecraft:packed_mud', ['minecraft:mud', 'minecraft:wheat'], 100, 1, "block_template")
+addPackerRecipe('minecraft:packed_mud', ['minecraft:mud', 'minecraft:wheat'], 100)
 // sandstone
 addPackerRecipe('minecraft:sandstone', ['4x minecraft:sand'], 100, 1, "block_template")
 addPackerRecipe('minecraft:chiseled_sandstone', ['2x minecraft:sandstone_slab'], 100, 1, "block_template")
@@ -144,6 +169,7 @@ addPackerRecipe('minecraft:chiseled_quartz_block', ['2x minecraft:quartz_slab'],
 addPackerRecipe('minecraft:copper_block', ['9x minecraft:copper_ingot'], 100, 1, "block_template")
 addPackerRecipe('minecraft:copper_ingot', ['9x kubejs:copper_nugget'], 100, 1, "block_template")
 addPackerRecipe('minecraft:raw_copper_block', ['9x minecraft:raw_copper'], 100, 1, "block_template")
+addPackerRecipe("minecraft:lightning_rod", ["3x minecraft:copper_ingot"], 100)
 // waxing
 addPackerRecipe('2x minecraft:waxed_copper_block', ['2x minecraft:copper_block', 'minecraft:honeycomb'], 100, 1, "waxing_template")
 addPackerRecipe('2x minecraft:waxed_exposed_copper', ['2x minecraft:exposed_copper', 'minecraft:honeycomb'], 100, 1, "waxing_template")
@@ -283,7 +309,6 @@ for (let i = 0; i < 16; i++) {
         addPackerRecipe(`minecraft:${colors[i]}_banner`, [`minecraft:${colors[j]}_banner`, `minecraft:${colors[i]}_dye`], 100, 1, "color_template", [currentBanners, `minecraft:${colors[i]}_dye`])
     }
     // bed
-    let planks3 = planks.map(plank => `3x ${plank}`)
     for (let plank of planks3) {
         addPackerRecipe(`minecraft:${colors[i]}_bed`, [`3x minecraft:${colors[i]}_wool`, plank], 100, 1, "block_template", [`3x minecraft:${colors[i]}_wool`, planks3])
     }
@@ -302,5 +327,50 @@ for (let i = 0; i < 16; i++) {
     // candle
     addPackerRecipe(`minecraft:${colors[i]}_candle`, ['minecraft:candle', `minecraft:${colors[i]}_dye`], 100, 1, "color_template")
 }
-
-
+// minecart
+addPackerRecipe('minecraft:chest_minecart', ['minecraft:minecart', 'minecraft:chest'], 100, 1, "air", ["minecraft:minecart", chests])
+addPackerRecipe('minecraft:chest_minecart', ['minecraft:minecart', 'minecraft:trapped_chest'], 100, 1, "air", ["minecraft:minecart", chests])
+addPackerRecipe('minecraft:furnace_minecart', ['minecraft:minecart', 'minecraft:furnace'], 100, 1, "air")
+addPackerRecipe('minecraft:hopper_minecart', ['minecraft:minecart', 'minecraft:hopper'], 100, 1, "air")
+addPackerRecipe('minecraft:tnt_minecart', ['minecraft:minecart', 'minecraft:tnt'], 100, 1, "air")
+// coarse dirt
+addPackerRecipe('2x minecraft:coarse_dirt', ['minecraft:dirt', 'minecraft:gravel'], 100, 1, "block_template")
+// melon
+addPackerRecipe('minecraft:melon', ['9x minecraft:melon_slice'], 100, 1, "block_template")
+// pumpkin
+addPackerRecipe('minecraft:jack_o_lantern', ['minecraft:carved_pumpkin', 'minecraft:torch'], 100, 1, "block_template")
+// workstations
+addPackerRecipe('minecraft:crafting_table', ['8x minecraft:stick'], 100)
+for(let i = 0; i < stone_tool_materials.length; i++){
+    addPackerRecipe(`minecraft:furnace`, [stone_tool_materials8[i]], 100, 1, "air", [stone_tool_materials8])
+}
+// pots
+addPackerRecipe('minecraft:flower_pot', ['3x minecraft:brick'], 100)
+// eye of ender
+addPackerRecipe('minecraft:ender_eye', ['minecraft:ender_pearl', 'minecraft:blaze_powder'], 100, 1, "block_template")
+// dropper
+addPackerRecipe('minecraft:dropper', ['7x minecraft:cobblestone', 'minecraft:redstone'], 100, 1, "block_template")
+// dispenser
+addPackerRecipe('minecraft:dispenser', ['minecraft:dropper', '3x minecraft:stick', '3x minecraft:string'], 100, 1, "block_template")
+// sticky piston
+addPackerRecipe('minecraft:sticky_piston', ['minecraft:piston', 'minecraft:slime_ball'], 100, 1, "block_template")
+// tnt
+for(let i = 0; i < sands.length; i++){
+    addPackerRecipe('minecraft:tnt', [sands4[i], 'minecraft:gunpowder'], 100, 1, "block_template", [sands4, 'minecraft:gunpowder'])
+}
+// compass
+addPackerRecipe('minecraft:compass', ['4x minecraft:iron_ingot', 'minecraft:redstone'], 100)
+// clock
+addPackerRecipe('minecraft:clock', ['4x minecraft:gold_ingot', 'minecraft:redstone'], 100)
+// golden apple
+addPackerRecipe('minecraft:golden_apple', ['minecraft:apple', '8x minecraft:gold_ingot'], 100)
+// golden carrot
+addPackerRecipe('minecraft:golden_carrot', ['minecraft:carrot', '8x minecraft:gold_nugget'], 100)
+// glistering melon
+addPackerRecipe('minecraft:glistering_melon_slice', ['minecraft:melon_slice', '8x minecraft:gold_nugget'], 100)
+// bread
+addPackerRecipe('3x minecraft:bread', ['minecraft:hay_block'], 100)
+// leather
+addPackerRecipe('minecraft:leather', ['4x minecraft:rabbit_hide'], 100)
+// fermentated spider eye
+addPackerRecipe("minecraft:fermented_spider_eye", ["minecraft:spider_eye", "minecraft:sugar", "minecraft:brown_mushroom"], 100)

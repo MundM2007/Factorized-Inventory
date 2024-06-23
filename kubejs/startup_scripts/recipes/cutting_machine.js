@@ -29,7 +29,7 @@ function addCuttingMachineRecipesWood(mod, material){
     addCuttingMachineRecipe(`2x ${mod}:${material}_button`, `${mod}:${material}_planks`, 100, 1, "button_template")
     addCuttingMachineRecipe(`${mod}:${material}_sign`, `2x ${mod}:${material}_planks`, 100, 1, "sign_template")
     addCuttingMachineRecipe(`${mod}:${material}_boat`, `4x ${mod}:${material}_planks`, 100, 1, "boat_template")
-    addCuttingMachineRecipe('minecraft:chest', `8x ${mod}:${material}_planks`, 100, 1, "block_template")
+    addCuttingMachineRecipe('minecraft:chest', `8x ${mod}:${material}_planks`, 100, 1, "block_template", planks.map(plank => `8x ${plank}`))
     addCuttingMachineRecipe('4x minecraft:stick', `${mod}:${material}_planks`, 100, 1, "air", planks)
 }
 
@@ -84,6 +84,7 @@ addCuttingMachineRecipe("minecraft:bamboo_pressure_plate", "minecraft:bamboo_pla
 addCuttingMachineRecipe("2x minecraft:bamboo_button", "minecraft:bamboo_planks", 100, 1, "button_template")
 addCuttingMachineRecipe("minecraft:bamboo_sign", "2x minecraft:bamboo_planks", 100, 1, "sign_template")
 addCuttingMachineRecipe("minecraft:bamboo_raft", "4x minecraft:bamboo_planks", 100, 1, "boat_template")
+addCuttingMachineRecipe("minecraft:chest", "8x minecraft:bamboo_planks", 100, 1, "block_template", planks)
 addCuttingMachineRecipe("4x minecraft:stick", "minecraft:bamboo_planks", 100, 1, "air", planks)
 // crimson
 addCuttingMachineRecipe("minecraft:stripped_crimson_stem", "minecraft:crimson_stem", 100, 1, "log_template")
@@ -101,6 +102,7 @@ addCuttingMachineRecipe("minecraft:crimson_trapdoor", "2x minecraft:crimson_plan
 addCuttingMachineRecipe("minecraft:crimson_pressure_plate", "minecraft:crimson_planks", 100, 1, "pressure_plate_template")
 addCuttingMachineRecipe("2x minecraft:crimson_button", "minecraft:crimson_planks", 100, 1, "button_template")
 addCuttingMachineRecipe("minecraft:crimson_sign", "2x minecraft:crimson_planks", 100, 1, "sign_template")
+addCuttingMachineRecipe("minecraft:chest", "8x minecraft:crimson_planks", 100, 1, "block_template", planks)
 addCuttingMachineRecipe("4x minecraft:stick", "minecraft:crimson_planks", 100, 1, "air", planks)
 // warped
 addCuttingMachineRecipe("minecraft:stripped_warped_stem", "minecraft:warped_stem", 100, 1, "log_template")
@@ -118,6 +120,7 @@ addCuttingMachineRecipe("minecraft:warped_trapdoor", "2x minecraft:warped_planks
 addCuttingMachineRecipe("minecraft:warped_pressure_plate", "minecraft:warped_planks", 100, 1, "pressure_plate_template")
 addCuttingMachineRecipe("2x minecraft:warped_button", "minecraft:warped_planks", 100, 1, "button_template")
 addCuttingMachineRecipe("minecraft:warped_sign", "2x minecraft:warped_planks", 100, 1, "sign_template")
+addCuttingMachineRecipe("minecraft:chest", "8x minecraft:warped_planks", 100, 1, "block_template", planks)
 addCuttingMachineRecipe("4x minecraft:stick", "minecraft:warped_planks", 100, 1, "air", planks)
 // biomesoplenty
 addCuttingMachineRecipesWood("biomesoplenty", "fir")
@@ -321,6 +324,20 @@ addCuttingMachineRecipe("minecraft:waxed_cut_copper_slab", "minecraft:waxed_expo
 // iron
 addCuttingMachineRecipe("minecraft:iron_door", "2x minecraft:iron_ingot", 100, 1, "door_template")
 addCuttingMachineRecipe("minecraft:iron_trapdoor", "3x minecraft:iron_ingot", 100, 1, "trapdoor_template")
+addCuttingMachineRecipe("minecraft:heavy_weighted_pressure_plate", "2x minecraft:iron_ingot", 100, 1, "pressure_plate_template")
+addCuttingMachineRecipe("4x minecraft:iron_bars", "minecraft:iron_ingot", 100, 1, "glass_pane_template")  
+addCuttingMachineRecipe("minecraft:chain", "minecraft:iron_ingot", 100, 1, "block_template")
+addCuttingMachineRecipe("minecraft:minecart", "4x minecraft:iron_ingot", 100, 1, "boat_template")
+addCuttingMachineRecipe("minecraft:bucket", "3x minecraft:iron_ingot", 100)
+// gold
+addCuttingMachineRecipe("minecraft:light_weighted_pressure_plate", "2x minecraft:gold_ingot", 100, 1, "pressure_plate_template")
+// farmland
+addCuttingMachineRecipe("minecraft:farmland", "minecraft:dirt", 100, 1, "block_template")
+// pumpkin
+addCuttingMachineRecipe("minecraft:carved_pumpkin", "minecraft:pumpkin", 100, 1, "block_template")
+addCuttingMachineRecipe("4x minecraft:pumpkin_seeds", "minecraft:pumpkin", 100, 1)
+// melon
+addCuttingMachineRecipe("minecraft:melon_seeds", "minecraft:melon_slice", 100, 1)
 // white sandstone
 addCuttingMachineRecipe("biomesoplenty:white_sandstone_stairs", "biomesoplenty:white_sandstone", 100, 1, "stairs_template", ["biomesoplenty:white_sandstone", "biomesoplenty:chiseled_white_sandstone", "biomesoplenty:cut_white_sandstone"])
 addCuttingMachineRecipe("biomesoplenty:white_sandstone_stairs", "biomesoplenty:chiseled_white_sandstone", 100, 1, "stairs_template", ["biomesoplenty:white_sandstone", "biomesoplenty:chiseled_white_sandstone", "biomesoplenty:cut_white_sandstone"])

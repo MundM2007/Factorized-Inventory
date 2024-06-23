@@ -557,6 +557,23 @@
 			x: 4.0d
 			y: 4.0d
 		}
+		{
+			dependencies: ["7090CBD448091823"]
+			id: "47F97CE9E2A7D8DA"
+			rewards: [{
+				count: 2
+				id: "0B953204A31E1E3B"
+				item: "kubejs:steel_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "13F9933AAF8DE19D"
+				item: "storagedrawers:controller"
+				type: "item"
+			}]
+			x: 3.0d
+			y: 5.0d
+		}
 	]
 	title: "Tier 2"
 }

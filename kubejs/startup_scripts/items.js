@@ -305,6 +305,9 @@ StartupEvents.registry("item", event => {
     event.create("zinc_wire").texture("kubejs:item/materials/zinc/zinc_wire")
 
 
+    event.create("drawer_template_1x1").displayName("1x1 Drawer Template").texture("kubejs:item/itemfilters/drawer_template_1x1")
+    event.create("drawer_template_1x2").displayName("1x2 Drawer Template").texture("kubejs:item/itemfilters/drawer_template_1x2")
+    event.create("drawer_template_2x2").displayName("2x2 Drawer Template").texture("kubejs:item/itemfilters/drawer_template_2x2")
     event.create("block_template").texture("kubejs:item/itemfilters/block_template")
     event.create("boat_template").texture("kubejs:item/itemfilters/boat_template")
     event.create("button_template").texture("kubejs:item/itemfilters/button_template")
@@ -325,7 +328,7 @@ StartupEvents.registry("item", event => {
 
 
     //tier 1
-    event.create("hammer").texture("kubejs:item/ee/hammer").maxDamage(256)
+    event.create("iron_hammer").texture("kubejs:item/ee/iron_hammer").maxDamage(256)
 
     //tier 2
     event.create("coal_coke").texture("kubejs:item/materials/coal_coke/coal_coke").burnTime(3200)

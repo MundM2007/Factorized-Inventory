@@ -141,7 +141,7 @@
 				id: "739F2A72B2967714"
 				item: {
 					Count: 1
-					id: "kubejs:hammer"
+					id: "kubejs:iron_hammer"
 					tag: {
 						Damage: 0
 					}
@@ -152,7 +152,7 @@
 				id: "094D79CFAC90760C"
 				item: {
 					Count: 1
-					id: "kubejs:hammer"
+					id: "kubejs:iron_hammer"
 					tag: {
 						Damage: 0
 					}
@@ -759,6 +759,36 @@
 			title: "Tier 1 Inventory Packer \\& Unpacker"
 			x: 15.0d
 			y: 1.0d
+		}
+		{
+			dependencies: ["6E64903CE915B436"]
+			id: "2794DD6AF4E3EF2D"
+			tasks: [{
+				id: "19C65AF464DEF606"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "storagedrawers:drawers"
+					}
+				}
+				title: "Any Drawer"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["1D1E0A17D132FDCB"]
+			id: "63E7ED56DF1B1E3D"
+			tasks: [{
+				count: 16L
+				id: "40C17CC67E50D997"
+				item: { Count: 16, id: "pipez:item_pipe" }
+				type: "item"
+			}]
+			x: 14.0d
+			y: 4.0d
 		}
 	]
 	title: "Tier 1"

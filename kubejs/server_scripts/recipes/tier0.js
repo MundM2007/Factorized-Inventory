@@ -1,3 +1,5 @@
+// priority: 100
+
 function addStorage(event, material){
     event.shapeless(`kubejs:${material}_storage_block`, `9x kubejs:${material}_ingot`)
     event.shapeless(`9x kubejs:${material}_ingot`, `kubejs:${material}_storage_block`)
@@ -16,6 +18,10 @@ function addStorageAll(event, material){
 }
 
 ServerEvents.recipes(event => {
+    global.hammers = Ingredient.of([
+        "kubejs:iron_hammer",
+        "kubejs:steel_hammer",
+    ])
     //addStorageAll(event, "aluminum")
     addStorage(event, "battery_alloy")
     addStorage(event, "brass")

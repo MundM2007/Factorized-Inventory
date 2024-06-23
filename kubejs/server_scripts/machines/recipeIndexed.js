@@ -186,7 +186,7 @@ function getRecipeIndexedMachineRecipe(recipes, slotItems, amountSlots, tier){
                     break
                 }
             }
-        }else if(slotItem.is("kubejs:inventory_puller_tier_1")){
+        }else if(/kubejs:inventory_puller_tier_.$/.test(slotItem.id)){
             if(!slotItem.nbt) continue
             if(!slotItem.nbt.Item) continue
             let doneSomething = false
