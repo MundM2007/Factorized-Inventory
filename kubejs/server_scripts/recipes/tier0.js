@@ -18,7 +18,7 @@ function addStorageAll(event, material){
 }
 
 ServerEvents.recipes(event => {
-    global.hammers = Ingredient.of([
+    global.hammers = InputItem.of([
         "kubejs:iron_hammer",
         "kubejs:steel_hammer",
     ])
