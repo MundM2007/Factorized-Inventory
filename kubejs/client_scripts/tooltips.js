@@ -5,8 +5,10 @@ function addSimpleMachineTooltip(event, machineItem, machine, data){
                 if(item.nbt.currentInputItem == "minecraft:air"){
                     if(item.nbt.fuel > 0){
                         text.add(1, Text.red('Fuel Amount left: ' + item.nbt.fuel))
+                        text.add(2, [Text.gray('Hold [Shift] for more info.')])
+                    }else{
+                        text.add(1, [Text.gray('Hold [Shift] for more info.')])
                     }
-                    text.add(2, [Text.gray('Hold [Shift] for more info.')])
                 }else{
                     text.add(1, Text.blue('Current Progress: ' + 
                         + Math.round(item.nbt.recipeProgress / (2 * data.speed)) / 10 + " s/"
@@ -61,8 +63,10 @@ function addRecipeIndexedMachineTooltip(event, machineItem, machine, data){
                 if(item.nbt.currentRecipe == -1){
                     if(item.nbt.fuel > 0){
                         text.add(1, Text.red('Fuel Amount left: ' + item.nbt.fuel))
+                        text.add(2, [Text.gray('Hold [Shift] for more info.')])
+                    }else{
+                        text.add(1, [Text.gray('Hold [Shift] for more info.')])
                     }
-                    text.add(2, [Text.gray('Hold [Shift] for more info.')])
                 }else{
                     text.add(1, Text.blue('Current Progress: ' + 
                         + Math.round(item.nbt.recipeProgress / (2 * data.speed)) / 10 + " s/"
@@ -115,8 +119,10 @@ function addAssemblerTooltip(event, machineItem, data){
                 if(item.nbt.currentRecipe == -1){
                     if(item.nbt.fuel > 0){
                         text.add(1, Text.red('Fuel Amount left: ' + item.nbt.fuel))
+                        text.add(2, [Text.gray('Hold [Shift] for more info.')])
+                    }else{
+                        text.add(1, [Text.gray('Hold [Shift] for more info.')])
                     }
-                    text.add(2, [Text.gray('Hold [Shift] for more info.')])
                 }else{
                     text.add(1, Text.blue('Current Progress: ' + 
                         + Math.round(item.nbt.recipeProgress / (2 * data.speed)) / 10 + " s/"
@@ -166,7 +172,48 @@ function addHopperTooltip(event, machineItem, data){
         }
     })
 }
-            
+      
+
+function addPistonTooltip(event, machineItem, data){
+    event.addAdvanced(machineItem, (item, advanced, text) => {
+        if (!event.shift) {
+            text.add(1, [Text.gray('Hold [Shift] for more info.')])
+        } else {
+            text.add(1, Text.gray("Pushes Items in it's facing direction, pushing them one slot away"))
+            if(data.speed > 1){
+                if(data.countProcess > 1){
+                    text.add(2, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Piston`))
+                    text.add(3, Text.green(`It can process up to ${data.countProcess} items at once`))
+                }else{
+                    text.add(2, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Piston`))
+                }
+            }else if(data.countProcess > 1){
+                text.add(2, Text.green(`It can process up to ${data.countProcess} items at once`))
+            }
+        }
+    })
+}
+
+
+function addStickyPistonTooltip(event, machineItem, data){
+    event.addAdvanced(machineItem, (item, advanced, text) => {
+        if (!event.shift) {
+            text.add(1, [Text.gray('Hold [Shift] for more info.')])
+        } else {
+            text.add(1, Text.gray("Pulls Items in it's facing direction, pulling them one slot closer"))
+            if(data.speed > 1){
+                if(data.countProcess > 1){
+                    text.add(2, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Sticky Piston`))
+                    text.add(3, Text.green(`It can process up to ${data.countProcess} items at once`))
+                }else{
+                    text.add(2, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Sticky Piston`))
+                }
+            }else if(data.countProcess > 1){
+                text.add(2, Text.green(`It can process up to ${data.countProcess} items at once`))
+            }
+        }
+    })
+}
 
 
 function addPusherTooltip(event, machineItem, data){
@@ -275,6 +322,7 @@ function addOreTooltip(event, oreItem, data, dimension){
 
 
 ItemEvents.tooltip(event => {
+    let directions = ["up", "right", "down", "left"]
     //addOreTooltip(event, 'kubejs:aluminum_ore', {min: -32, max: 32})
     addOreTooltip(event, 'kubejs:antimony_ore', {min: -48, max: 0})
     //addOreTooltip(event, 'kubejs:cobalt_ore', {min: 5, max: 40}, "nether")
@@ -285,20 +333,19 @@ ItemEvents.tooltip(event => {
     //addOreTooltip(event, 'kubejs:titanium_ore', {min: 0, max: 40}, "end")
     addOreTooltip(event, 'kubejs:zinc_ore', {min: -16, max: 48})
 
-    addHopperTooltip(event, 'kubejs:inventory_hopper_tier_1', {speed: 1, countProcess: 1})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_left_facing_tier_1', {speed: 1, countProcess: 1})
-    addHopperTooltip(event, 'kubejs:inventory_upper_tier_1', {speed: 1, countProcess: 1})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_right_facing_tier_1', {speed: 1, countProcess: 1})
+    directions.forEach(direction => {
+        addHopperTooltip(event, `kubejs:inventory_hopper_${direction}_facing_tier_1`, {speed: 1, countProcess: 1})
+        addHopperTooltip(event, `kubejs:inventory_hopper_${direction}_facing_tier_2`, {speed: 1.33, countProcess: 3})
+        addHopperTooltip(event, `kubejs:inventory_hopper_${direction}_facing_tier_3`, {speed: 2, countProcess: 10})
 
-    addHopperTooltip(event, 'kubejs:inventory_hopper_tier_2', {speed: 1.33, countProcess: 3})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_left_facing_tier_2', {speed: 1.33, countProcess: 3})
-    addHopperTooltip(event, 'kubejs:inventory_upper_tier_2', {speed: 1.33, countProcess: 3})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_right_facing_tier_2', {speed: 1.33, countProcess: 3})
+        addPistonTooltip(event, `kubejs:inventory_piston_${direction}_facing_tier_1`, {speed: 1, countProcess: 1})
+        addPistonTooltip(event, `kubejs:inventory_piston_${direction}_facing_tier_2`, {speed: 1.33, countProcess: 3})
+        addPistonTooltip(event, `kubejs:inventory_piston_${direction}_facing_tier_3`, {speed: 2, countProcess: 10})
 
-    addHopperTooltip(event, 'kubejs:inventory_hopper_tier_3', {speed: 2, countProcess: 10})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_left_facing_tier_3', {speed: 2, countProcess: 10})
-    addHopperTooltip(event, 'kubejs:inventory_upper_tier_3', {speed: 2, countProcess: 10})
-    addHopperTooltip(event, 'kubejs:inventory_hopper_right_facing_tier_3', {speed: 2, countProcess: 10})
+        addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_1`, {speed: 1, countProcess: 1})
+        addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_2`, {speed: 1.33, countProcess: 3})
+        addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_3`, {speed: 2, countProcess: 10})
+    })
 
     addPusherTooltip(event, 'kubejs:inventory_pusher_tier_1', {speed: 1, countProcess: 1})
     addPusherTooltip(event, 'kubejs:inventory_pusher_tier_2', {speed: 1.33, countProcess: 3})

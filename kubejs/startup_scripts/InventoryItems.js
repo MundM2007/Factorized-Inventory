@@ -9,28 +9,25 @@ function registerInvItem(event, item, ticks, countProcess, ticksPerTick, fuelPer
 }
 
 StartupEvents.registry('item', event => {
-    registerInvItem(event, 'kubejs:inventory_hopper_tier_1', 20, 1).displayName("Tier 1 Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_tier_1')
-    registerInvItem(event, 'kubejs:inventory_hopper_left_facing_tier_1', 20, 1).displayName("Tier 1 Left Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_left_facing_tier_1')
-    registerInvItem(event, 'kubejs:inventory_upper_tier_1', 20, 1).displayName("Tier 1 Inventory Upper").texture('kubejs:item/factinventory/inventory_upper_tier_1')
-    registerInvItem(event, 'kubejs:inventory_hopper_right_facing_tier_1', 20, 1).displayName("Tier 1 Right Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_right_facing_tier_1')
-    
-    registerInvItem(event, 'kubejs:inventory_hopper_tier_2', 15, 3).displayName("Tier 2 Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_tier_2')
-    registerInvItem(event, 'kubejs:inventory_hopper_left_facing_tier_2', 15, 3).displayName("Tier 2 Left Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_left_facing_tier_2')
-    registerInvItem(event, 'kubejs:inventory_upper_tier_2', 15, 3).displayName("Tier 2 Inventory Upper").texture('kubejs:item/factinventory/inventory_upper_tier_2')
-    registerInvItem(event, 'kubejs:inventory_hopper_right_facing_tier_2', 15, 3).displayName("Tier 2 Right Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_right_facing_tier_2')
-    
-    registerInvItem(event, 'kubejs:inventory_hopper_tier_3', 10, 10).displayName("Tier 3 Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_tier_3')
-    registerInvItem(event, 'kubejs:inventory_hopper_left_facing_tier_3', 10, 10).displayName("Tier 3 Left Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_left_facing_tier_3')
-    registerInvItem(event, 'kubejs:inventory_upper_tier_3', 10, 10).displayName("Tier 3 Inventory Upper").texture('kubejs:item/factinventory/inventory_upper_tier_3')
-    registerInvItem(event, 'kubejs:inventory_hopper_right_facing_tier_3', 10, 10).displayName("Tier 3 Right Facing Inventory Hopper").texture('kubejs:item/factinventory/inventory_hopper_right_facing_tier_3')
+    let directions = ["up", "right", "down", "left"]
+    let hopperNames = ["Inventory Upper", "Right Facing Inventory Hopper", "Inventory Hopper", "Left Facing Inventory Hopper"]
+    let timeByTier = [20, 15, 10]
+    let countProcessByTier = [1, 3, 10]
+    for(let i = 1; i < 4; i++){
+        registerInvItem(event, `kubejs:inventory_puller_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+            .displayName(`Tier ${i} Inventory Puller`).texture(`kubejs:item/inventory_puller_tier_${i}`)
+        registerInvItem(event, `kubejs:inventory_pusher_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+            .displayName(`Tier ${i} Inventory Pusher`).texture(`kubejs:item/inventory_pusher_tier_${i}`)
 
-    registerInvItem(event, 'kubejs:inventory_puller_tier_1', 20, 1).displayName("Tier 1 Inventory Puller").texture('kubejs:item/inventory_puller_tier_1')
-    registerInvItem(event, 'kubejs:inventory_puller_tier_2', 15, 3).displayName("Tier 2 Inventory Puller").texture('kubejs:item/inventory_puller_tier_2')
-    registerInvItem(event, 'kubejs:inventory_puller_tier_3', 10, 10).displayName("Tier 3 Inventory Puller").texture('kubejs:item/inventory_puller_tier_3')
-
-    registerInvItem(event, 'kubejs:inventory_pusher_tier_1', 20, 1).displayName("Tier 1 Inventory Pusher").texture('kubejs:item/inventory_pusher_tier_1')
-    registerInvItem(event, 'kubejs:inventory_pusher_tier_2', 15, 3).displayName("Tier 2 Inventory Pusher").texture('kubejs:item/inventory_pusher_tier_2')
-    registerInvItem(event, 'kubejs:inventory_pusher_tier_3', 10, 10).displayName("Tier 3 Inventory Pusher").texture('kubejs:item/inventory_pusher_tier_3')
+        for(let j = 0; j < 4; j++){
+            registerInvItem(event, `kubejs:inventory_hopper_${directions[j]}_facing_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+                .displayName(`Tier ${i} ${hopperNames[j]}`).texture(`kubejs:item/factinventory/inventory_hopper_${directions[j]}_facing_tier_${i}`)
+            registerInvItem(event, `kubejs:inventory_piston_${directions[j]}_facing_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+                .displayName(`Tier ${i} ${Utils.toTitleCase(directions[j])} Facing Inventory Piston`).texture(`kubejs:item/pistons/inventory_piston_${directions[j]}_facing_tier_${i}`)
+            registerInvItem(event, `kubejs:inventory_sticky_piston_${directions[j]}_facing_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+                .displayName(`Tier ${i} ${Utils.toTitleCase(directions[j])} Facing Inventory Sticky Piston`).texture(`kubejs:item/pistons/inventory_sticky_piston_${directions[j]}_facing_tier_${i}`)
+        }
+    }
 
     registerInvItem(event, 'kubejs:inventory_furnace_tier_1', 20, 1, 20, 10).displayName("Tier 1 Inventory Furnace").modelJson({"parent": "item/generated", "textures": {"layer0": "kubejs:item/mi/furnace/tier_1"}, "overrides": [{"predicate": { "custom_model_data": 1}, "model": "kubejs:item/mi/furnace/tier_1_on"}]})
     registerInvItem(event, 'kubejs:inventory_furnace_tier_2', 20, 3, 33.34, 50).displayName("Tier 2 Inventory Furnace").modelJson({"parent": "item/generated", "textures": {"layer0": "kubejs:item/mi/furnace/tier_2"}, "overrides": [{"predicate": { "custom_model_data": 1}, "model": "kubejs:item/mi/furnace/tier_2_on"}]})

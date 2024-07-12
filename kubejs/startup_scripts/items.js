@@ -331,9 +331,10 @@ StartupEvents.registry("item", event => {
     event.create("iron_hammer").texture("kubejs:item/ee/iron_hammer").maxDamage(256)
 
     //tier 2
+    event.create("steel_hammer").texture("kubejs:item/ee/steel_hammer").maxDamage(768)
+    
     event.create("coal_coke").texture("kubejs:item/materials/coal_coke/coal_coke").burnTime(3200)
     event.create("coal_coke_dust").texture("kubejs:item/materials/coal_coke/coal_coke_dust")
-    event.create("steel_hammer").texture("kubejs:item/ee/steel_hammer").maxDamage(768)
 
     //event.create("aluminum_drill_head").texture("kubejs:item/mi/drill/aluminum_drill_head")
     //event.create("aluminum_drill").texture("kubejs:item/mi/drill/aluminum_drill")

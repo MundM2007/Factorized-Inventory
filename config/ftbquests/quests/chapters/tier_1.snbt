@@ -248,7 +248,7 @@
 			}]
 			tasks: [{
 				id: "473DBB31E21C23D3"
-				item: "kubejs:inventory_hopper_tier_1"
+				item: "kubejs:inventory_hopper_down_facing_tier_1"
 				type: "item"
 			}]
 			x: 12.0d
@@ -501,7 +501,7 @@
 			}]
 			tasks: [{
 				id: "23A39F01F12E96FC"
-				item: "kubejs:inventory_hopper_tier_2"
+				item: "kubejs:inventory_hopper_down_facing_tier_2"
 				type: "item"
 			}]
 			x: 14.0d
@@ -521,7 +521,7 @@
 			}]
 			tasks: [{
 				id: "72103444504AAC1B"
-				item: "kubejs:inventory_hopper_tier_3"
+				item: "kubejs:inventory_hopper_down_facing_tier_3"
 				type: "item"
 			}]
 			x: 18.0d
@@ -789,6 +789,100 @@
 			}]
 			x: 14.0d
 			y: 4.0d
+		}
+		{
+			dependencies: ["5DE18E962C6C3D6A"]
+			id: "6FE1647A19B7693A"
+			rewards: [{
+				count: 2
+				id: "1AE72C77034A5090"
+				item: "minecraft:iron_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "4B9D8847DC47B92D"
+				item: "kubejs:inventory_piston_up_facing_tier_1"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["6FE1647A19B7693A"]
+			id: "00E41E9C617A27DB"
+			tasks: [{
+				id: "7B63252EBF3D626A"
+				item: "kubejs:inventory_sticky_piston_up_facing_tier_1"
+				type: "item"
+			}]
+			x: 10.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["00E41E9C617A27DB"]
+			id: "4D997440C9B18D44"
+			rewards: [{
+				id: "70E7F03A9F6674C8"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "4CDF1FC3A1B9C085"
+				item: "kubejs:inventory_sticky_piston_up_facing_tier_2"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -6.0d
+		}
+		{
+			dependencies: ["6FE1647A19B7693A"]
+			id: "6C484878D402B5B5"
+			rewards: [{
+				count: 3
+				id: "100152D605299BEB"
+				item: "minecraft:gold_ingot"
+				type: "item"
+			}]
+			tasks: [{
+				id: "1632A8B4BC042BF5"
+				item: "kubejs:inventory_piston_up_facing_tier_2"
+				type: "item"
+			}]
+			x: 8.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["6C484878D402B5B5"]
+			id: "178A0AAC0870A463"
+			rewards: [{
+				count: 3
+				id: "2C64DC84960B619A"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "7E83FF822B1B6F3B"
+				item: "kubejs:inventory_piston_up_facing_tier_3"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -4.0d
+		}
+		{
+			dependencies: ["4D997440C9B18D44"]
+			id: "6F3D37C84FD8DBA2"
+			rewards: [{
+				id: "467E1699316F86B2"
+				item: "minecraft:diamond"
+				type: "item"
+			}]
+			tasks: [{
+				id: "0FB721DC9963A999"
+				item: "kubejs:inventory_sticky_piston_up_facing_tier_3"
+				type: "item"
+			}]
+			x: 6.0d
+			y: -6.0d
 		}
 	]
 	title: "Tier 1"

@@ -22,6 +22,8 @@ ServerEvents.recipes(event => {
         "kubejs:iron_hammer",
         "kubejs:steel_hammer",
     ])
+    global.directions = ["up", "right", "down", "left"]
+    
     //addStorageAll(event, "aluminum")
     addStorage(event, "battery_alloy")
     addStorage(event, "brass")

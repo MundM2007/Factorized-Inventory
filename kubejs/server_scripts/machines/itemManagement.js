@@ -91,3 +91,33 @@ function tickHopper(inventory, slotIndex, countProcess, directionExtract, direct
         insertItem(inventory, slotInsert, item)
     }
 }
+
+
+function tickPiston(inventory, slotIndex, countProcess, directionFacing, type){
+    let slotExtract = getSlotInDirection(slotIndex, directionFacing, type)
+    let item = getExtractItem(inventory, slotExtract)
+    if(item.isEmpty()) return
+    if(item.count > countProcess) item = item.copyWithCount(countProcess)
+    let slotInsert = getSlotInDirection(slotExtract, directionFacing, type)
+    let canInsert = getAmountCanInsert(inventory, slotInsert, item)
+    if(canInsert < item.count) item = item.copyWithCount(canInsert)
+    if(item.count > 0){
+        extractItem(inventory, slotExtract, item)
+        insertItem(inventory, slotInsert, item)
+    }
+}
+
+function tickStickyPiston(inventory, slotIndex, countProcess, directionFacing, type){
+    let slotInsert = getSlotInDirection(slotIndex, directionFacing, type)
+    if(slotInsert == null || slotInsert == undefined) return
+    let slotExtract = getSlotInDirection(slotInsert, directionFacing, type)
+    let item = getExtractItem(inventory, slotExtract)
+    if(item.isEmpty()) return
+    if(item.count > countProcess) item = item.copyWithCount(countProcess)
+    let canInsert = getAmountCanInsert(inventory, slotInsert, item)
+    if(canInsert < item.count) item = item.copyWithCount(canInsert)
+    if(item.count > 0){
+        extractItem(inventory, slotExtract, item)
+        insertItem(inventory, slotInsert, item)
+    }
+}

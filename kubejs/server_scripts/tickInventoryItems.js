@@ -1,19 +1,18 @@
 global.tickInventoryItem = function(block, inventory, data, type){
     let item = data.item
-    if(/kubejs:inventory_hopper_tier_.$/.test(item)){
-        tickHopper(inventory, data.slotIndex, data.countProcess, "up", "down", type)
-    }else if(/kubejs:inventory_hopper_left_facing_tier_.$/.test(item)){
-        tickHopper(inventory, data.slotIndex, data.countProcess, "right", "left", type)
-    }else if(/kubejs:inventory_upper_tier_.$/.test(item)){
-        tickHopper(inventory, data.slotIndex, data.countProcess, "down", "up", type)
-    }else if(/kubejs:inventory_hopper_right_facing_tier_.$/.test(item)){
-        tickHopper(inventory, data.slotIndex, data.countProcess, "left", "right", type)
+    if(/kubejs:inventory_hopper_.*_facing_tier_.$/.test(item)){
+        let directionInsert = getDirectionFromItemName(item)
+        tickHopper(inventory, data.slotIndex, data.countProcess, getOppositeDirection(directionInsert), directionInsert, type)
     }else if(/kubejs:inventory_pusher_tier_.$/.test(item)){
         if(type == "player") return
         tickPusher(block, inventory, data.slotIndex, data.countProcess)
     }else if(/kubejs:inventory_puller_tier_.$/.test(item)){
         if(type == "player") return
         tickPuller(block, inventory, data.slotIndex, data.countProcess)
+    }else if(/kubejs:inventory_piston_.*_facing_tier_.$/.test(item)){
+        tickPiston(inventory, data.slotIndex, data.countProcess, getDirectionFromItemName(item), type)
+    }else if(/kubejs:inventory_sticky_piston_.*_facing_tier_.$/.test(item)){
+        tickStickyPiston(inventory, data.slotIndex, data.countProcess, getDirectionFromItemName(item), type)
     }else if(/kubejs:inventory_furnace_tier_.$/.test(item)){
         tickSimpleMachine(inventory, "furnace", data, type, parseInt(item.charAt(item.length - 1)))
     }else if(/kubejs:inventory_macerator_tier_.$/.test(item)){
@@ -37,8 +36,24 @@ global.tickInventoryItem = function(block, inventory, data, type){
     }else if(/kubejs:inventory_quarry_tier_.$/.test(item)){
         tickQuarry(inventory, data, type, parseInt(item.charAt(item.length - 1)) + 1)
     }else if(/kubejs:inventory_assembler_tier_.$/.test(item)){
-        tickRecipeIndexedMachine(inventory, "assembler", data, type, parseInt(item.charAt(item.length - 1)) + 1, 3)
+        tickRecipeIndexedMachine(inventory, "assembler", data, type, parseInt(item.charAt(item.length - 1)) + 1, 5)
     }
+}
+
+
+function getDirectionFromItemName(item){
+    if(item.includes("up")) return "up" 
+    if(item.includes("down")) return "down"
+    if(item.includes("left")) return "left"
+    if(item.includes("right")) return "right"
+}
+
+
+function getOppositeDirection(direction){
+    if(direction == "up") return "down"
+    if(direction == "down") return "up"
+    if(direction == "left") return "right"
+    if(direction == "right") return "left"
 }
 
 

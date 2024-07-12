@@ -49,9 +49,19 @@ addAssemblerRecipe("kubejs:tin_rotor", ["4x kubejs:tin_curved_plate", "kubejs:ti
 addAssemblerRecipe("kubejs:zinc_rotor", ["4x kubejs:zinc_curved_plate", "kubejs:zinc_rod", "kubejs:zinc_ring"])
 
 // inventory hopper
-addAssemblerRecipe('kubejs:inventory_hopper_tier_1', ['4x minecraft:iron_ingot', 'kubejs:iron_plate'])
-addAssemblerRecipe('kubejs:inventory_hopper_tier_2', ['kubejs:inventory_hopper_tier_1', '4x minecraft:gold_ingot', 'kubejs:gold_gear'])
-addAssemblerRecipe('kubejs:inventory_hopper_tier_3', ['kubejs:inventory_hopper_tier_2', '4x minecraft:diamond', 'kubejs:diamond_rotor'])
+addAssemblerRecipe('kubejs:inventory_hopper_down_facing_tier_1', ['4x minecraft:iron_ingot', 'kubejs:iron_plate'])
+addAssemblerRecipe('kubejs:inventory_hopper_down_facing_tier_2', ['kubejs:inventory_hopper_down_facing_tier_1', '4x minecraft:gold_ingot', 'kubejs:gold_gear'])
+addAssemblerRecipe('kubejs:inventory_hopper_down_facing_tier_3', ['kubejs:inventory_hopper_down_facing_tier_2', '4x minecraft:diamond', 'kubejs:diamond_rotor'])
+// inventory piston
+addAssemblerRecipe('kubejs:inventory_piston_up_facing_tier_1', ['minecraft:piston', '4x minecraft:iron_ingot'])
+addAssemblerRecipe('kubejs:inventory_piston_up_facing_tier_2', ['kubejs:inventory_piston_up_facing_tier_1', '2x minecraft:gold_ingot', 'kubejs:gold_gear'])
+addAssemblerRecipe('kubejs:inventory_piston_up_facing_tier_3', ['kubejs:inventory_piston_up_facing_tier_2', '2x minecraft:diamond', 'kubejs:diamond_rotor'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_1', ['minecraft:sticky_piston', '4x minecraft:iron_ingot'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_2', ['kubejs:inventory_sticky_piston_up_facing_tier_1', '2x minecraft:gold_ingot', 'kubejs:gold_gear'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_3', ['kubejs:inventory_sticky_piston_up_facing_tier_2', '2x minecraft:diamond', 'kubejs:diamond_rotor'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_1', ['kubejs:inventory_piston_up_facing_tier_1', 'minecraft:slime_ball'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_2', ['kubejs:inventory_piston_up_facing_tier_2', 'minecraft:slime_ball'])
+addAssemblerRecipe('kubejs:inventory_sticky_piston_up_facing_tier_3', ['kubejs:inventory_piston_up_facing_tier_3', 'minecraft:slime_ball'])
 // casings
 addAssemblerRecipe('kubejs:bronze_machine_casing', ['4x kubejs:bronze_plate', 'kubejs:bronze_gear', '3x minecraft:redstone'])
 addAssemblerRecipe('kubejs:steel_machine_casing', ['4x kubejs:steel_plate', 'kubejs:steel_gear', '2x minecraft:redstone'])

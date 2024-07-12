@@ -44,15 +44,31 @@ function addGearRotorRecipe(event, material){
 }
 
 function addBaseNBT(item){
-    return Item.of(item, '{"currentInputItem": "minecraft:air", "fuel": 0, "recipeProgress": 0, currentTime: 0}')
+    return Item.of(item, '{"currentInputItem": "minecraft:air", "fuel": 0, "recipeProgress": 0, "currentTime": 0}')
 }
 
 function addBaseNBTRecipeIndexedMachine(item){
-    return Item.of(item, '{"currentRecipe": -1, "fuel": 0, "recipeProgress": 0, currentTime: 0}')
+    return Item.of(item, '{"currentRecipe": -1, "fuel": 0, "recipeProgress": 0, "currentTime": 0}')
 }
 
 function addBaseNBTQuarry(item){
-    return Item.of(item, '{"currentInputItem": "minecraft:air", "currentOutputItem": "minecraft:air", "fuel": 0, "recipeProgress": 0, currentTime: 0}')
+    return Item.of(item, '{"currentInputItem": "minecraft:air", "currentOutputItem": "minecraft:air", "fuel": 0, "recipeProgress": 0, "currentTime": 0}')
+}
+
+function rotateMatrix(matrix, times){
+    if(times == undefined) times = 1
+    for(let _ = 0; _ < times; _++){
+        let new_matrix = []
+        for(let i = 0; i < matrix[0].length; i++){
+            let new_row = ""
+            for(let j = matrix.length - 1; j > -1; j--){
+                new_row += matrix[j][i]
+            }
+            new_matrix.push(new_row)
+        }
+        matrix = new_matrix
+    }
+    return matrix
 }
 
 ServerEvents.recipes(event => {
@@ -151,7 +167,7 @@ ServerEvents.recipes(event => {
         "GCG", 
         "PAP"
     ], {
-        H: Item.of('kubejs:hammer', '{Damage:0}').strongNBT(),
+        H: Item.of('kubejs:iron_hammer', '{Damage:0}').strongNBT(),
         C: "kubejs:bronze_machine_casing",
         P: "kubejs:bronze_plate",
         G: "kubejs:brass_plate",
@@ -180,122 +196,109 @@ ServerEvents.recipes(event => {
         P: "kubejs:bronze_plate"
     })
 
-    event.shaped("kubejs:inventory_hopper_tier_1", [
-        "IPI", 
-        "I I", 
-        " I "
-    ], {
-        P: "kubejs:iron_plate",
-        I: "minecraft:iron_ingot"
-    })
-    event.shapeless("kubejs:inventory_hopper_tier_1", ["kubejs:inventory_hopper_right_facing_tier_1"])
-    event.shaped("kubejs:inventory_hopper_tier_2", [
-        "IGI", 
-        "IHI", 
-        " I "
-    ], {
-        G: "kubejs:gold_gear",
-        I: "minecraft:gold_ingot",
-        H: "#kubejs:inventory_hoppers_tier_1"
-    })
-    event.shapeless("kubejs:inventory_hopper_tier_2", ["kubejs:inventory_hopper_right_facing_tier_2"])
-    event.shaped("kubejs:inventory_hopper_tier_3", [
-        "IRI", 
-        "IHI", 
-        " I "
-    ], {
-        R: "kubejs:diamond_rotor",
-        I: "minecraft:diamond",
-        H: "#kubejs:inventory_hoppers_tier_2"
-    })
-    event.shapeless("kubejs:inventory_hopper_tier_3", ["kubejs:inventory_hopper_right_facing_tier_3"])
-    event.shaped("kubejs:inventory_hopper_left_facing_tier_1", [
-        " II", 
-        "I P", 
-        " II"
-    ], {
-        P: "kubejs:iron_plate",
-        I: "minecraft:iron_ingot"
-    })
-    event.shapeless("kubejs:inventory_hopper_left_facing_tier_1", ["kubejs:inventory_hopper_tier_1"])
-    event.shaped("kubejs:inventory_hopper_left_facing_tier_2", [
-        " II", 
-        "IHG", 
-        " II"
-    ], {
-        G: "kubejs:gold_gear",
-        I: "minecraft:gold_ingot",
-        H: "#kubejs:inventory_hoppers_tier_1"
-    })
-    event.shapeless("kubejs:inventory_hopper_left_facing_tier_2", ["kubejs:inventory_hopper_tier_2"])
-    event.shaped("kubejs:inventory_hopper_left_facing_tier_3", [
-        " II", 
-        "IHR", 
-        " II"
-    ], {
-        R: "kubejs:diamond_rotor",
-        I: "minecraft:diamond",
-        H: "#kubejs:inventory_hoppers_tier_2"
-    })
-    event.shapeless("kubejs:inventory_hopper_left_facing_tier_3", ["kubejs:inventory_hopper_tier_3"])
-    event.shaped("kubejs:inventory_upper_tier_1", [
-        " I ", 
-        "I I", 
-        "IPI"
-    ], {
-        P: "kubejs:iron_plate",
-        I: "minecraft:iron_ingot"
-    })
-    event.shapeless("kubejs:inventory_upper_tier_1", ["kubejs:inventory_hopper_left_facing_tier_1"])
-    event.shaped("kubejs:inventory_upper_tier_2", [
-        " I ", 
-        "IHI", 
-        "IGI"
-    ], {
-        G: "kubejs:gold_gear",
-        I: "minecraft:gold_ingot",
-        H: "#kubejs:inventory_hoppers_tier_1"
-    })
-    event.shapeless("kubejs:inventory_upper_tier_2", ["kubejs:inventory_hopper_left_facing_tier_2"])
-    event.shaped("kubejs:inventory_upper_tier_3", [
-        " I ", 
-        "IHI", 
-        "IRI"
-    ], {
-        R: "kubejs:diamond_rotor",
-        I: "minecraft:diamond",
-        H: "#kubejs:inventory_hoppers_tier_2"
-    })
-    event.shapeless("kubejs:inventory_upper_tier_3", ["kubejs:inventory_hopper_left_facing_tier_3"])
-    event.shaped("kubejs:inventory_hopper_right_facing_tier_1", [
-        "II ", 
-        "P I", 
-        "II "
-    ], {
-        P: "kubejs:iron_plate",
-        I: "minecraft:iron_ingot"
-    })
-    event.shapeless("kubejs:inventory_hopper_right_facing_tier_1", ["kubejs:inventory_upper_tier_1"])
-    event.shaped("kubejs:inventory_hopper_right_facing_tier_2", [
-        "II ", 
-        "GHI", 
-        "II "
-    ], {
-        G: "kubejs:gold_gear",
-        I: "minecraft:gold_ingot",
-        H: "#kubejs:inventory_hoppers_tier_1"
-    })
-    event.shapeless("kubejs:inventory_hopper_right_facing_tier_2", ["kubejs:inventory_upper_tier_2"])
-    event.shaped("kubejs:inventory_hopper_right_facing_tier_3", [
-        "II ", 
-        "RHI", 
-        "II "
-    ], {
-        R: "kubejs:diamond_rotor",
-        I: "minecraft:diamond",
-        H: "#kubejs:inventory_hoppers_tier_2"
-    })
-    event.shapeless("kubejs:inventory_hopper_right_facing_tier_3", ["kubejs:inventory_upper_tier_3"])
+    for(let i = 0; i < 4; i++){
+        let previousDirection = global.directions[i == 0 ? 3 : i - 1]
+        // inventory hoppers
+        event.shaped(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_1`, rotateMatrix([
+            " I ", 
+            "I I", 
+            "IPI"
+        ], i), {
+            P: "kubejs:iron_plate",
+            I: "minecraft:iron_ingot"
+        })
+        event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_1`])
+        event.shaped(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_2`, rotateMatrix([
+            " I ", 
+            "IHI", 
+            "IGI"
+        ], i), {
+            G: "kubejs:gold_gear",
+            I: "minecraft:gold_ingot",
+            H: "#kubejs:inventory_hoppers_tier_1"
+        })
+        event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_2`])
+        event.shaped(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_3`, rotateMatrix([
+            " I ", 
+            "IHI", 
+            "IRI"
+        ], i), {
+            R: "kubejs:diamond_rotor",
+            I: "minecraft:diamond",
+            H: "#kubejs:inventory_hoppers_tier_2"
+        })
+        event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_3`])
+
+        // inventory pistons
+        event.shaped(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, rotateMatrix([
+            " P ", 
+            "IBI", 
+            " I "
+        ], i), {
+            P: "kubejs:iron_plate",
+            I: "minecraft:iron_ingot",
+            B: "minecraft:piston"
+        })
+        event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_1`])
+        event.shaped(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix([
+            " G ", 
+            "IHI", 
+            " I "
+        ], i), {
+            G: "kubejs:gold_gear",
+            I: "minecraft:gold_ingot",
+            H: "#kubejs:inventory_pistons_tier_1"
+        })
+        event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_2`])
+        event.shaped(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix([
+            " R ", 
+            "IHI", 
+            " I "
+        ], i), {
+            R: "kubejs:diamond_rotor",
+            I: "minecraft:diamond",
+            H: "#kubejs:inventory_pistons_tier_2"
+        })
+        event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_3`])
+
+        // inventory sticky pistons
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_1`, rotateMatrix([
+            " P ", 
+            "IBI", 
+            " I "
+        ], i), {
+            P: "kubejs:iron_plate",
+            I: "minecraft:iron_ingot",
+            B: "minecraft:sticky_piston"
+        })
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_1`, rotateMatrix(["P", "S"], i), 
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, P: "minecraft:slime_ball"})
+        event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_1`])
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix([
+            " G ", 
+            "IHI", 
+            " I "
+        ], i), {
+            G: "kubejs:gold_gear",
+            I: "minecraft:gold_ingot",
+            H: "#kubejs:inventory_sticky_pistons_tier_1"
+        })
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix(["P", "S"], i), 
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, P: "minecraft:slime_ball"})
+        event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_2`])
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix([
+            " R ", 
+            "IHI", 
+            " I "
+        ], i), {
+            R: "kubejs:diamond_rotor",
+            I: "minecraft:diamond",
+            H: "#kubejs:inventory_sticky_pistons_tier_2"
+        })
+        event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix(["P", "S"], i), 
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, P: "minecraft:slime_ball"})
+        event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_3`])
+    }
 
     event.shaped("kubejs:inventory_puller_tier_1", [
         "PI ",
