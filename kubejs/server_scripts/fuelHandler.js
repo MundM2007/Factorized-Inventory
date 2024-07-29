@@ -7,6 +7,7 @@ Ingredient.all.stacks.forEach(item => {
     }
 })
 
+
 function getFuel(inventory, extractSlotIndex){
     if(!extractSlotIndex) return Item.of("minecraft:air")
     let slotItem = inventory.getItem(extractSlotIndex)

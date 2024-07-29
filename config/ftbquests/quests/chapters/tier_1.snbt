@@ -247,8 +247,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_hopper_down_facing_tier_1"
 				id: "473DBB31E21C23D3"
-				item: "kubejs:inventory_hopper_down_facing_tier_1"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_hoppers_tier_1"
+					}
+				}
+				title: "Tier 1 Inventory Hopper"
 				type: "item"
 			}]
 			x: 12.0d
@@ -500,8 +508,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_hopper_down_facing_tier_2"
 				id: "23A39F01F12E96FC"
-				item: "kubejs:inventory_hopper_down_facing_tier_2"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_hoppers_tier_2"
+					}
+				}
+				title: "Tier 2 Inventory Hopper"
 				type: "item"
 			}]
 			x: 14.0d
@@ -520,8 +536,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_hopper_down_facing_tier_3"
 				id: "72103444504AAC1B"
-				item: "kubejs:inventory_hopper_down_facing_tier_3"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_hoppers_tier_3"
+					}
+				}
+				title: "Tier 3 Inventory Hopper"
 				type: "item"
 			}]
 			x: 18.0d
@@ -800,8 +824,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_piston_up_facing_tier_1"
 				id: "4B9D8847DC47B92D"
-				item: "kubejs:inventory_piston_up_facing_tier_1"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_pistons_tier_1"
+					}
+				}
+				title: "Tier 1 Inventory Piston"
 				type: "item"
 			}]
 			x: 10.0d
@@ -811,8 +843,16 @@
 			dependencies: ["6FE1647A19B7693A"]
 			id: "00E41E9C617A27DB"
 			tasks: [{
+				icon: "kubejs:inventory_sticky_piston_up_facing_tier_1"
 				id: "7B63252EBF3D626A"
-				item: "kubejs:inventory_sticky_piston_up_facing_tier_1"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sticky_pistons_tier_1"
+					}
+				}
+				title: "Tier 1 Inventory Sticky Piston"
 				type: "item"
 			}]
 			x: 10.0d
@@ -827,8 +867,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_sticky_piston_up_facing_tier_2"
 				id: "4CDF1FC3A1B9C085"
-				item: "kubejs:inventory_sticky_piston_up_facing_tier_2"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sticky_pistons_tier_2"
+					}
+				}
+				title: "Tier 2 Inventory Sticky Piston"
 				type: "item"
 			}]
 			x: 8.0d
@@ -844,8 +892,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_piston_up_facing_tier_2"
 				id: "1632A8B4BC042BF5"
-				item: "kubejs:inventory_piston_up_facing_tier_2"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_pistons_tier_2"
+					}
+				}
+				title: "Tier 2 Inventory Piston"
 				type: "item"
 			}]
 			x: 8.0d
@@ -861,8 +917,16 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_piston_up_facing_tier_3"
 				id: "7E83FF822B1B6F3B"
-				item: "kubejs:inventory_piston_up_facing_tier_3"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_pistons_tier_3"
+					}
+				}
+				title: "Tier 3 Inventory Piston"
 				type: "item"
 			}]
 			x: 6.0d
@@ -877,12 +941,125 @@
 				type: "item"
 			}]
 			tasks: [{
+				icon: "kubejs:inventory_sticky_piston_up_facing_tier_3"
 				id: "0FB721DC9963A999"
-				item: "kubejs:inventory_sticky_piston_up_facing_tier_3"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sticky_pistons_tier_3"
+					}
+				}
+				title: "Tier 3 Inventory Sticky Piston"
 				type: "item"
 			}]
 			x: 6.0d
 			y: -6.0d
+		}
+		{
+			dependencies: ["61846178CFF984A4"]
+			id: "0D47A5078250C8F2"
+			rewards: [{
+				count: 2
+				id: "0CF64AFCB7E0C663"
+				item: "minecraft:redstone"
+				type: "item"
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "kubejs:inventory_sorter_up_facing_tier_1"
+					tag: {
+						filter: {
+							item: "minecraft:air"
+							type: "item"
+						}
+						side: "left"
+					}
+				}
+				id: "0E8C739203B30355"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sorters_tier_1"
+					}
+				}
+				title: "Tier 1 Inventory Sorter"
+				type: "item"
+			}]
+			x: 12.0d
+			y: -8.0d
+		}
+		{
+			dependencies: ["0D47A5078250C8F2"]
+			id: "2F56B2A9E0E1AFD6"
+			rewards: [{
+				count: 2
+				id: "28600A8C42AEF7EE"
+				item: "minecraft:redstone"
+				type: "item"
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "kubejs:inventory_sorter_up_facing_tier_2"
+					tag: {
+						filter: {
+							item: "minecraft:air"
+							type: "item"
+						}
+						side: "left"
+					}
+				}
+				id: "2AA328485181BD2F"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sorters_tier_2"
+					}
+				}
+				title: "Tier 2 Inventory Sorter"
+				type: "item"
+			}]
+			x: 14.0d
+			y: -8.0d
+		}
+		{
+			dependencies: ["2F56B2A9E0E1AFD6"]
+			id: "67EC21E00561327E"
+			rewards: [{
+				count: 2
+				id: "7A5A6BAED11EBA36"
+				item: "minecraft:redstone"
+				type: "item"
+			}]
+			tasks: [{
+				icon: {
+					Count: 1
+					id: "kubejs:inventory_sorter_up_facing_tier_3"
+					tag: {
+						filter: {
+							item: "minecraft:air"
+							type: "item"
+						}
+						side: "left"
+					}
+				}
+				id: "6AE1B0EFDE93AC63"
+				item: {
+					Count: 1
+					id: "itemfilters:tag"
+					tag: {
+						value: "kubejs:inventory_sorters_tier_3"
+					}
+				}
+				title: "Tier 3 Inventory Sorter"
+				type: "item"
+			}]
+			x: 16.0d
+			y: -8.0d
 		}
 	]
 	title: "Tier 1"

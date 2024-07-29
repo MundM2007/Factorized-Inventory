@@ -26,6 +26,8 @@ StartupEvents.registry('item', event => {
                 .displayName(`Tier ${i} ${Utils.toTitleCase(directions[j])} Facing Inventory Piston`).texture(`kubejs:item/pistons/inventory_piston_${directions[j]}_facing_tier_${i}`)
             registerInvItem(event, `kubejs:inventory_sticky_piston_${directions[j]}_facing_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
                 .displayName(`Tier ${i} ${Utils.toTitleCase(directions[j])} Facing Inventory Sticky Piston`).texture(`kubejs:item/pistons/inventory_sticky_piston_${directions[j]}_facing_tier_${i}`)
+            registerInvItem(event, `kubejs:inventory_sorter_${directions[j]}_facing_tier_${i}`, timeByTier[i - 1], countProcessByTier[i - 1])
+                .displayName(`Tier ${i} ${Utils.toTitleCase(directions[j])} Facing Inventory Sorter`).texture(`kubejs:item/factinventory/inventory_sorter_${directions[j]}_facing_tier_${i}`)
         }
     }
 

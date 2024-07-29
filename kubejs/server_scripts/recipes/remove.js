@@ -4,8 +4,6 @@ ServerEvents.recipes(event => {
     event.remove({type: "minecraft:smoking"})
     event.remove({type: "minecraft:campfire_cooking"})
 
-    event.remove({mod: "itemfilters"})
-
     event.remove({id: 'storagedrawers:compacting_drawers_3'})
     event.remove({id: 'storagedrawers:controller'})
     event.remove({id: 'storagedrawers:controller_slave'})

@@ -71,6 +71,26 @@ function rotateMatrix(matrix, times){
     return matrix
 }
 
+
+function addFilterToResult(grid, result, hasStoredItem, indexAll){
+    let nbt = {}
+    let item = grid.get(indexAll)
+    if(item.id.split(":")[0] == "itemfilters"){
+        nbt.filter = {type: "itemfilters", item: item.id, nbt: item.nbt}
+    }else{
+        nbt.filter = {type: "item", item: item.id}
+    }
+
+    if(hasStoredItem && grid.get(0).nbt){
+        let storedItem = grid.get(0).nbt.Item
+        if(storedItem){
+            nbt.Item = storedItem
+        }
+    }
+
+    return result.withNBT(nbt)
+}
+
 ServerEvents.recipes(event => {
     event.campfireCooking("kubejs:bronze_chunk", "kubejs:bronze_dust").cookingTime(400)
     event.shapeless("6x kubejs:bronze_nugget", "kubejs:bronze_chunk")
@@ -206,7 +226,7 @@ ServerEvents.recipes(event => {
         ], i), {
             P: "kubejs:iron_plate",
             I: "minecraft:iron_ingot"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_1`])
         event.shaped(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_2`, rotateMatrix([
             " I ", 
@@ -216,7 +236,7 @@ ServerEvents.recipes(event => {
             G: "kubejs:gold_gear",
             I: "minecraft:gold_ingot",
             H: "#kubejs:inventory_hoppers_tier_1"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_2`])
         event.shaped(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_3`, rotateMatrix([
             " I ", 
@@ -226,7 +246,7 @@ ServerEvents.recipes(event => {
             R: "kubejs:diamond_rotor",
             I: "minecraft:diamond",
             H: "#kubejs:inventory_hoppers_tier_2"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_hopper_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_hopper_${previousDirection}_facing_tier_3`])
 
         // inventory pistons
@@ -238,7 +258,7 @@ ServerEvents.recipes(event => {
             P: "kubejs:iron_plate",
             I: "minecraft:iron_ingot",
             B: "minecraft:piston"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_1`])
         event.shaped(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix([
             " G ", 
@@ -248,7 +268,7 @@ ServerEvents.recipes(event => {
             G: "kubejs:gold_gear",
             I: "minecraft:gold_ingot",
             H: "#kubejs:inventory_pistons_tier_1"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_2`])
         event.shaped(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix([
             " R ", 
@@ -258,7 +278,7 @@ ServerEvents.recipes(event => {
             R: "kubejs:diamond_rotor",
             I: "minecraft:diamond",
             H: "#kubejs:inventory_pistons_tier_2"
-        })
+        }).noMirror()
         event.shapeless(`kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_piston_${previousDirection}_facing_tier_3`])
 
         // inventory sticky pistons
@@ -270,9 +290,9 @@ ServerEvents.recipes(event => {
             P: "kubejs:iron_plate",
             I: "minecraft:iron_ingot",
             B: "minecraft:sticky_piston"
-        })
+        }).noMirror()
         event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_1`, rotateMatrix(["P", "S"], i), 
-            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, P: "minecraft:slime_ball"})
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_1`, P: "minecraft:slime_ball"}).noMirror()
         event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_1`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_1`])
         event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix([
             " G ", 
@@ -282,9 +302,9 @@ ServerEvents.recipes(event => {
             G: "kubejs:gold_gear",
             I: "minecraft:gold_ingot",
             H: "#kubejs:inventory_sticky_pistons_tier_1"
-        })
+        }).noMirror()
         event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, rotateMatrix(["P", "S"], i), 
-            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, P: "minecraft:slime_ball"})
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_2`, P: "minecraft:slime_ball"}).noMirror()
         event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_2`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_2`])
         event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix([
             " R ", 
@@ -294,12 +314,126 @@ ServerEvents.recipes(event => {
             R: "kubejs:diamond_rotor",
             I: "minecraft:diamond",
             H: "#kubejs:inventory_sticky_pistons_tier_2"
-        })
+        }).noMirror()
         event.shaped(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, rotateMatrix(["P", "S"], i), 
-            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, P: "minecraft:slime_ball"})
+            {S: `kubejs:inventory_piston_${global.directions[i]}_facing_tier_3`, P: "minecraft:slime_ball"}).noMirror()
         event.shapeless(`kubejs:inventory_sticky_piston_${global.directions[i]}_facing_tier_3`, [`kubejs:inventory_sticky_piston_${previousDirection}_facing_tier_3`])
+
+        // inventory sorters
+        event.shaped(Item.of(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`, '{"filter": {"type": "item", "item": "minecraft:air"}, "side": "left"}'), rotateMatrix([
+            "SHS",
+            "RCR",
+            "STS"
+        ], i), {
+            C: "minecraft:comparator",
+            R: "minecraft:redstone",
+            S: "minecraft:cobblestone",
+            H: "#kubejs:inventory_hoppers_tier_1",
+            T: "minecraft:redstone_torch"
+        }).noMirror()
+        event.shaped(Item.of(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`, '{"filter": {"type": "item", "item": "minecraft:air"}, "side": "left"}'), rotateMatrix([
+            "SHS",
+            "RCR",
+            "STS"
+        ], i), {
+            C: "minecraft:comparator",
+            R: "minecraft:redstone",
+            S: "minecraft:cobblestone",
+            H: "#kubejs:inventory_hoppers_tier_2",
+            T: "minecraft:redstone_torch"
+        }).noMirror()
+        event.shaped(Item.of(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`, '{"filter": {"type": "item", "item": "minecraft:air"}, "side": "left"}'), rotateMatrix([
+            "SHS",
+            "RCR",
+            "STS"
+        ], i), {
+            C: "minecraft:comparator",
+            R: "minecraft:redstone",
+            S: "minecraft:cobblestone",
+            H: "#kubejs:inventory_hoppers_tier_3",
+            T: "minecraft:redstone_torch"
+        }).noMirror()
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`, rotateMatrix([
+            "IGI",
+            "ISI",
+            " I "
+        ], i), {
+            S: "#kubejs:inventory_sorters_tier_1",
+            I: "minecraft:gold_ingot",
+            G: "kubejs:gold_gear"
+        }).noMirror().modifyResult((grid, result) => result.withNBT(grid.find(Ingredient.of("#kubejs:inventory_sorters_tier_1")).nbt))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`, rotateMatrix([
+            "IRI",
+            "ISI",
+            " I "
+        ], i), {
+            S: "#kubejs:inventory_sorters_tier_2",
+            I: "minecraft:diamond",
+            R: "kubejs:diamond_rotor"
+        }).noMirror().modifyResult((grid, result) => result.withNBT(grid.find(Ingredient.of("#kubejs:inventory_sorters_tier_2")).nbt))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`, ["   ", " S ", "   "], {S: `kubejs:inventory_sorter_${previousDirection}_facing_tier_1`})
+            .noShrink().modifyResult((grid, result) => result.withNBT(grid.find(`kubejs:inventory_sorter_${previousDirection}_facing_tier_1`).nbt))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`, ["   ", " S ", "   "], {S: `kubejs:inventory_sorter_${previousDirection}_facing_tier_2`})
+            .noShrink().modifyResult((grid, result) => result.withNBT(grid.find(`kubejs:inventory_sorter_${previousDirection}_facing_tier_2`).nbt))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`, ["   ", " S ", "   "], {S: `kubejs:inventory_sorter_${previousDirection}_facing_tier_3`})
+            .noShrink().modifyResult((grid, result) => result.withNBT(grid.find(`kubejs:inventory_sorter_${previousDirection}_facing_tier_3`).nbt))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`, [
+            "IP ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(0)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 0).withNBT('{"side": "left"}'))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`, [
+            "IP ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(0)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 0).withNBT('{"side": "left"}'))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`, [
+            "IP ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(0)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 0).withNBT('{"side": "left"}'))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`, [
+            "PI ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_1`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(1)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1).withNBT('{"side": "right"}'))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`, [
+            "PI ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_2`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(1)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1).withNBT('{"side": "right"}'))
+        event.shaped(`kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`, [
+            "PI ",
+            "   ",
+            "   "
+        ], {
+            P: `kubejs:inventory_sorter_${global.directions[i]}_facing_tier_3`,
+            I: Ingredient.all
+        }).noShrink().noMirror().keepIngredient(1)
+        .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1).withNBT('{"side": "right"}'))
     }
 
+    // inventory pullers
     event.shaped("kubejs:inventory_puller_tier_1", [
         "PI ",
         "   ",
@@ -307,17 +441,8 @@ ServerEvents.recipes(event => {
     ], {
         P: "kubejs:inventory_puller_tier_1",
         I: Ingredient.all
-    })
-    .noShrink()
-    .noMirror()
-    .keepIngredient(1)
-    .modifyResult((grid, result) => {
-        let storedItem = grid.get(0).nbt.Item
-        if(storedItem){
-            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
-        }
-        return result.withNBT({filter: grid.get(1).id})
-    })
+    }).noShrink().noMirror().keepIngredient(1)
+    .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1))
     event.shaped("kubejs:inventory_puller_tier_2", [
         "PI ",
         "   ",
@@ -325,17 +450,8 @@ ServerEvents.recipes(event => {
     ], {
         P: "kubejs:inventory_puller_tier_2",
         I: Ingredient.all
-    })
-    .noShrink()
-    .noMirror()
-    .keepIngredient(1)
-    .modifyResult((grid, result) => {
-        let storedItem = grid.get(0).nbt.Item
-        if(storedItem){
-            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
-        }
-        return result.withNBT({filter: grid.get(1).id})
-    })
+    }).noShrink().noMirror().keepIngredient(1)
+    .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1))
     event.shaped("kubejs:inventory_puller_tier_3", [
         "PI ",
         "   ",
@@ -343,24 +459,67 @@ ServerEvents.recipes(event => {
     ], {
         P: "kubejs:inventory_puller_tier_3",
         I: Ingredient.all
+    }).noShrink().noMirror().keepIngredient(1)
+    .modifyResult((grid, result) => addFilterToResult(grid, result, true, 1))
+    event.shaped(Item.of("kubejs:inventory_puller_tier_1", '{"filter": {"type": "item", "item": "minecraft:air"}}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_down_facing_tier_1",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
     })
-    .noShrink()
-    .noMirror()
-    .keepIngredient(1)
-    .modifyResult((grid, result) => {
-        let storedItem = grid.get(0).nbt.Item
-        if(storedItem){
-            return result.withNBT({filter: grid.get(1).id, Item: storedItem})
-        }
-        return result.withNBT({filter: grid.get(1).id})
+    event.shaped(Item.of("kubejs:inventory_puller_tier_2", '{"filter": {"type": "item", "item": "minecraft:air"}}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_down_facing_tier_2",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("kubejs:inventory_puller_tier_2", [
+        "IGI", 
+        "IPI", 
+        " I "
+    ], {
+        G: "kubejs:gold_gear",
+        I: "minecraft:gold_ingot",
+        P: "kubejs:inventory_puller_tier_1"
+    }).modifyResult((grid, result) => {
+        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
+        return result.withNBT(item.nbt)
+    })
+    event.shaped(Item.of("kubejs:inventory_puller_tier_3", '{"filter": {"type": "item", "item": "minecraft:air"}}'), [
+        "CHC", 
+        "CRC", 
+        "CCC"
+    ], {
+        H: "kubejs:inventory_hopper_down_facing_tier_3",
+        C: "minecraft:cobblestone",
+        R: "minecraft:redstone_block"
+    })
+    event.shaped("kubejs:inventory_puller_tier_3", [
+        "IRI", 
+        "IPI", 
+        " I "
+    ], {
+        R: "kubejs:diamond_rotor",
+        I: "minecraft:diamond",
+        P: "kubejs:inventory_puller_tier_2"
+    }).modifyResult((grid, result) => {
+        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
+        return result.withNBT(item.nbt)
     })
 
+    // inventory pushers
     event.shaped("kubejs:inventory_pusher_tier_1", [
         "CCC", 
         "CGC", 
         "CHC"
     ], {
-        H: "kubejs:inventory_hopper_tier_1",
+        H: "kubejs:inventory_hopper_down_facing_tier_1",
         C: "minecraft:cobblestone",
         G: "kubejs:iron_gear"
     })
@@ -369,7 +528,7 @@ ServerEvents.recipes(event => {
         "CGC", 
         "CHC"
     ], {
-        H: "kubejs:inventory_hopper_tier_2",
+        H: "kubejs:inventory_hopper_down_facing_tier_2",
         C: "minecraft:cobblestone",
         G: "kubejs:iron_gear"
     })
@@ -387,7 +546,7 @@ ServerEvents.recipes(event => {
         "CGC", 
         "CHC"
     ], {
-        H: "kubejs:inventory_hopper_tier_3",
+        H: "kubejs:inventory_hopper_down_facing_tier_3",
         C: "minecraft:cobblestone",
         G: "kubejs:iron_gear"
     })
@@ -399,58 +558,6 @@ ServerEvents.recipes(event => {
         R: "kubejs:diamond_rotor",
         I: "minecraft:diamond",
         P: "kubejs:inventory_pusher_tier_2"
-    })
-
-    event.shaped(Item.of("kubejs:inventory_puller_tier_1", '{"filter": "minecraft:air"}'), [
-        "CHC", 
-        "CRC", 
-        "CCC"
-    ], {
-        H: "kubejs:inventory_hopper_tier_1",
-        C: "minecraft:cobblestone",
-        R: "minecraft:redstone_block"
-    })
-    event.shaped(Item.of("kubejs:inventory_puller_tier_2", '{"filter": "minecraft:air"}'), [
-        "CHC", 
-        "CRC", 
-        "CCC"
-    ], {
-        H: "kubejs:inventory_hopper_tier_2",
-        C: "minecraft:cobblestone",
-        R: "minecraft:redstone_block"
-    })
-    event.shaped("kubejs:inventory_puller_tier_2", [
-        "IGI", 
-        "IPI", 
-        " I "
-    ], {
-        G: "kubejs:gold_gear",
-        I: "minecraft:gold_ingot",
-        P: "kubejs:inventory_puller_tier_1"
-    }).modifyResult((grid, result) => {
-        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
-        return result.withNBT(item.nbt)
-    })
-    event.shaped(Item.of("kubejs:inventory_puller_tier_3", '{"filter": "minecraft:air"}'), [
-        "CHC", 
-        "CRC", 
-        "CCC"
-    ], {
-        H: "kubejs:inventory_hopper_tier_3",
-        C: "minecraft:cobblestone",
-        R: "minecraft:redstone_block"
-    })
-    event.shaped("kubejs:inventory_puller_tier_3", [
-        "IRI", 
-        "IPI", 
-        " I "
-    ], {
-        R: "kubejs:diamond_rotor",
-        I: "minecraft:diamond",
-        P: "kubejs:inventory_puller_tier_2"
-    }).modifyResult((grid, result) => {
-        let item = grid.find(Item.of("kubejs:inventory_puller_tier_2"))
-        return result.withNBT(item.nbt)
     })
 
     event.shaped("kubejs:inventory_simulator_tier_1", [

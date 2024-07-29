@@ -14,7 +14,7 @@ addAssemblerRecipe("kubejs:capacitor", ["2x kubejs:gold_plate", "2x kubejs:coppe
 addAssemblerRecipe("kubejs:resistor", ["minecraft:brick", "6x kubejs:copper_wire"])
 addAssemblerRecipe("kubejs:inductor", ["kubejs:steel_rod", "8x kubejs:copper_wire"])
 addAssemblerRecipe("kubejs:analog_circuit", ["kubejs:lapis_lazuli_plate", "2x kubejs:copper_wire", "2x kubejs:capacitor", "2x kubejs:resistor", "kubejs:inductor"])
-addAssemblerRecipe("kubejs:motor", ["4x kubejs:copper_wire", "2x kubejs:steel_curved_plate", "kubejs:steel_gear", "kubejs:steel_rod"])
+addAssemblerRecipe("kubejs:motor", ["4x kubejs:copper_wire", "2x kubejs:steel_curved_plate", "kubejs:steel_gear"])
 
 // gears
 addAssemblerRecipe("kubejs:brass_gear", ["4x kubejs:brass_plate", "kubejs:brass_ring"])
@@ -94,7 +94,7 @@ addAssemblerRecipe("storagedrawers:void_upgrade", ["storagedrawers:upgrade_templ
 addAssemblerRecipe("storagedrawers:redstone_upgrade", ["storagedrawers:upgrade_template", "3x minecraft:redstone", "2x minecraft:stick"], 100, 1)
 addAssemblerRecipe("storagedrawers:min_redstone_upgrade", ["storagedrawers:redstone_upgrade", "2x minecraft:stick"], 100, 1)
 addAssemblerRecipe("storagedrawers:max_redstone_upgrade", ["storagedrawers:min_redstone_upgrade"], 100, 1)
-addAssemblerRecipe("storagedrawers:illumination_upgrade", ["storagedrawers:upgrade_template", "3x minecraft:glowstone", "2x minecraft:stick"], 100, 1)
+addAssemblerRecipe("8x storagedrawers:illumination_upgrade", ["storagedrawers:upgrade_template", "3x minecraft:glowstone_dust", "2x minecraft:stick"], 100, 1)
 addAssemblerRecipe("storagedrawers:fill_level_upgrade", ["storagedrawers:upgrade_template", "minecraft:repeater"], 100, 1)
 
 // pipez

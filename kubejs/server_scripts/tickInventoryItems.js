@@ -13,6 +13,8 @@ global.tickInventoryItem = function(block, inventory, data, type){
         tickPiston(inventory, data.slotIndex, data.countProcess, getDirectionFromItemName(item), type)
     }else if(/kubejs:inventory_sticky_piston_.*_facing_tier_.$/.test(item)){
         tickStickyPiston(inventory, data.slotIndex, data.countProcess, getDirectionFromItemName(item), type)
+    }else if(/kubejs:inventory_sorter_.*_facing_tier_.$/.test(item)){
+        tickSorter(inventory, data.slotIndex, data.countProcess, getDirectionFromItemName(item), type)
     }else if(/kubejs:inventory_furnace_tier_.$/.test(item)){
         tickSimpleMachine(inventory, "furnace", data, type, parseInt(item.charAt(item.length - 1)))
     }else if(/kubejs:inventory_macerator_tier_.$/.test(item)){
@@ -54,6 +56,14 @@ function getOppositeDirection(direction){
     if(direction == "down") return "up"
     if(direction == "left") return "right"
     if(direction == "right") return "left"
+}
+
+
+function getDirectionOutputSorter(direction, side){
+    if(direction == "up") return side
+    if(direction == "down") return getOppositeDirection(side)
+    if(direction == "left") return side == "left" ? "down" : "up"
+    if(direction == "right") return side == "left" ? "up" : "down"
 }
 
 

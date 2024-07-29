@@ -10,6 +10,7 @@ function convertToJson(itemStack, slotIndex){
 
 
 function canInsert(inventory, slotIndex, item){
+    if(slotIndex == null || slotIndex == undefined) return false
     if(inventory.getContainerSize() < slotIndex) return false
     let slotItem = inventory.getItem(slotIndex)
     if(slotItem.isEmpty()) return true
@@ -44,6 +45,7 @@ function canInsert(inventory, slotIndex, item){
 
 
 function canInsertAnyItem(inventory, slotIndex){
+    if(slotIndex == null || slotIndex == undefined) return false
     if(inventory.getContainerSize() < slotIndex) return false
     let slotItem = inventory.getItem(slotIndex)
     if(slotItem.isEmpty()) return true
@@ -76,7 +78,7 @@ function getAmountCanInsert(inventory, slotIndex, item){
             let shulkerItem = $ItemStack.of(slotItem.nbt.BlockEntityTag.Items[i])
             if($ItemStack.isSameItemSameTags(shulkerItem, item)){
                 canInsert += shulkerItem.getMaxStackSize() - shulkerItem.count
-                if(canInsert > item.count) return item.count
+                if(canInsert >= item.count) return item.count
             }
         }
         return canInsert
@@ -87,11 +89,10 @@ function getAmountCanInsert(inventory, slotIndex, item){
         if(pusherItem.isEmpty()) return item.count
         if($ItemStack.isSameItemSameTags(pusherItem, item)){
             let AmountCanInsert = pusherItem.getMaxStackSize() - pusherItem.count
-            if(AmountCanInsert > item.count) return item.count
+            if(AmountCanInsert >= item.count) return item.count
             return AmountCanInsert
         }
-    }
-    if($ItemStack.isSameItemSameTags(slotItem, item)){
+    }else if($ItemStack.isSameItemSameTags(slotItem, item)){
         if(slotItem.getMaxStackSize() - slotItem.count > item.count) return item.count
         return slotItem.getMaxStackSize() - slotItem.count
     }
@@ -99,18 +100,19 @@ function getAmountCanInsert(inventory, slotIndex, item){
 }
 
 
-function getAmountCanInsertFromArray(items, containerSize, item){
-    if(items.length < containerSize) return item.count
+function getAmountCanInsertFromInvWrapper(inventory, item, insertBlock){
     let canInsert = 0
-    for(let i = 0; i < items.length; i++){
-        let slotItem = items[i]
+    for(let i = insertBlock.includes("drawers") ? 1 : 0 ; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
+        if(slotItem.isEmpty()) return item.count
         if($ItemStack.isSameItemSameTags(slotItem, item)){
-            canInsert += slotItem.getMaxStackSize() - slotItem.count
+            canInsert += inventory.getSlotLimit(i) - slotItem.count
             if(canInsert >= item.count) return item.count
         }
     }
     return canInsert
 }
+
     
 function insertItem(inventory, slotIndex, item){
     let slotItem = inventory.getItem(slotIndex)
@@ -160,37 +162,28 @@ function insertItem(inventory, slotIndex, item){
 }
 
 
-function insertItemInArray(items, containerSize, item){
+function insertItemInInvWrapper(inventory, item, insertBlock){
     let leftToInsert = item.count
-    let lastSlot = -1
-    for(let i = 0; i < containerSize; i++){
-        let slotItemJson = items[i]
-        if(!slotItemJson){
-            items.addTag(i, convertToJson(item.copyWithCount(leftToInsert), i))
-            return items
+    for(let i = insertBlock.includes("drawers") ? 1 : 0 ; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
+        if(slotItem.isEmpty()){
+            inventory.insertItem(i, item.copyWithCount(leftToInsert), false)
+            return
         }
-        if(++lastSlot != slotItemJson.Slot) {
-            items.addTag(i, convertToJson(item.copyWithCount(leftToInsert), i))
-            return items
-        }
-        let slotItem = $ItemStack.of(slotItemJson)
-        if(slotItem.count == slotItem.getMaxStackSize()) continue
         if($ItemStack.isSameItemSameTags(slotItem, item)){
-            let countCanInsert = slotItem.getMaxStackSize() - slotItem.count
-            if(countCanInsert < leftToInsert) {
-                slotItemJson.Count = slotItem.getMaxStackSize()
-                leftToInsert -= countCanInsert
-            }else{
-                slotItemJson.Count = leftToInsert + slotItem.count
-                return items
-            }
+            let countCanInsert = inventory.getSlotLimit(i) - slotItem.count
+            inventory.insertItem(i, item.copyWithCount(leftToInsert), false)
+            leftToInsert -= countCanInsert
+            if(leftToInsert <= 0) return
         }
     }
 }
 
+
 function canExtract(inventory, slotIndex, item){
     if(!item) return true
     if(item.isEmpty()) return true
+    if(slotIndex == null || slotIndex == undefined) return false
     if(inventory.getContainerSize() < slotIndex) return false
     let slotItem = inventory.getItem(slotIndex)
     if(slotItem.isEmpty()) return false
@@ -224,13 +217,34 @@ function canExtract(inventory, slotIndex, item){
 }
 
 
-function getAmountCanExtractFromArray(items, item){
+function getFirstFilterMatchFromInvWrapper(inventory, filter, maxCount, extractBlock){
+    let foundItem
+    for(let i = extractBlock.includes("drawers") ? 1 : 0; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
+        if(slotItem.id == "minecraft:air") continue
+        if(foundItem){
+            if($ItemStack.isSameItemSameTags(slotItem, foundItem)){
+                let newCount = foundItem.count + slotItem.count
+                if(newCount >= maxCount) return foundItem.copyWithCount(maxCount)
+                foundItem = foundItem.copyWithCount(newCount)
+            }
+        }else if($ItemFiltersAPI.filter(filter, slotItem)){
+            if(slotItem.count >= maxCount) return slotItem.copyWithCount(maxCount)
+            foundItem = slotItem
+        }
+    }
+    if(foundItem) return foundItem
+    return Item.of("minecraft:air")
+}
+
+
+function getAmountCanExtractFromInvWrapper(inventory, item, extractBlock){
     let canExtract = 0
-    for(let i = 0; i < items.length; i++){
-        let slotItem = $ItemStack.of(items[i])
+    for(let i = extractBlock.includes("drawers") ? 1 : 0; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
         if($ItemStack.isSameItemSameTags(slotItem, item)){
             canExtract += slotItem.count
-            if(canExtract  >= item.count) return item.count
+            if(canExtract >= item.count) return item.count
         }
     }
     return canExtract
@@ -270,28 +284,19 @@ function extractItem(inventory, slotIndex, item){
 }
 
 
-function extractItemInArray(items, item){
+function extractItemInInvWrapper(inventory, item, extractBlock){
     let leftToExtract = item.count
-    let toSplice = []
-    for(let i = 0; i < items.length; i++){
-        let slotItem = $ItemStack.of(items[i])
-        if(!slotItem.is(item.id)) continue
-        if(slotItem.count > leftToExtract){
-            items[i].Count = slotItem.count - leftToExtract
-            break
-        }else if(slotItem.count == leftToExtract){
-            toSplice.push(i)
-            break
-        }else{
+    for(let i = extractBlock.includes("drawers") ? 1 : 0 ; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
+        if(slotItem.id != item.id) continue
+        if(slotItem.count >= leftToExtract){
+            inventory.extractItem(i, leftToExtract, false)
             leftToExtract -= slotItem.count
-            toSplice.push(i)
+            if(leftToExtract <= 0) return
         }
     }
-    for(let i = toSplice.length - 1; i >= 0; i--){
-        items.remove(toSplice[i])
-    }
-    return items
 }
+
 
 function getExtractItem(inventory, slotIndex){
     if(slotIndex == null || slotIndex == undefined) return Item.of("minecraft:air")
@@ -314,7 +319,11 @@ function getExtractItem(inventory, slotIndex){
 }
 
 
-function getExtractItemFromArray(items){
-    if(items.length == 0) return Item.of("minecraft:air")
-    return $ItemStack.of(items[0])
+function getExtractItemFromInvWrapper(inventory, extractBlock){
+    for(let i = extractBlock.includes("drawers") ? 1 : 0 ; i < inventory.getSlots(); i++){
+        let slotItem = inventory.getStackInSlot(i)
+        if(slotItem.id == "minecraft:air") continue
+        return slotItem
+    }
+    return Item.of("minecraft:air")
 }

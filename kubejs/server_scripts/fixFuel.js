@@ -1,3 +1,3 @@
 ServerEvents.loaded(event => {
-    event.server.runCommand('reload')
+    event.server.runCommand('kubejs reload server_scripts')
 })

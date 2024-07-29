@@ -1,6 +1,11 @@
 StartupEvents.registry('block', event => {
     event.create('kubejs:inventory_simulator_tier_1')
+    .mapColor("stone")
     .soundType('metal')
+    .tagBlock('minecraft:needs_stone_tool')
+    .hardness(5)
+    .resistance(6)
+    .tagBlock("mineable/pickaxe")
     .displayName('Tier 1 Inventory Simulator')
     .blockEntity(entityInfo => {
         entityInfo.inventory(9, 3)
@@ -34,7 +39,12 @@ StartupEvents.registry('block', event => {
 
 StartupEvents.registry('block', event => {
     event.create('kubejs:inventory_simulator_tier_2')
+    .mapColor("stone")
     .soundType('metal')
+    .tagBlock('minecraft:needs_stone_tool')
+    .hardness(5)
+    .resistance(6)
+    .tagBlock("mineable/pickaxe")
     .displayName('Tier 2 Inventory Simulator')
     .blockEntity(entityInfo => {
         entityInfo.inventory(9, 6)

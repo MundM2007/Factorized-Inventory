@@ -41,8 +41,6 @@ JEIEvents.hideItems(event => {
     event.hide("kubejs:tin_crushed_ore")
     event.hide("kubejs:zinc_crushed_ore")
 
-    event.hide(/itemfilters:.*/)
-
     event.hide("pipez:energy_pipe")
     event.hide("pipez:gas_pipe")
     event.hide("pipez:universal_pipe")

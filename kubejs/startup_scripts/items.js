@@ -65,7 +65,7 @@ StartupEvents.registry("item", event => {
     event.create("cobalt_wire").texture("kubejs:item/materials/cobalt/cobalt_wire")
     */
 
-    event.create("coal_dust").texture("kubejs:item/materials/coal/coal_dust")
+    event.create("coal_dust").texture("kubejs:item/materials/coal/coal_dust").burnTime(1600)
 
     /*
     event.create("constantan_bolt").texture("kubejs:item/materials/constantan/constantan_bolt")
@@ -326,7 +326,6 @@ StartupEvents.registry("item", event => {
     event.create("wall_template").texture("kubejs:item/itemfilters/wall_template")
     event.create("waxing_template").texture("kubejs:item/itemfilters/waxing_template")
 
-
     //tier 1
     event.create("iron_hammer").texture("kubejs:item/ee/iron_hammer").maxDamage(256)
 
@@ -334,7 +333,7 @@ StartupEvents.registry("item", event => {
     event.create("steel_hammer").texture("kubejs:item/ee/steel_hammer").maxDamage(768)
     
     event.create("coal_coke").texture("kubejs:item/materials/coal_coke/coal_coke").burnTime(3200)
-    event.create("coal_coke_dust").texture("kubejs:item/materials/coal_coke/coal_coke_dust")
+    event.create("coal_coke_dust").texture("kubejs:item/materials/coal_coke/coal_coke_dust").burnTime(3200)
 
     //event.create("aluminum_drill_head").texture("kubejs:item/mi/drill/aluminum_drill_head")
     //event.create("aluminum_drill").texture("kubejs:item/mi/drill/aluminum_drill")

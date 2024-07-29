@@ -253,14 +253,50 @@ function addPullerTooltip(event, machineItem, data){
                 let count = ""
                 if(item.nbt.Item.Count > 1) count = item.nbt.Item.Count.toFixed(0) + "x "
                 text.add(1, Text.green('Currently Holding: ' + count).append(Text.green(Component.translatable(Item.of(item.nbt.Item.id).item.getDescriptionId()))))
-                if(item.nbt.filter && item.nbt.filter != "minecraft:air"){
-                    text.add(2, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter).item.getDescriptionId()))))
+                if(item.nbt.filter && item.nbt.filter.item != "minecraft:air"){
+                    if(item.nbt.filter.type == "item"){
+                        text.add(2, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter.item).item.getDescriptionId()))))
+                    }else if(item.nbt.filter.type == "itemfilters"){
+                        let filterItem = Item.of(item.nbt.filter.item, item.nbt.filter.nbt)
+                        if(filterItem.nbt){
+                            if(filterItem.nbt.display && filterItem.nbt.display.Name && JSON.parse(filterItem.nbt.display.Name).text){
+                                text.add(2, Text.green('Currently Filtering: ').append(Text.green(JSON.parse(filterItem.nbt.display.Name).text)))
+                            }else{
+                                if(filterItem.id == "itemfilters:or" || filterItem.id == "itemfilters:and"){
+                                    text.add(2, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId())))
+                                        .append(Text.green(' with ' + filterItem.nbt.items.length + ' items')))
+                                }else{
+                                    text.add(2, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                                }
+                            }
+                        }else{
+                            text.add(2, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                        }
+                    }
                     text.add(3, [Text.gray('Hold [Shift] for more info.')])
                 }else{
                     text.add(2, [Text.gray('Hold [Shift] for more info.')])
                 }
-            }else if(item.nbt && item.nbt.filter && item.nbt.filter != "minecraft:air"){
-                text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter).item.getDescriptionId()))))
+            }else if(item.nbt && item.nbt.filter && item.nbt.filter.item != "minecraft:air"){
+                if(item.nbt.filter.type == "item"){
+                    text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter.item).item.getDescriptionId()))))
+                }else if(item.nbt.filter.type == "itemfilters"){
+                    let filterItem = Item.of(item.nbt.filter.item, item.nbt.filter.nbt)
+                    if(filterItem.nbt){
+                        if(filterItem.nbt.display && filterItem.nbt.display.Name && JSON.parse(filterItem.nbt.display.Name).text){
+                            text.add(1, Text.green('Currently Filtering: ').append(Text.green(JSON.parse(filterItem.nbt.display.Name).text)))
+                        }else{
+                            if(filterItem.id == "itemfilters:or" || filterItem.id == "itemfilters:and"){
+                                text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId())))
+                                    .append(Text.green(' with ' + filterItem.nbt.items.length + ' items')))
+                            }else{
+                                text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                            }
+                        }
+                    }else{
+                        text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                    }
+                }
                 text.add(2, [Text.gray('Hold [Shift] for more info.')])
             }else{
                 text.add(1, [Text.gray('Hold [Shift] for more info.')])
@@ -269,20 +305,76 @@ function addPullerTooltip(event, machineItem, data){
             text.add(1, Text.red('Only works in the Inventory Simulator'))
             text.add(2, Text.gray('Pulls items from the block above the Inventory Simulator'))
             text.add(3, Text.gray('into itself to be extracted from'))
+            text.add(4, Text.gray('you can set a filter by crafting it with any item'))
+            text.add(5, Text.gray('Filters from the itemfilters mod will also work'))
+            text.add(6, Text.gray('Changing the name of the filter will also change the displayed name after combining'))
             if(data.speed > 1){
                 if(data.countProcess > 1){
-                    text.add(4, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
-                    text.add(5, Text.green(`It can process up to ${data.countProcess} items at once`))
+                    text.add(7, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
+                    text.add(8, Text.green(`It can process up to ${data.countProcess} items at once`))
                 }else{
-                    text.add(4, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
+                    text.add(7, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
                 }
             }else if(data.countProcess > 1){
-                text.add(4, Text.green(`It can process up to ${data.countProcess} items at once`))
+                text.add(7, Text.green(`It can process up to ${data.countProcess} items at once`))
             }
         }
     })
 }
 
+
+function addSorterTooltip(event, machineItem, data){
+    event.addAdvanced(machineItem, (item, advanced, text) => {
+        if (!event.shift) {
+            if(item.nbt && item.nbt.filter && item.nbt.filter.item != "minecraft:air"){
+                if(item.nbt.filter.type == "item"){
+                    text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(Item.of(item.nbt.filter.item).item.getDescriptionId()))))
+                }else if(item.nbt.filter.type == "itemfilters"){
+                    let filterItem = Item.of(item.nbt.filter.item, item.nbt.filter.nbt)
+                    if(filterItem.nbt){
+                        if(filterItem.nbt.display && filterItem.nbt.display.Name && JSON.parse(filterItem.nbt.display.Name).text){
+                            text.add(1, Text.green('Currently Filtering: ').append(Text.green(JSON.parse(filterItem.nbt.display.Name).text)))
+                        }else{
+                            if(filterItem.id == "itemfilters:or" || filterItem.id == "itemfilters:and"){
+                                text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId())))
+                                    .append(Text.green(' with ' + filterItem.nbt.items.length + ' items')))
+                            }else{
+                                text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                            }
+                        }
+                    }else{
+                        text.add(1, Text.green('Currently Filtering: ').append(Text.green(Component.translatable(filterItem.item.getDescriptionId()))))
+                    }
+                }
+                if(item.nbt.side){
+                    text.add(2, Text.green(`Items that match the filter go to the ${item.nbt.side} from the sorter facing direction`))
+                    text.add(3, [Text.gray('Hold [Shift] for more info.')])
+                }else{
+                    text.add(2, [Text.gray('Hold [Shift] for more info.')])
+                }
+            }else{
+                text.add(1, [Text.gray('Hold [Shift] for more info.')])
+            }
+        } else {
+            text.add(1, Text.gray('Pulls items from the slot above'))
+            text.add(2, Text.gray('and puts them either left or right depending on the filter and the facing direction'))
+            text.add(3, Text.gray('you can set a filter by crafting it with any item'))
+            text.add(4, Text.gray('Filters from the itemfilters mod will also work'))
+            text.add(5, Text.gray('Changing the name of the filter will also change the displayed name after combining'))
+            text.add(6, Text.gray('the direction where Items that match the filter go, can be choosen by crafting the filter left or right'))
+            if(data.speed > 1){
+                if(data.countProcess > 1){
+                    text.add(7, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
+                    text.add(7, Text.green(`It can process up to ${data.countProcess} items at once`))
+                }else{
+                    text.add(7, Text.green(`It has a speed boost of ${data.speed}x compared to the tier 1 Inventory Pusher`))
+                }
+            }else if(data.countProcess > 1){
+                text.add(7, Text.green(`It can process up to ${data.countProcess} items at once`))
+            }
+        }
+    })
+}
 
 function addInventorySimulatorTooltip(event, machineItem, countRows){
     event.addAdvanced(machineItem, (item, advanced, text) => {
@@ -293,10 +385,6 @@ function addInventorySimulatorTooltip(event, machineItem, countRows){
             text.add(2, Text.gray(`Inventory Size: 9x${countRows}`))
         }
     })
-}
-
-
-function addPackerTooltip(event, machineItem, data){
 }
 
 
@@ -345,6 +433,10 @@ ItemEvents.tooltip(event => {
         addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_1`, {speed: 1, countProcess: 1})
         addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_2`, {speed: 1.33, countProcess: 3})
         addStickyPistonTooltip(event, `kubejs:inventory_sticky_piston_${direction}_facing_tier_3`, {speed: 2, countProcess: 10})
+
+        addSorterTooltip(event, `kubejs:inventory_sorter_${direction}_facing_tier_1`, {speed: 1, countProcess: 1})
+        addSorterTooltip(event, `kubejs:inventory_sorter_${direction}_facing_tier_2`, {speed: 1.33, countProcess: 3})
+        addSorterTooltip(event, `kubejs:inventory_sorter_${direction}_facing_tier_3`, {speed: 2, countProcess: 10})
     })
 
     addPusherTooltip(event, 'kubejs:inventory_pusher_tier_1', {speed: 1, countProcess: 1})
